@@ -66,9 +66,13 @@ module.exports = class extends Generator {
       this.templatePath('_index.php'),
       this.destinationPath('index.php'),
     );
+    this.fs.copy(
+      this.templatePath('img'),
+      this.destinationPath('img'),
+    );
     this.fs.copyTpl(
-      this.templatePath('**/*'),
-      this.destinationRoot(this.answers.appname),
+      this.templatePath('#dev/**/*'),
+      this.destinationRoot('#dev'),
       {
         project: this.answers.appname,
         rtl: this.answers.rtl,
