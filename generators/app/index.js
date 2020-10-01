@@ -67,7 +67,7 @@ module.exports = class extends Generator {
       this.destinationPath('index.php'),
     );
     this.fs.copyTpl(
-      this.templatePath('#dev/**/*'),
+      this.templatePath('**/*'),
       this.destinationRoot(this.answers.appname),
       {
         project: this.answers.appname,
