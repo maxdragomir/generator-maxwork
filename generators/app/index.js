@@ -46,24 +46,24 @@ module.exports = class extends Generator {
 
     if(this.answers.raffle) {
       this.fs.copy(
-        this.templatePath('_raffle.php'),
+        this.templatePath('raffle.php'),
         this.destinationPath('raffle.php'),
       );
     }
     if(this.answers.account) {
       this.fs.copy(
-        this.templatePath('_account.php'),
+        this.templatePath('account.php'),
         this.destinationPath('account.php'),
       );
     }
     if(this.answers.rtl) {
       this.fs.copy(
-        this.templatePath('_rtl.php'),
+        this.templatePath('rtl.php'),
         this.destinationPath('rtl.php'),
       );
     }
     this.fs.copy(
-      this.templatePath('_index.php'),
+      this.templatePath('index.php'),
       this.destinationPath('index.php'),
     );
     this.fs.copyTpl(
@@ -77,7 +77,3 @@ module.exports = class extends Generator {
   }
 
 };
-
-
-
-
