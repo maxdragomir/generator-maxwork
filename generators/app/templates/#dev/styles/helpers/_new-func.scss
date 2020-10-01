@@ -1,0 +1,264 @@
+///*
+// * Функция возвращающая null вместо error если значение в списке не найдено
+// * @param {List} $list - список
+// * @param {Number}$index - индекс эелемента
+// */
+@function nth-value($list, $index) {
+  @return if(length($list) >= $index, nth($list, $index), null);
+}
+
+///*
+// * Функция возвращающая z-index елемента
+// * @requiered  $z-layers список слоев;
+// * @param {List, Map} $z-layers - массив со именами и значениями z-index;
+// * @param {String} $name - елемент;
+// * https://codepen.io/jakob-e/pen/KpdBzY
+// */
+@function z-index($name) {
+  $z: null;
+  @if type-of($z-layers) == map {
+    $z: map-get($z-layers, $name);
+  }
+  @if type-of($z-layers) == list {
+    @for $i from 1 through length($z-layers) {
+      @if nth($z-layers, $i) == $name {
+        $z: $i;
+      }
+    }
+  }
+  @if $z {
+    @return $z;
+  } @else {
+    @error ('Could not find a z-index for `#{$name}`');
+  }
+}
+
+///*
+//  Более короткая версия функции z-index;
+//  @param {String, List}
+//  @return {Number}
+// */
+@function z($arglist...) {
+  @return z-index($arglist...);
+}
+
+///*
+//  Функция обрезающая единицы измерения и возвращающая число
+//  @param {Number}
+//  @return {Number}
+// */
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+///*Функция замены чего-либо в строке
+//  @author Hugo Giraudel
+//  @param {String} $string - строка в которой ищем
+//  @param {String} $search - то что нужно заменить
+//  @param {String} $replace ('') - то на что нужно заменить
+//  @return {String} - обновленная строка
+//*/
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+@function to-bool($value) {
+  @if ($value == '' or $value == 0 or $value == ()) {
+    @return false
+  } @else {
+    @return true
+  }
+}
+
+@function gcd($a, $b) {
+  // From: http://rosettacode.org/wiki/Greatest_common_divisor#JavaScript
+  @if ($b != 0) {
+    @return gcd($b, $a % $b);
+  } @else {
+    @return abs($a);
+  }
+}
+
+@function nth-root($num, $n: 2, $prec: 12) {
+  // From: http://rosettacode.org/wiki/Nth_root#JavaScript
+  $x: 1;
+
+  @for $i from 0 through $prec {
+    $x: 1 / $n * (($n - 1) * $x + ($num / pow($x, $n - 1)));
+  }
+
+  @return $x;
+}
+
+@function pow($base, $exponent, $prec: 12) {
+  // Handles decimal exponents by trying to convert them into a fraction and then use a nthRoot-algorithm for parts of the calculation
+  @if (floor($exponent) != $exponent) {
+    $prec2: pow(10, $prec);
+    $exponent: round($exponent * $prec2);
+    $denominator: gcd($exponent, $prec2);
+    @return nth-root(pow($base, $exponent / $denominator), $prec2 / $denominator, $prec);
+  }
+
+  $value: $base;
+  @if $exponent > 1 {
+    @for $i from 2 through $exponent {
+      $value: $value * $base;
+    }
+  } @else if $exponent < 1 {
+    @for $i from 0 through -$exponent {
+      $value: $value / $base;
+    }
+  }
+
+  @return $value;
+}
+
+///*
+//  Функция возвращающая факториал
+//  @param {Number} $number - число
+//  @return {Number} - число
+// */
+@function fact($number) {
+  $value: 1;
+  @if $number > 0 {
+    @for $i from 1 through $number {
+      $value: $value * $i;
+    }
+  }
+  @return $value;
+}
+// Round a number to specified digits.
+//
+// @param  {Number} $number A number to round
+// @param  {Number} [$digits:0] Digits to output
+// @param  {String} [$mode:round] (round|ceil|floor) How to round a number
+// @return {Number} A rounded number
+// @example
+//     decimal-round(0.333)    => 0
+//     decimal-round(0.333, 1) => 0.3
+//     decimal-round(0.333, 2) => 0.33
+//     decimal-round(0.666)    => 1
+//     decimal-round(0.666, 1) => 0.7
+//     decimal-round(0.666, 2) => 0.67
+//
+@function decimal-round ($number, $digits: 0, $mode: round) {
+  $n: 1;
+  // $number must be a number
+  @if type-of($number) != number {
+    @warn '#{ $number } is not a number.';
+    @return $number;
+  }
+  // $digits must be a unitless number
+  @if type-of($digits) != number {
+    @warn '#{ $digits } is not a number.';
+    @return $number;
+  } @else if not unitless($digits) {
+    @warn '#{ $digits } has a unit.';
+    @return $number;
+  }
+  @for $i from 1 through $digits {
+    $n: $n * 10;
+  }
+  @if $mode == round {
+    @return round($number * $n) / $n;
+  } @else if $mode == ceil {
+    @return ceil($number * $n) / $n;
+  } @else if $mode == floor {
+    @return floor($number * $n) / $n;
+  } @else {
+    @warn '#{ $mode } is undefined keyword.';
+    @return $number;
+  }
+}
+// Ceil a number to specified digits.
+//
+// @param  {Number} $number A number to round
+// @param  {Number} [$digits:0] Digits to output
+// @return {Number} A ceiled number
+// @example
+//     decimal-ceil(0.333)    => 1
+//     decimal-ceil(0.333, 1) => 0.4
+//     decimal-ceil(0.333, 2) => 0.34
+//     decimal-ceil(0.666)    => 1
+//     decimal-ceil(0.666, 1) => 0.7
+//     decimal-ceil(0.666, 2) => 0.67
+//
+@function decimal-ceil ($number, $digits: 0) {
+  @return decimal-round($number, $digits, ceil);
+}
+
+// Floor a number to specified digits.
+//
+// @param  {Number} $number A number to round
+// @param  {Number} [$digits:0] Digits to output
+// @return {Number} A floored number
+// @example
+//     decimal-floor(0.333)    => 0
+//     decimal-floor(0.333, 1) => 0.3
+//     decimal-floor(0.333, 2) => 0.33
+//     decimal-floor(0.666)    => 0
+//     decimal-floor(0.666, 1) => 0.6
+//     decimal-floor(0.666, 2) => 0.66
+//
+@function decimal-floor ($number, $digits: 0) {
+  @return decimal-round($number, $digits, floor);
+}
+///*
+//  Pi
+// */
+@function pi() {
+  @return 3.14159265359;
+}
+
+///*
+//  Функция вычсисления радианы
+//  @param {Number} $angle - угол
+//  @return {Number} - радиан
+// */
+@function rad($angle) {
+  $unit: unit($angle);
+  $unitless: $angle / ($angle * 0 + 1);
+  // If the angle has 'deg' as unit, convert to radians.
+  @if $unit == deg {
+    $unitless: $unitless / 180 * pi();
+  }
+  @return $unitless;
+}
+//
+///*
+//  Функция возвразающая синус угла
+//  @param {Number} $angle - угол
+//  @return {Number} - синус угла
+// */
+@function sin($angle) {
+  $sin: 0;
+  $angle: rad($angle);
+  // Iterate a bunch of times.
+  @for $i from 0 through 10 {
+    $sin: $sin + pow(-1, $i) * pow($angle, (2 * $i + 1)) / fact(2 * $i + 1);
+  }
+  @return $sin;
+}
+
+///*
+//  Функция возвразающая косинус угла
+//  @param {Number} $angle - угол
+//  @return {Number} - синус угла
+// */
+
+@function cos($angle) {
+  $cos: 0;
+  $angle: rad($angle);
+  // Iterate a bunch of times.
+  @for $i from 0 through 10 {
+    $cos: $cos + pow(-1, $i) * pow($angle, 2 * $i) / fact(2 * $i);
+  }
+  @return $cos;
+}
+

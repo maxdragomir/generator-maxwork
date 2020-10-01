@@ -1,0 +1,436 @@
+/*! Base */
+/*======================================================================================================================*/
+
+
+// Main styles
+.#{$lottery_name} {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  font-weight: 400;
+  line-height: 1;
+  font-size: 16px;
+  font-family: $main_font;
+  text-size-adjust: 100%;
+  font-smooth: antialiased;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  direction: opposite-direction(ltr);
+  box-sizing: border-box;
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+
+  &-inner {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: em(5 5 100, $fz) hsla(0, 0%, 0%, 0.5);
+    overflow: hidden;
+    background-size: auto;
+
+    //media
+    @include mediaMixin(min, 1920) {
+      width: 1920px;
+    }
+    //media
+
+  }
+  &--is-none {
+    display: none;
+  }
+  &--is-loaded {}
+  &-addition {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    z-index: 999;
+    width: em(60, $fz);
+    background: hsla(0, 0%, 0%, 0.2);
+    padding: em(0 10 0 0, $fz);
+    direction: ltr;
+    will-change: transform;
+    transform: translate3d(em(-50, $fz), 0, 0);
+    transition: all 0.5s ease;
+
+    //media
+    @include mediaMixin(max, 1000) {
+      font-size: 1.8vw;
+      width: em(80, $fz);
+      padding: 0;
+      overflow: auto;
+      flex-flow: row wrap;
+      justify-content: flex-start;
+    }
+    @include mediaMixin(max, 550) {
+      font-size: 3vw;
+    }
+    //media
+
+    &--is-fixed {
+      transform: translate3d(0, 0, 0);
+      background: hsla(0, 0%, 0%, 0.7);
+
+      //media
+      @include mediaMixin(max, 1000) {
+        width: em(100, $fz);
+      }
+      //media
+
+      button, a {
+        transform: translate3d(0, 0, 0);
+      }
+
+    }
+    &--is-show {
+      transform: translate3d(0, 0, 0);
+
+      button, a {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    &__svg {
+      position: absolute;
+      bottom: em(25, $fz);
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+
+      //media
+      @include mediaMixin(max, 1000) {
+        display: none;
+      }
+      //media
+
+      &-icon {
+        width: em(40, $fz);
+        transition: all .5s ease;
+      }
+      &-close {
+        display: none;
+        filter: drop-shadow(2px 2px 0 hsl(0, 0%, 0%));
+        path {
+          fill: $main_color;
+        }
+      }
+      &-open {
+        filter: drop-shadow(2px 2px 0 $main_color);
+        path {
+          fill: hsl(0, 0%, 0%);
+        }
+      }
+
+    }
+    &__btn {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-width: em(30, $fz);
+      min-height: em(30, $fz);
+      text-align: center;
+      cursor: pointer;
+      font-weight: 900;
+      background: hsl(0, 0%, 100%);
+      color: hsl(0, 0%, 0%);
+      border: 2px solid hsl(0, 0%, 100%);
+      outline: none;
+      will-change: transform;
+      text-transform: uppercase;
+      font-size: em(20, $fz_base);
+      margin-bottom: em(5, $fz);
+      box-shadow: em(0 10 20, $fz) hsla(0, 0%, 0%, 0.2);
+      transform: translate3d(em(-47, $fz), 0, 0);
+      transition: all 0.3s ease;
+
+      //media
+      @include mediaMixin(max, 1000) {
+        width: em(50, $fz);
+        min-height: em(60, $fz);
+      }
+      //media
+
+      span {
+        display: block;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &:active {
+        transform: scale(0.9);
+        transition: all 0.1s ease;
+      }
+
+      //hover
+      @include on-hover {
+        background: hsl(0, 0%, 0%);
+        color: hsl(0, 0%, 100%);
+        transition: all 0.3s ease;
+      }
+      //hover
+
+    }
+
+    //hover
+    @include on-hover {
+      transform: translate3d(0, 0, 0);
+      button, a {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+    //hover
+
+  }
+
+
+  &-section {
+    position: relative;
+    z-index: 1;
+  }
+  &-container {
+    position: relative;
+    margin: 0 auto;
+    padding: 0 em(20, $fz);
+  }
+  &-title {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+  }
+  &-btn {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    border: 0;
+    margin: 0 auto;
+    color: hsl(0, 0%, 20%);
+    background: hsl(0, 0%, 0%);
+    z-index: 2;
+    min-width: em(200, $fz);
+    border-radius: 50px;
+    box-shadow: em(10 10 24 3, $fz) hsla(0, 0%, 0%, 0.25);
+    transform: scale(1);
+    transition: transform .5s ease, box-shadow .5s ease;
+
+    span {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      font-weight: 600;
+      z-index: 1;
+      border-radius: 50px;
+      font-size: em(18, $fz_base);
+      padding: em(21 15, $fz);
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translate3d(-100%, 0, 0) skew(0deg);
+        width: 100%;
+        height: 100%;
+        will-change: transform;
+        border: 1px solid transparent;
+        opacity: .5;
+        background-color: hsla(0, 0%, 100%, 0.5);
+        animation: flicker 4s ease-in-out infinite 1s;
+      }
+    }
+
+    //bg
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      background: hsl(0, 0%, 93%);
+      z-index: 0;
+      border-radius: 50px;
+      opacity: 1;
+      transform: translate3d(-50%, -50%, 0);
+      transition: opacity 0.5s ease
+    }
+
+    @include on-hover {
+      transition: transform .5s ease, box-shadow .5s ease;
+
+      &::before {
+        opacity: .5;
+        transition: opacity .5s ease;
+      }
+
+      span {
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    &:active {
+      transform: scale(.95);
+      transform-origin: center;
+      box-shadow: em(5 5 10 0, $fz) rgba(0, 0, 0, .25);
+      transition: box-shadow .2s ease, transform .2s ease;
+
+      &::before {
+        opacity: .5;
+        transition: opacity .5s ease;
+      }
+    }
+
+    &--disabled {
+      pointer-events: none;
+      cursor: default;
+      background: hsl(267, 6%, 65%) !important;
+      span {
+        color: hsl(0, 0%, 100%) !important;
+        &::after {
+          display: none;
+        }
+      }
+      &::before {
+        background: linear-gradient(left, hsl(213, 6%, 65%) 0%, hsl(212, 13%, 81%) 100%) !important;
+      }
+    }
+  }
+
+
+  .no-animate {
+    animation: none !important;
+  }
+  .breadcrumbs {
+    position: absolute;
+    font-style: normal;
+    z-index: 2;
+    top: em(20, $fz);
+    display: flex;
+
+    @include dir((
+            left: em(20, $fz)
+    ));
+
+    li {
+      color: hsl(0, 0%, 100%);
+      text-transform: uppercase;
+      display: inline-block;
+      position: relative;
+      font-weight: bold;
+      font-size: em(18, $fz_base);
+
+      a, span {
+        color: inherit;
+        font-size: inherit;
+      }
+      &:first-child::before {
+        content: none;
+      }
+      &::before {
+        content: "/";
+
+        @include dir((
+                margin-left: em(4, $fz),
+                margin-right: em(8, $fz)
+        ));
+
+      }
+    }
+
+  }
+  .noScroll {
+    overflow: hidden;
+  }
+  .v--modal {
+    top: auto !important;
+    left: auto !important;
+    overflow: visible !important;
+    height: auto !important;
+    width: auto !important;
+    background: none !important;
+    display: inline-block;
+    box-shadow: none;
+  }
+  .v--modal-background-click {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100%;
+  }
+  .v--modal-overlay {
+    background: hsla(0, 0%, 0%, 0.7) !important;
+  }
+  .v--modal-overlay {
+    z-index: 100010 !important;
+  }
+
+}
+
+
+// Account styles
+.#{$lottery_name}-#{$page_account} {
+  background: transparent;
+
+
+  &__wrapper {
+    position: relative;
+
+    //media
+    @include mediaMixin(max, 1780) {
+      font-size: .85vw;
+    }
+    @include mediaMixin(max, 1599) {
+      font-size: 16px;
+    }
+    @include mediaMixin(max, 1450) {
+      font-size: 14px;
+    }
+    //media
+
+  }
+  &__body {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: em(245, $fz);
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(../img/account/bg.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: -1;
+    }
+  }
+}

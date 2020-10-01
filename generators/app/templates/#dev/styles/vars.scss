@@ -1,0 +1,19 @@
+// Vars
+// =====================================================================================================================
+
+
+$lottery_name            : '<%= project %>';
+
+$fz_base                 : 16;
+$fz                      : $fz_base;
+$main_font               : 'Roboto', sans-serif;
+$secondary_font          : 'Roboto Condensed', sans-serif;
+$add_custom_font         : '';
+$custom_font             : $add_custom_font, sans-serif;
+
+$white_color             : hsl(0, 0%, 100%);
+$black_color             : hsl(0, 0%, 0%);
+$main_color              : hsl(0, 0%, 100%);
+
+$page_account            : 'account';
+$page_raffle             : 'raffle';

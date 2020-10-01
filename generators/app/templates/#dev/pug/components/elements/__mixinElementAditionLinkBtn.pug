@@ -1,0 +1,10 @@
+//- Mixin element ticketsBtn
+//- ====================================================================================================================
+
+
+mixin addBtnLink(nameLink, nameBtn)
+	- nameBtn = nameBtn || "L"
+
+	if nameLink
+		a(href=`${nameLink}.php` class=`${lotteryName}-addition__btn`)&attributes(attributes)
+			span= nameBtn

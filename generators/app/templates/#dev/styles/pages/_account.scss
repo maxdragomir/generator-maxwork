@@ -1,0 +1,30 @@
+/*! Account page */
+/*======================================================================================================================*/
+
+
+.#{$lottery_name}-#{$page_account} {
+
+
+  &__wrapper {
+
+    //media
+    @include mediaMixin(max, 1780) {
+      font-size: .85vw;
+    }
+    @include mediaMixin(max, 1599) {
+      font-size: 16px;
+    }
+    @include mediaMixin(max, 1450) {
+      font-size: 14px;
+    }
+    //media
+
+  }
+  &__body {
+    padding: em(20 195, $fz);
+
+    &::after {
+      background: $black_color;
+    }
+  }
+}

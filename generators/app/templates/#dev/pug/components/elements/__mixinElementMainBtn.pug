@@ -1,0 +1,12 @@
+//- Mixin element mainBtn
+//- ====================================================================================================================
+
+mixin addMainBtn(btnText, btnClassMod, link, linkClasses)
+	- btnText = btnText || "Сделать Ставку"
+	- btnClassMod = btnClassMod || "custom"
+
+	a(href="#!" class=`${lotteryName}-btn ${lotteryName}-btn--${btnClassMod}`)&attributes(attributes)
+		span= btnText
+	if link
+		a(href="#!" class=`${lotteryName}-link ${lotteryName}-${linkClasses}` @click="$modal.show('modal-rules')")
+			span(class=`${lotteryName}-${linkClasses}-text`) Правила

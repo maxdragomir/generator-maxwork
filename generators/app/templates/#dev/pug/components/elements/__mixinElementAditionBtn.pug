@@ -1,0 +1,10 @@
+//- Mixin element ticketsBtn
+//- ====================================================================================================================
+
+
+mixin addBtnModal(nameOpenModal, nameBtn)
+	- nameBtn = nameBtn || "M"
+
+	if nameOpenModal
+		button(class=`${lotteryName}-addition__btn` type='button' @click=`$modal.show('modal-${nameOpenModal}')`)&attributes(attributes)
+			span= nameBtn

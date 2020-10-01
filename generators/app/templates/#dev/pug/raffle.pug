@@ -1,0 +1,64 @@
+extends layouts/__main
+
+
+block vars
+	-lotteryName    = '<%= project %>'
+	-pageType       = 'raffle'
+	-devMode        = true
+	-no2kSize       = true
+	-rtl            = <%= rtl %>
+	-breadcrumbs    = true
+	-styles         = true
+	-js             = pageType
+	-modal 					= 'modal-custom'
+
+
+block content
+
+	// Content -------------------------------------------------------------------------------------------------------
+
+
+	// Section main
+	section(id=`${lotteryName}-show-main` class=`${lotteryName}-section ${lotteryName}-section--main`)
+	// Section main
+
+
+	// Content ---------------------------------------------------------------------------------------------------
+
+
+
+
+	// Modal ---------------------------------------------------------------------------------------------------------
+
+
+	// Tickets
+	-modal = 'modal-tickets'
+	+addModal(modal, false, false)
+	// Tickets
+
+
+
+	// Win
+	-modal = 'modal-win'
+	+addModal(modal, false, false)
+	// Win
+
+
+
+	// Result
+	-modal = 'modal-result'
+	+addModal(modal, false, false)
+	// Result
+
+
+	// Modal ---------------------------------------------------------------------------------------------------------
+
+
+
+
+	// Addition Buttons ----------------------------------------------------------------------------------------------
+	+addAditions
+		+addBtnModal("tickets", "T")
+		+addBtnModal("win",			"W")
+		+addBtnModal("result", 	"R")
+	// Addition Buttons ----------------------------------------------------------------------------------------------

@@ -1,0 +1,92 @@
+include ../components/__allMixins
+
+
+//- Variables
+block vars
+
+
+if devMode
+
+	doctype html
+	html(lang='en')
+		head
+
+			include inclueds/__head
+
+		body
+
+			// Styles ----------------------------------------------------------------------------------------------------
+			if styles
+				include inclueds/__styles
+			// Styles ------------------------------------------------------------------------------------------------------
+
+
+
+			// Landing ---------------------------------------------------------------------------------------------------
+			main(class=`${lotteryName} ${lotteryName}-${pageType} ${lotteryName}-wrapper`)
+
+				//- Breadcrumbs
+				if breadcrumbs
+					+addBreadcrumbs(lotteryName)
+				//- Breadcrumbs
+
+
+				//- Content
+				if no2kSize
+					div(class=`${lotteryName}-inner`)
+						block content
+				else
+					block content
+				//- Content
+
+			// Landing -----------------------------------------------------------------------------------------------------
+
+
+
+			// Javascript ------------------------------------------------------------------------------------------------
+			if js === 'lottery'
+				include inclueds/__scripts-lottery
+			else if js === 'raffle'
+				include inclueds/__scripts-raffle
+			else if js === 'account'
+				include inclueds/__scripts-account
+			// Javascript --------------------------------------------------------------------------------------------------
+
+else
+
+	// Styles --------------------------------------------------------------------------------------------------------
+	if styles
+		include inclueds/__styles
+	// Styles ------------------------------------------------------------------------------------------------------
+
+
+
+	// Landing ---------------------------------------------------------------------------------------------------
+	main(class=`${lotteryName} ${lotteryName}-${pageType} ${lotteryName}-wrapper`)
+
+		//- Breadcrumbs
+		if breadcrumbs
+			+addBreadcrumbs(lotteryName)
+		//- Breadcrumbs
+
+
+		//- Content
+		if no2kSize
+			div(class=`${lotteryName}-inner`)
+				block content
+		else
+			block content
+		//- Content
+
+	// Landing -----------------------------------------------------------------------------------------------------
+
+
+
+	// Javascript ------------------------------------------------------------------------------------------------
+	if js === 'lottery'
+		include inclueds/__scripts-lottery
+	else if js === 'raffle'
+		include inclueds/__scripts-raffle
+	else if js === 'account'
+		include inclueds/__scripts-account
+	// Javascript --------------------------------------------------------------------------------------------------

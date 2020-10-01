@@ -1,0 +1,16 @@
+//- Mixin block tickets
+//- ====================================================================================================================
+
+
+mixin addTickets(classTickets, winTicket, countTickets)
+	- countTickets = countTickets || 100
+
+	div(class=`${lotteryName}-${classTickets}__block`)
+
+		if winTicket
+			div(class=`${lotteryName}-${classTickets}__ticket`).win
+				span 79542362
+
+		- for (var i = 0; i < countTickets; i++)
+			div(class=`${lotteryName}-${classTickets}__ticket`)
+				span 79542362
