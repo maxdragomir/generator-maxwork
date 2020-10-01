@@ -46,28 +46,28 @@ module.exports = class extends Generator {
 
     if(this.answers.raffle) {
       this.fs.copy(
-        this.templatePath('raffle.php'),
+        this.templatePath('_raffle.php'),
         this.destinationPath('raffle.php'),
       );
     }
     if(this.answers.account) {
       this.fs.copy(
-        this.templatePath('account.php'),
+        this.templatePath('_account.php'),
         this.destinationPath('account.php'),
       );
     }
     if(this.answers.rtl) {
       this.fs.copy(
-        this.templatePath('rtl.php'),
+        this.templatePath('_rtl.php'),
         this.destinationPath('rtl.php'),
       );
     }
     this.fs.copy(
-      this.templatePath('index.php'),
+      this.templatePath('_index.php'),
       this.destinationPath('index.php'),
     );
     this.fs.copyTpl(
-      this.templatePath('**/*'),
+      this.templatePath('#dev/**/*'),
       this.destinationRoot(this.answers.appname),
       {
         project: this.answers.appname,
