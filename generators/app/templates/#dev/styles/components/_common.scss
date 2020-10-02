@@ -72,6 +72,10 @@
       overflow: auto;
       flex-flow: row wrap;
       justify-content: flex-start;
+
+      a {
+        display: none;
+      }
     }
     @include mediaMixin(max, 550) {
       font-size: 3vw;
