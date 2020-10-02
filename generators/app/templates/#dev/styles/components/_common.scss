@@ -359,9 +359,6 @@
     }
 
   }
-  .noScroll {
-    overflow: hidden;
-  }
   .v--modal {
     top: auto !important;
     left: auto !important;
@@ -392,11 +389,12 @@
   }
 
 }
-
+.noScroll {
+  overflow: hidden;
+}
 
 // Account styles
 .#{$lottery_name}-#{$page_account} {
-  background: transparent;
 
 
   &__wrapper {

@@ -3,8 +3,8 @@
 
 
 .#{$lottery_name} {
-  background-color: hsl(0, 0%, 12%);
-  color: hsl(0, 0%, 100%);
+  background-color: $black_color;
+  color: $white_color;
 
   // media
   @include mediaMixin(max, 1920) {
@@ -16,7 +16,7 @@
 
   // Common Styles------------------------------------------------------------------------------------------------------
   &-inner {
-    background-color: hsl(0, 0%, 0%);
+    background-color: hsl(0, 0%, 12%);
   }
   &-decor {
     position: absolute;
