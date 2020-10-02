@@ -2,73 +2,73 @@ extends layouts/__main
 
 
 block vars
-	-lotteryName    = '<%= project %>'
-	-pageType      	= 'lottery'
-	-devMode        = true
-	-no2kSize      	= true
-	-rtl            = <%= rtl %>
-	-breadcrumbs    = true
-	-styles        	= true
-	-js            	= pageType
-	-modal 					= 'modal-custom'
+  -lotteryName      = '<%= project %>'
+  -pageType         = 'lottery'
+  -devMode          = true
+  -no2kSize         = true
+  -rtl              = <%= rtl %>
+  -breadcrumbs      = true
+  -styles           = true
+  -js               = pageType
+  -modal            = 'modal-custom'
 
 
 block content
 
-	// Content -----------------------------------------------------------------------------------------------------------
+  // Content -----------------------------------------------------------------------------------------------------------
 
 
-	// Section main
-	section(id=`${lotteryName}-show-main` class=`${lotteryName}-section ${lotteryName}-section--main`)
-    h1 <%= project %>
-	// Section main
+  // Section main
+  section(id=`${lotteryName}-show-main` class=`${lotteryName}-section ${lotteryName}-section--main`)
+    h1= lotteryName
+  // Section main
 
 
-	// Content -----------------------------------------------------------------------------------------------------------
-
-
-
-
-	// Modal -------------------------------------------------------------------------------------------------------------
-
-
-	// Enter
-	-modal = 'modal-enter'
-	+addModal(modal, false, false)
-	// Enter
-
-
-
-	// Rules
-	-modal = 'modal-rules'
-	+addModal(modal, false, false)
-	// Rules
-
-
-
-	// Tickets
-	-modal = 'modal-tickets'
-	+addModal(modal, false, false)
-	// Tickets
-
-
-
-	// Hello
-	-modal = 'modal-hello'
-	+addModal(modal, true)
-	// Hello
-
-
-	// Modal -------------------------------------------------------------------------------------------------------------
+  // Content -----------------------------------------------------------------------------------------------------------
 
 
 
 
-	// Addition Buttons --------------------------------------------------------------------------------------------------
-	+addAditions
-		+addBtnLink("account",  "A")
-		+addBtnModal("enter",  	"E")
-		+addBtnModal("rules",  	"R")
-		+addBtnModal("tickets", "T")
-		+addBtnModal("hello",  	"H")
-	// Addition Buttons --------------------------------------------------------------------------------------------------
+  // Modal -------------------------------------------------------------------------------------------------------------
+
+
+  // Enter
+  -modal = 'modal-enter'
+  +addModal(modal, false, false)
+  // Enter
+
+
+
+  // Rules
+  -modal = 'modal-rules'
+  +addModal(modal, false, false)
+  // Rules
+
+
+
+  // Tickets
+  -modal = 'modal-tickets'
+  +addModal(modal, false, false)
+  // Tickets
+
+
+
+  // Hello
+  -modal = 'modal-hello'
+  +addModal(modal, true)
+  // Hello
+
+
+  // Modal -------------------------------------------------------------------------------------------------------------
+
+
+
+
+  // Addition Buttons --------------------------------------------------------------------------------------------------
+  +addAditions
+    +addBtnLink("account",  "A")
+    +addBtnModal("enter",    "E")
+    +addBtnModal("rules",    "R")
+    +addBtnModal("tickets", "T")
+    +addBtnModal("hello",    "H")
+  // Addition Buttons --------------------------------------------------------------------------------------------------

@@ -2,33 +2,33 @@ extends layouts/__main
 
 
 block vars
-	-lotteryName 		= '<%= project %>'
-	-pageType 			= 'account'
-	-devMode				= false
-	-no2kSize 			= false
-	-rtl 						= <%= rtl %>
-	-breadcrumbs 		= false
-	-styles 				= true
-	-js 						= false
+  -lotteryName      = '<%= project %>'
+  -pageType         = 'account'
+  -devMode          = false
+  -no2kSize         = false
+  -rtl              = <%= rtl %>
+  -breadcrumbs      = false
+  -styles           = true
+  -js               = false
 
 block content
 
-	// Content -----------------------------------------------------------------------------------------------------
+  // Content -----------------------------------------------------------------------------------------------------
 
 
-	// Account
-	div(class=`${lotteryName}-account__wrapper`)
-		div(class=`${lotteryName}-account__body`)
-      h1 <%= project %>
-	// Account
+  // Account
+  div(class=`${lotteryName}-account__wrapper`)
+    div(class=`${lotteryName}-account__body`)
+      h1= lotteryName
+  // Account
 
 
 
-	// Account Tickets
-	div(class=`${lotteryName}-account__wrapper ${lotteryName}-account-logged__wrapper`)
-		div(class=`${lotteryName}-account__body`)
-      h1 <%= project %>
-	// Account Tickets
+  // Account Tickets
+  div(class=`${lotteryName}-account__wrapper ${lotteryName}-account-logged__wrapper`)
+    div(class=`${lotteryName}-account__body`)
+      h1= lotteryName
+  // Account Tickets
 
 
-	// Content -------------------------------------------------------------------------------------------------------
+  // Content -------------------------------------------------------------------------------------------------------
