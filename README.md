@@ -7,13 +7,13 @@ First, install [Yeoman](http://yeoman.io) and generator-newpros using [npm](http
 
 ```bash
 npm install -g yo
-npm install -g generator-newpros
+npm install -g generator-maxwork
 ```
 
 Then generate your new project:
 
 ```bash
-yo newpros
+yo maxwork
 ```
 
 ## Getting To Know Yeoman
