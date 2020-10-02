@@ -35,12 +35,12 @@ module.exports = class extends Generator {
         message: "rtl?",
         default: true,
       },
-      // {
-      //   type: "confirm",
-      //   name: "fonts",
-      //   message: "Custom fonts?",
-      //   default: true,
-      // },
+      {
+        type: "confirm",
+        name: "fonts",
+        message: "Custom fonts?",
+        default: true,
+      },
     ]);
   }
 
@@ -76,10 +76,12 @@ module.exports = class extends Generator {
       this.templatePath('_index.php'),
       this.destinationPath('index.php'),
     );
-    this.fs.copy(
-      this.templatePath('fonts'),
-      this.destinationPath('fonts'),
-    );
+    if(this.answers.fonts) {
+      this.fs.copy(
+        this.templatePath('fonts'),
+        this.destinationPath('fonts'),
+      );
+    }
     this.fs.copy(
       this.templatePath('img'),
       this.destinationPath('img'),
