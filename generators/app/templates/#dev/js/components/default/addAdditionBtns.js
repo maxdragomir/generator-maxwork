@@ -31,7 +31,7 @@ if(additionBlock) {
   document.addEventListener('keydown', (e) => {
     const keyCode = e.code;
 
-    if (keyCode === 'Space' && e.shiftKey) {
+    if (keyCode === 'KeyA' && e.shiftKey) {
       additionBlock.classList.toggle(`${lotteryName}-addition--is-fixed`);
       svgCheck();
     }
