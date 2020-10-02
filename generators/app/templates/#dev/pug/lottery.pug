@@ -20,7 +20,9 @@ block content
 
   // Section main
   section(id=`${lotteryName}-show-main` class=`${lotteryName}-section ${lotteryName}-section--main`)
-    h1(style='color: hsl(101, 100%, 69%); height: 100vh; display: flex;justify-content: center;align-items: center;font-size: 5vw')= lotteryName
+    div(style='text-transform: uppercase;color: hsl(101, 100%, 69%); height: 100vh; display: flex;flex-flow: column;justify-content: center;align-items: center;font-size: 5vw')
+      h1= pageType
+      h1= lotteryName
   // Section main
 
 
