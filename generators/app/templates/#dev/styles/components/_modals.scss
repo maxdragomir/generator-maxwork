@@ -9,15 +9,24 @@
     position: relative;
     font-size: 16px;
     color: #fff;
-    box-sizing: border-box;
+
+    //media
+    @include mediaMixin(max, 1000) {
+      font-size: 1.3vw;
+    }
+    //media
+
+    * {
+      box-sizing: border-box;
+    }
 
     &__close {
       position: absolute;
-      top: em(-5, $fz);
-      right: em(20, $fz);
+      top: em(0, $fz);
+      right: em(0, $fz);
       margin: 0;
       padding: 0;
-      @include size(em(30, $fz));
+      @include size(em(40, $fz));
       cursor: pointer;
       background: transparent;
       border: 0;
