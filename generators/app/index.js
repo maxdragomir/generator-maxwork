@@ -7,14 +7,14 @@ module.exports = class extends Generator {
 
   async prompting() {
     this.log(
-      yosay(`Welcome to the wondrous ${chalk.red('newpros')} generator!`)
+      yosay(`Yo, yo, yo. Are you ready to install ${chalk.red('maxwokr')} generator!`)
     );
 
     this.answers = await this.prompt([
       {
         type: "input",
         name: "appname",
-        message: "Your project name",
+        message: "Project name:",
         default: this.appname
       },
       {
@@ -35,6 +35,12 @@ module.exports = class extends Generator {
         message: "rtl?",
         default: true,
       },
+      // {
+      //   type: "confirm",
+      //   name: "fonts",
+      //   message: "Custom fonts?",
+      //   default: true,
+      // },
     ]);
   }
 
@@ -63,16 +69,24 @@ module.exports = class extends Generator {
       );
     }
     this.fs.copy(
+      this.templatePath('_prepros.config'),
+      this.destinationPath('prepros.config'),
+    );
+    this.fs.copy(
       this.templatePath('_index.php'),
       this.destinationPath('index.php'),
+    );
+    this.fs.copy(
+      this.templatePath('fonts'),
+      this.destinationPath('fonts'),
     );
     this.fs.copy(
       this.templatePath('img'),
       this.destinationPath('img'),
     );
     this.fs.copyTpl(
-      this.templatePath('#dev/**/*'),
-      this.destinationRoot('#dev'),
+      this.templatePath('#dev'),
+      this.destinationPath('#dev'),
       {
         project: this.answers.appname,
         rtl: this.answers.rtl,

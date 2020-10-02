@@ -1,4 +1,4 @@
-// Animation
+// Aos
 
 
 if(is_mob) {
