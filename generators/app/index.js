@@ -7,7 +7,7 @@ module.exports = class extends Generator {
 
   async prompting() {
     this.log(
-      yosay(`Yo, yo, yo. Are you ready to install ${chalk.red('maxwokr')} generator!`)
+      yosay(`Yo, yo, yo! \n Now we install ${chalk.red("MAXIM's")} starter pack!`)
     );
 
     this.answers = await this.prompt([
@@ -20,32 +20,31 @@ module.exports = class extends Generator {
       {
         type: "confirm",
         name: "account",
-        message: "Account?",
+        message: "Add account?",
         default: true,
       },
       {
         type: "confirm",
         name: "raffle",
-        message: "Raffle?",
+        message: "Add raffle?",
         default: true,
       },
       {
         type: "confirm",
         name: "rtl",
-        message: "rtl?",
+        message: "Add rtl?",
         default: true,
       },
       {
         type: "confirm",
         name: "fonts",
-        message: "Custom fonts?",
+        message: "Add fonts folder?",
         default: true,
       },
     ]);
   }
 
   writing() {
-
     // this.log("Your project name", this.answers.appname);
     // this.log("account :", this.answers.account);
     // this.log("raffle :", this.answers.raffle);
@@ -98,4 +97,9 @@ module.exports = class extends Generator {
     );
   }
 
+  end() {
+    this.log(
+      yosay(`Good Luck with ${this.answers.appname}! \n Have a nice day!`)
+    );
+  }
 };
