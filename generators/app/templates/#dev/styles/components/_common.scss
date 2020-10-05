@@ -488,7 +488,9 @@
 // Account styles
 .#{$lottery_name}-#{$page_account} {
 
-
+  &-logged {
+    margin-top: em(20, $fz);
+  }
   &__wrapper {
     position: relative;
 
