@@ -33,19 +33,19 @@ if(additionBlock) {
     let projectName = location.href.split('/')[3];
 
     <%_ if (account) { -%>
-    if (keyCode === 'KeyA' && e.shiftKey) {
+    if (keyCode === 'Digit3' && e.shiftKey) {
       location.pathname = `${projectName}/account.php`;
     }
     <%_ } -%>
     <%_ if (raffle) { -%>
-    if (keyCode === 'KeyR' && e.shiftKey) {
+    if (keyCode === 'Digit2' && e.shiftKey) {
       location.pathname = `${projectName}/raffle.php`;
     }
     <%_ } -%>
-    if (keyCode === 'KeyL' && e.shiftKey) {
+    if (keyCode === 'Digit1' && e.shiftKey) {
       location.pathname = `${projectName}/index.php`;
     }
-    if (keyCode === 'KeyQ' && e.shiftKey) {
+    if (keyCode === 'Space' && e.shiftKey) {
       additionBlock.classList.toggle(`${lotteryName}-addition--is-fixed`);
       svgCheck();
     }
