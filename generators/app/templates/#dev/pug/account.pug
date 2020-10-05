@@ -43,6 +43,9 @@ block content
 
   // Addition Buttons ----------------------------------------------------------------------------------------------
   +addAditions
+    div(class=`${lotteryName}-addition__btn ${lotteryName}-addition__btn--spacer`)
+      span pages
+
     +addBtnLink("index",   "L")
     <%_ if (raffle) { -%>
     +addBtnLink("raffle",   "R")

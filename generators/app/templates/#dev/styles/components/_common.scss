@@ -224,6 +224,39 @@
         min-height: em(30, $fz);
         margin: 0;
         pointer-events: none;
+        font-size: inherit;
+
+        &::after {
+          display: none;
+        }
+
+        span {
+          $fz: 10;
+
+          position: absolute;
+          top: 50%;
+          left: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          color: $white_color;
+          font-size: em($fz, $fz_base);;
+          z-index: 1;
+          transform: translate3d(0, -60%, 0);
+        }
+
+      }
+
+      &--account {
+
+        //media
+        @include mediaMixin(max, 1000) {
+          display: none;
+        }
+        //media
+
       }
     }
 
