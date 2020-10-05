@@ -73,7 +73,7 @@
       flex-flow: row wrap;
       justify-content: flex-start;
 
-      a {
+      a[href='account.php'] {
         display: none;
       }
     }
@@ -177,14 +177,54 @@
         transition: all 0.1s ease;
       }
 
+      &::after{
+        content: attr(title);
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background: $black_color;
+        color: inherit;
+        font-size: inherit;
+        z-index: 1;
+        padding-right: em(10, $fz);
+        padding-left: em(10, $fz);
+        opacity: 0;
+        transform: translate3d(-50%, 0, 0);
+        transition: all .5s ease .5s;
+
+        //media
+        @include mediaMixin(max, 1000) {
+          display: none;
+        }
+        //media
+      }
+
       //hover
       @include on-hover {
         background: $black_color;
         color: $main_color;
         transition: all 0.3s ease;
+
+        &::after{
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+          transition: opacity .1s ease, transform .3s ease;
+        }
       }
       //hover
 
+
+      &--spacer {
+        background: transparent;
+        border: 0;
+        min-height: em(30, $fz);
+        margin: 0;
+        pointer-events: none;
+      }
     }
 
     //hover
@@ -358,6 +398,14 @@
       }
     }
 
+
+    //media
+    @include mediaMixin(max, 1000) {
+      display: none;
+    }
+    //media
+
+
   }
   .v--modal {
     top: auto !important;
@@ -393,6 +441,7 @@
   overflow: hidden;
 }
 
+<%_ if (account) { -%>
 // Account styles
 .#{$lottery_name}-#{$page_account} {
 
@@ -436,3 +485,4 @@
     }
   }
 }
+<%_ } -%>

@@ -68,9 +68,19 @@ block content
 
   // Addition Buttons --------------------------------------------------------------------------------------------------
   +addAditions
+    <%_ if (raffle) { -%>
+    +addBtnLink("raffle",   "R")
+    <%_ } -%>
+    <%_ if (account) { -%>
     +addBtnLink("account",  "A")
+    <%_ } -%>
+    <%_ if (account || raffle) { -%>
+
+    div(class=`${lotteryName}-addition__btn ${lotteryName}-addition__btn--spacer`)
+
+    <%_ } -%>
     +addBtnModal("enter",    "E")
     +addBtnModal("rules",    "R")
-    +addBtnModal("tickets", "T")
+    +addBtnModal("tickets",  "T")
     +addBtnModal("hello",    "H")
   // Addition Buttons --------------------------------------------------------------------------------------------------

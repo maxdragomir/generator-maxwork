@@ -10,5 +10,6 @@ let lotteryName     = '<%= project %>',
     wrapper         = document.querySelector(`.${lotteryName}-wrapper`),
     hash            = location.search.replace(/\?/, ""),
     hashArray       = location.pathname.split('/'),
+    pageType        = hashArray[hashArray.length - 1].split('.')[0],
     isRtl           = hashArray[hashArray.length - 1].split('.')[0] === "rtl",
     direction       = false;

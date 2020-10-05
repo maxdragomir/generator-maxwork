@@ -20,8 +20,12 @@ $is_rtl: 0;
 
 // Pages
 @import "pages/_lottery";
+<%_ if (account) { -%>
 @import "pages/_account";
+<%_ } -%>
+<%_ if (raffle) { -%>
 @import "pages/_raffle";
+<%_ } -%>
 
 // Components
 @import "components/_modals";

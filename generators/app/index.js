@@ -92,6 +92,8 @@ module.exports = class extends Generator {
       {
         project: this.answers.appname,
         rtl: this.answers.rtl,
+        account: this.answers.account,
+        raffle: this.answers.raffle,
       }
     );
   }

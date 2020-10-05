@@ -30,8 +30,22 @@ if(additionBlock) {
 
   document.addEventListener('keydown', (e) => {
     const keyCode = e.code;
+    let projectName = location.href.split('/')[3];
 
+    <%_ if (account) { -%>
     if (keyCode === 'KeyA' && e.shiftKey) {
+      location.pathname = `${projectName}/account.php`;
+    }
+    <%_ } -%>
+    <%_ if (raffle) { -%>
+    if (keyCode === 'KeyR' && e.shiftKey) {
+      location.pathname = `${projectName}/raffle.php`;
+    }
+    <%_ } -%>
+    if (keyCode === 'KeyL' && e.shiftKey) {
+      location.pathname = `${projectName}/index.php`;
+    }
+    if (keyCode === 'KeyQ' && e.shiftKey) {
       additionBlock.classList.toggle(`${lotteryName}-addition--is-fixed`);
       svgCheck();
     }

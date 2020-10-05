@@ -3,8 +3,9 @@
 
 
 mixin addBtnModal(nameOpenModal, nameBtn)
-	- nameBtn = nameBtn || "M"
+  - nameBtn = nameBtn || "M"
 
-	if nameOpenModal
-		button(class=`${lotteryName}-addition__btn` type='button' @click=`$modal.show('modal-${nameOpenModal}')`)&attributes(attributes)
-			span= nameBtn
+  if nameOpenModal
+    button(class=`${lotteryName}-addition__btn` title=`${nameOpenModal}` type='button' @click=`$modal.show('modal-${nameOpenModal}')`)&attributes(
+      attributes)
+      span= nameBtn
