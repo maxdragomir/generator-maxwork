@@ -391,6 +391,16 @@
   }
 
 
+  &-test {
+    text-transform: uppercase;
+    color: $main_color;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 5vw
+  }
   .no-animate {
     animation: none !important;
   }
