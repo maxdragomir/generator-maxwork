@@ -69,9 +69,10 @@ block content
   // Addition Buttons --------------------------------------------------------------------------------------------------
   +addAditions
 
-    -accountMob = ''
     <%_ if (account) { -%>
     -accountMob = `${lotteryName}-addition__btn--account`
+    <%_ } else { -%>
+    -accountMob = ''
     <%_ } -%>
 
     <%_ if (account || raffle) { -%>

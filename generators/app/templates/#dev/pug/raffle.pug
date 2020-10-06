@@ -62,10 +62,12 @@ block content
   // Addition Buttons ----------------------------------------------------------------------------------------------
   +addAditions
 
-    -accountMob = ''
     <%_ if (account) { -%>
     -accountMob = `${lotteryName}-addition__btn--account`
+    <%_ } else { -%>
+    -accountMob = ''
     <%_ } -%>
+
     div(class=`${lotteryName}-addition__btn ${lotteryName}-addition__btn--spacer ${accountMob}`)
       span pages
 
