@@ -1,0 +1,12 @@
+//- Mixin element mainBtn
+//- ====================================================================================================================
+
+mixin addPicture(src, classes, aosImg)
+	- classes = classes || `${lotteryName}-decor__el`
+
+	if aosImg
+		picture(class=`${classes}`)
+			img(src=`${src}` alt='image')&attributes(attributes)
+	else
+		picture(class=`${classes}`)&attributes(attributes)
+			img(src=`${src}` alt='image')

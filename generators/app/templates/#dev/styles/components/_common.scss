@@ -391,16 +391,22 @@
   }
 
 
-  &-test {
-    text-transform: uppercase;
-    color: $main_color;
-    height: 100vh;
+  &-test-page {
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    font-size: 5vw
+    height: 100vh;
+    font-size: 5vw;
+    text-transform: uppercase;
+    color: $main_color;
   }
+  &-test-text {
+    font-size: 3vw;
+    text-transform: uppercase;
+    color: $main_color;
+  }
+
   .no-animate {
     animation: none !important;
   }

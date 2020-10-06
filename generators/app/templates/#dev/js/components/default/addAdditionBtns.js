@@ -34,22 +34,35 @@ if(additionBlock) {
 
     <%_ if (account) { -%>
     if (keyCode === 'Digit3' && e.shiftKey) {
-      location.pathname = `${projectName}/account.php`;
+      if(location.hostname === 'localhost') {
+        location.pathname = `account.html`;
+      } else {
+        location.pathname = `${projectName}/account.php`;
+      }
     }
     <%_ } -%>
     <%_ if (raffle) { -%>
     if (keyCode === 'Digit2' && e.shiftKey) {
-      location.pathname = `${projectName}/raffle.php`;
+      if(location.hostname === 'localhost') {
+        location.pathname = `raffle.html`;
+      } else {
+        location.pathname = `${projectName}/raffle.php`;
+      }
     }
     <%_ } -%>
     if (keyCode === 'Digit1' && e.shiftKey) {
-      location.pathname = `${projectName}/index.php`;
+      if(location.hostname === 'localhost') {
+        location.pathname = `lottery.html`;
+      } else {
+        location.pathname = `${projectName}/index.php`;
+      }
     }
-    if (keyCode === 'Space' && e.shiftKey) {
+    if (keyCode === 'Backquote' && e.shiftKey) {
       additionBlock.classList.toggle(`${lotteryName}-addition--is-fixed`);
       svgCheck();
     }
   });
+
 
 }
 

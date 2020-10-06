@@ -1,0 +1,10 @@
+//- Mixin block breadcrumbs
+//- ====================================================================================================================
+
+
+mixin addTestText(className)
+  - className = className || `${lotteryName}-test-page`
+
+  div(class=`${className}`)
+    h1= pageType
+    h2= lotteryName

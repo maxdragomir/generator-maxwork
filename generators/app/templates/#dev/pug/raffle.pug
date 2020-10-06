@@ -20,9 +20,7 @@ block content
 
   // Section main
   section(id=`${lotteryName}-show-main` class=`${lotteryName}-section ${lotteryName}-section--main`)
-    div(class=`${lotteryName}-test`)
-      h1= pageType
-      h2= lotteryName
+    +addTestText
   // Section main
 
 
@@ -62,7 +60,7 @@ block content
   // Addition Buttons ----------------------------------------------------------------------------------------------
   +addAditions
 
-    <%_ if (account) { -%>
+    <%_ if (account && !raffle) { -%>
     -accountMob = `${lotteryName}-addition__btn--account`
     <%_ } else { -%>
     -accountMob = ''
