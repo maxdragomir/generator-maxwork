@@ -1,9 +1,17 @@
+//- add bemto
+include ../lib/index
+//- add my Mixins
 include ../components/__allMixins
 
 
 //- Variables
 block vars
-
+-
+	set_bemto_settings({
+		prefix: `${lotteryName}-`,
+		element: '__',
+		modifier: '--'
+	})
 
 if devMode
 

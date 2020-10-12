@@ -5,6 +5,7 @@
 .#{$lottery_name} {
   background-color: $black_color;
   color: $white_color;
+  $main_self: &;
 
   // media
   @include mediaMixin(max, 1920) {

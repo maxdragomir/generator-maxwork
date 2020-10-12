@@ -1,0 +1,9 @@
+//- Mixin block list
+//- ====================================================================================================================
+
+
+mixin addList(classList, classItem, ...items)
+
+  ul(class=classList)
+    each item in items
+      li(class=classItem)= item

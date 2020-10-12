@@ -1,0 +1,29 @@
+//- Mixin block timer
+//- ====================================================================================================================
+
+
+mixin addTimer(className, days, hours, minutes, seconds)
+
+  div(class=`${className} ${lotteryName}-block-timer`)
+    countdown(:time='15 * 24 * 60 * 60 * 1000')
+      template(slot-scope='props')
+        ul(class=`${lotteryName}-block-timer__list`)
+          if days
+            li(class=`${lotteryName}-block-timer__item`)
+              span(class=`${lotteryName}-block-timer__number`) {{ props.days }}
+              span(class=`${lotteryName}-block-timer__text`) дней
+
+          if hours
+            li(class=`${lotteryName}-block-timer__item`)
+              span(class=`${lotteryName}-block-timer__number`) {{ props.hours }}
+              span(class=`${lotteryName}-block-timer__text`) часов
+
+          if minutes
+            li(class=`${lotteryName}-block-timer__item`)
+              span(class=`${lotteryName}-block-timer__number`) {{ props.minutes }}
+              span(class=`${lotteryName}-block-timer__text`) минут
+
+          if seconds
+            li(class=`${lotteryName}-block-timer__item`)
+              span(class=`${lotteryName}-block-timer__number`) {{ props.seconds }}
+              span(class=`${lotteryName}-block-timer__text`) секунд

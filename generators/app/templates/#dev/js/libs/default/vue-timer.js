@@ -85,7 +85,7 @@
        */
       tag: {
         type: String,
-        default: 'span'
+        default: 'div'
       },
 
       /**
