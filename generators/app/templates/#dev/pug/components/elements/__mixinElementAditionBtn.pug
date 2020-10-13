@@ -1,11 +1,16 @@
-//- Mixin element ticketsBtn
+//- Mixin element btnModal
 //- ====================================================================================================================
 
 
-mixin addBtnModal(nameOpenModal, nameBtn)
-  - nameBtn = nameBtn || "M"
+mixin addBtnModal(nameOpenModal)
+  - firstLetter = nameOpenModal.charAt(0).toUpperCase();
+  - lastLetter = parseFloat(nameOpenModal.charAt(nameOpenModal.length - 1));
 
   if nameOpenModal
     button(class=`${lotteryName}-addition__btn` title=`${nameOpenModal}` type='button' @click=`$modal.show('modal-${nameOpenModal}')`)&attributes(
       attributes)
-      span= nameBtn
+
+      if lastLetter
+        span= firstLetter + lastLetter
+      else
+        span= firstLetter

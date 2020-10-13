@@ -1,12 +1,15 @@
 //- Mixin element mainBtn
 //- ====================================================================================================================
 
-mixin addMainBtn(btnText, btnClassMod, link)
-	- btnText = btnText || "Сделать Ставку"
-	- btnClassMod = btnClassMod || "custom"
+mixin addMainBtn(btnText, btnClassMod, btnClass, link, linkClasses)
+  - btnText = btnText || "Сделать Ставку"
+  - btnClassMod = btnClassMod || "custom"
+  - btnClass = btnClass || ""
+  - linkClasses = linkClasses || ""
 
-	a(href="#!" class=`${lotteryName}-btn ${lotteryName}-btn--${btnClassMod}`)&attributes(attributes)
-		span= btnText
-	if link
-		a(href="#!" class=`${lotteryName}-link` @click="$modal.show('modal-rules')")
-			span(class=`${lotteryName}-link__text`) Правила
+  a(href="javascript:;" class=`${lotteryName}-btn ${lotteryName}-btn--${btnClassMod} ${btnClass} `)&attributes(
+    attributes)
+    span= btnText
+  if link
+    a(href="javascript:;" class=`${lotteryName}-link ${linkClasses}` @click="$modal.show('modal-rules')")
+      span(class=`${lotteryName}-link-text`) Правила
