@@ -7,8 +7,12 @@
   // Others Styles ------------------------------------------------------------------------------------------------------
   &-modal {
     position: relative;
+    @include size(em(800, $fz_base), em(380, $fz_base));
+    padding: em(70 0, $fz_base);
+    border: 2px solid $white_color;
     font-size: 16px;
-    color: #fff;
+    text-align: center;
+    color: $white_color;
 
     //media
     @include mediaMixin(max, 1000) {

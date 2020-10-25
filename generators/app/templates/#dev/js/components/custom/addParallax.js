@@ -1,5 +1,6 @@
 // Parallax
 
+
 function simpleParallax(intensity, element) {
   window.addEventListener('scroll', function() {
     let scrolled = window.pageYOffset;

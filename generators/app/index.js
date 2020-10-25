@@ -99,7 +99,7 @@ module.exports = class extends Generator {
 
   end() {
     this.log(
-      yosay(`Good Luck with ${this.answers.appname}! \n Have a nice day!`)
+      yosay(`Good Luck with ${this.answers.appname}! \n See you space cowboy!`)
     );
   }
 };

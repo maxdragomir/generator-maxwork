@@ -2,29 +2,30 @@
 //- ====================================================================================================================
 
 
-mixin addModal(modalName, customClose, customBg)
+mixin addModal(modalName, customClose, customBg, modalNumber)
+  - modalNumber = + modalNumber || ''
 
-	if modalName
-		modal(name=`${modalName}` @before-open="beforeOpen" @before-close="beforeClose" @opened="opened" @closed="closed")
-			div(class=`${lotteryName}-modal ${lotteryName}-${modalName}`)
+  if modalName
+    modal(name=`${modalName}${modalNumber}` @before-open="beforeOpen" @before-close="beforeClose" @opened="opened" @closed="closed")
+      div(class=`${lotteryName}-modal ${lotteryName}-${modalName}`)&attributes(attributes)
 
-				//- close
-				if customClose
-					button(class=`${lotteryName}-modal__close ${lotteryName}-${modalName}__close` @click=`$modal.hide("${modalName}")`)
-						img(class=`${lotteryName}-modal__close-img ${lotteryName}-${modalName}__close-img` src='img/modal/hello/close.png' alt='image')
-				else
-					button(class=`${lotteryName}-modal__close` @click=`$modal.hide("${modalName}")`)
-						img(class=`${lotteryName}-modal__close-img` src='img/modal/close.png' alt='image')
-				//- close
-
-
-				//- bg
-				if customBg
-					div(class=`${lotteryName}-modal__bg ${lotteryName}-${modal}__bg`)
-				//- bg
+        //- close
+        if customClose
+          button(class=`${lotteryName}-modal__close ${lotteryName}-${modalName}__close` @click=`$modal.hide("${modalName}")`)
+            img(class=`${lotteryName}-modal__close-img ${lotteryName}-${modalName}__close-img` src='img/modal/hello/close.png' alt='image')
+        else
+          button(class=`${lotteryName}-modal__close` @click=`$modal.hide("${modalName}${modalNumber}")`)
+            img(class=`${lotteryName}-modal__close-img` src='img/modal/close.png' alt='image')
+        //- close
 
 
-				//- body
-				div(class=`${lotteryName}-modal__body ${lotteryName}-${modalName}__body`)
-					block
-				//- body
+        //- bg
+        if customBg
+          div(class=`${lotteryName}-modal__bg ${lotteryName}-${modal}__bg`)
+        //- bg
+
+
+        //- body
+        div(class=`${lotteryName}-modal__body ${lotteryName}-${modalName}__body`)
+          block
+        //- body

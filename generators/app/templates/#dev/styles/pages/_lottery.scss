@@ -33,6 +33,37 @@
 
   &-title {}
   &-btn {}
+  &-link {
+    $fz: 20;
+
+    display: block;
+    font-weight: 500;
+    margin: em(60, $fz) auto 0;
+    font-size: em($fz, $fz_base);
+    color: $white_color;
+    text-transform: uppercase;
+  }
+  &-link-text {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      @include size(100%, 2px);
+      background: #fff;
+      transform: scale(1);
+      transition: all .5s ease;
+    }
+
+    &:hover {
+      &::after {
+        transform: scaleX(0);
+        transition: all .5s ease;
+      }
+    }
+  }
   // Common Styles------------------------------------------------------------------------------------------------------
 
 

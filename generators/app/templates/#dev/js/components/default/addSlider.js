@@ -1,13 +1,7 @@
 // Slider
 
-// let sliderEffect;
-// if(is_explorer) {
-//   sliderEffect = 'fade'
-// } else {
-//   sliderEffect = 'cube'
-// }
 
-let swiperSlider = new Swiper(`.${lotteryName}-slider`, {
+let swiperSlider = new Swiper(`.${lotteryName}-js-slider`, {
 
   direction: 'horizontal',
   loop: false,
@@ -23,11 +17,11 @@ let swiperSlider = new Swiper(`.${lotteryName}-slider`, {
   autoplay: {
     delay: 3000,
   },
-  effect: 'fade',
-  // pagination: {
-  //   el: `.${lotteryName}-slider__pagination`,
-  //   clickable: false,
-  // },
+  effect: 'slide',
+  pagination: {
+    el: `.${lotteryName}-slider__pagination`,
+    clickable: true,
+  },
   navigation: {
     nextEl: `.${lotteryName}-slider__button--next`,
     prevEl: `.${lotteryName}-slider__button--prev`,

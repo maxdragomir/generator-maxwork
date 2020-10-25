@@ -1,12 +1,13 @@
 //- Mixin element picture
 //- ====================================================================================================================
 
+  
 mixin addPicture(classes, src, aosOnImg)
-	- classes = classes || `${lotteryName}-decor__el`
+  - classes = classes || `${lotteryName}-decor__el`
 
-	if aosOnImg
-		picture(class=`${classes}`)
-			img(src=`${src}` alt='image')&attributes(attributes)
-	else
-		picture(class=`${classes}`)&attributes(attributes)
-			img(src=`${src}` alt='image')
+  if aosOnImg
+    picture(class=`${classes}`)
+      img(src=`${src}` alt='image')&attributes(attributes)
+  else
+    picture(class=`${classes}`)&attributes(attributes)
+      img(src=`${src}` alt='image')

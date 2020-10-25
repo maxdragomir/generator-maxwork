@@ -65,6 +65,15 @@
     transition: all 0.5s ease;
 
     //media
+    @include mediaMixin(max, 1680) {
+      font-size: .75vw;
+    }
+    @include mediaMixin(max, 1366) {
+      font-size: .65vw;
+    }
+    @include mediaMixin(max, 1300) {
+      font-size: .8vw;
+    }
     @include mediaMixin(max, 1000) {
       font-size: 1.8vw;
       width: em(70, $fz);
@@ -373,21 +382,6 @@
         transition: opacity .5s ease;
       }
     }
-
-    &--disabled {
-      pointer-events: none;
-      cursor: default;
-      background: hsl(267, 6%, 65%) !important;
-      span {
-        color: $white_color !important;
-        &::after {
-          display: none;
-        }
-      }
-      &::before {
-        background: linear-gradient(left, hsl(213, 6%, 65%) 0%, hsl(212, 13%, 81%) 100%) !important;
-      }
-    }
   }
 
 
@@ -490,7 +484,6 @@
   overflow: hidden;
 }
 
-<%_ if (account) { -%>
 // Account styles
 .#{$lottery_name}-#{$page_account} {
 
@@ -519,6 +512,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     min-height: em(245, $fz);
+    padding: em(20 195, $fz);
     overflow: hidden;
 
     &::after {
@@ -536,4 +530,3 @@
     }
   }
 }
-<%_ } -%>

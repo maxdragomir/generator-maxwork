@@ -1,4 +1,6 @@
 // Browsers and devices
+
+
 let is_opera = !!window.opera || navigator.userAgent.indexOf(" OPR/") >= 0,
   is_Edge = navigator.userAgent.indexOf("Edge") > -1,
   is_chrome = !!window.chrome && !is_opera && !is_Edge,

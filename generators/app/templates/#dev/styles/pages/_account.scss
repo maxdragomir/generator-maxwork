@@ -5,23 +5,9 @@
 .#{$lottery_name}-#{$page_account} {
   background: transparent;
 
-  &__wrapper {
-
-    //media
-    @include mediaMixin(max, 1780) {
-      font-size: .85vw;
-    }
-    @include mediaMixin(max, 1599) {
-      font-size: 16px;
-    }
-    @include mediaMixin(max, 1450) {
-      font-size: 14px;
-    }
-    //media
-
-  }
+  &__wrapper {}
   &__body {
-    padding: em(20 195, $fz);
+    padding: em(20 0, $fz);
 
     &::after {
       background: $grey_color;
