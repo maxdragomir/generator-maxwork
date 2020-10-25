@@ -29,8 +29,8 @@ if(additionBlock) {
   });
 
   document.addEventListener('keydown', (e) => {
-    const keyCode = e.code;
-    let projectName = location.href.split('/')[3];
+    const keyCode = e.code,
+          projectPage = location.href.split('/')[4].split('?')[0];
 
 
     // go to lottery
@@ -67,11 +67,17 @@ if(additionBlock) {
     <%_ } -%>
 
 
-    // active RTL on page
-    if (e.shiftKey && keyCode === 'Digit4') {
+    // active RTL state
+    if (e.ctrlKey && keyCode === 'Digit1') {
       location.href = `?rtl`;
     }
 
+    // active logged state
+    if(projectPage === 'index.php') {
+      if (e.ctrlKey && keyCode === 'Digit2') {
+        location.href = `?logged`;
+      }
+    }
 
     // fix Sidebar
     if (keyCode === 'Backquote' && e.shiftKey) {
