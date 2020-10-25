@@ -2,15 +2,14 @@
 //- ====================================================================================================================
 
 
-mixin addMainBtn(btnText, btnClassMod, btnClass, link, linkClasses)
+mixin addMainBtn(btnText, btnClassMod, btnClass, link)
   - btnText = btnText || "Сделать Ставку"
   - btnClassMod = btnClassMod || "custom"
   - btnClass = btnClass || ""
-  - linkClasses = linkClasses || ""
 
-  a(href='javascript:;' type='button' class=`${lotteryName}-btn ${lotteryName}-btn--${btnClassMod} ${btnClass} `)&attributes(
+  a(href='javascript:;' class=`${lotteryName}-btn ${lotteryName}-btn--${btnClassMod} ${btnClass} `)&attributes(
     attributes)
     span= btnText
   if link
-    a(href='javascript:;' class=`${lotteryName}-link ${linkClasses}` @click="$modal.show('modal-rules')")
+    a(href='javascript:;' class=`${lotteryName}-link` @click="$modal.show('modal-rules')")
       span(class=`${lotteryName}-link-text`) Правила

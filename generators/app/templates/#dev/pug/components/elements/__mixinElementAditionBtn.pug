@@ -7,7 +7,7 @@ mixin addBtnModal(nameOpenModal)
   - lastLetter = parseFloat(nameOpenModal.charAt(nameOpenModal.length - 1));
 
   if nameOpenModal
-    button(class=`${lotteryName}-addition__btn` title=`${nameOpenModal}` type='button' @click=`$modal.show('modal-${nameOpenModal}')`)&attributes(
+    button(class=`${lotteryName}-addition__btn` title=`${nameOpenModal}` @click=`$modal.show('modal-${nameOpenModal}')`)&attributes(
       attributes)
 
       if lastLetter

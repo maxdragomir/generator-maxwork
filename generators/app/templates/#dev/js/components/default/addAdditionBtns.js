@@ -32,31 +32,48 @@ if(additionBlock) {
     const keyCode = e.code;
     let projectName = location.href.split('/')[3];
 
-    <%_ if (account) { -%>
-    if (keyCode === 'Digit3' && e.shiftKey) {
-      if(location.hostname === 'localhost') {
-        location.pathname = `account.html`;
-      } else {
-        location.pathname = `${projectName}/account.php`;
-      }
-    }
-    <%_ } -%>
-    <%_ if (raffle) { -%>
-    if (keyCode === 'Digit2' && e.shiftKey) {
-      if(location.hostname === 'localhost') {
-        location.pathname = `raffle.html`;
-      } else {
-        location.pathname = `${projectName}/raffle.php`;
-      }
-    }
-    <%_ } -%>
+
+    // go to lottery
     if (keyCode === 'Digit1' && e.shiftKey) {
       if(location.hostname === 'localhost') {
-        location.pathname = `lottery.html`;
+        location.href = `lottery.html`;
       } else {
-        location.pathname = `${projectName}/index.php`;
+        location.href = `index.php`;
       }
     }
+
+
+    // go to raffle
+    <%_ if (raffle) { -%>
+      if (keyCode === 'Digit2' && e.shiftKey) {
+        if(location.hostname === 'localhost') {
+          location.href = `raffle.html`;
+        } else {
+          location.href = `raffle.php`;
+        }
+      }
+    <%_ } -%>
+
+
+    // go to account
+    <%_ if (account) { -%>
+      if (keyCode === 'Digit3' && e.shiftKey) {
+        if(location.hostname === 'localhost') {
+          location.href = `account.html`;
+        } else {
+          location.href = `account.php`;
+        }
+      }
+    <%_ } -%>
+
+
+    // active RTL on page
+    if (e.shiftKey && keyCode === 'Digit4') {
+      location.href = `?rtl`;
+    }
+
+
+    // fix Sidebar
     if (keyCode === 'Backquote' && e.shiftKey) {
       additionBlock.classList.toggle(`${lotteryName}-addition--is-fixed`);
       svgCheck();
