@@ -35,12 +35,12 @@ module.exports = class extends Generator {
         message: "Add rtl?",
         default: true,
       },
-      {
-        type: "confirm",
-        name: "fonts",
-        message: "Add fonts folder?",
-        default: true,
-      },
+      // {
+      //   type: "confirm",
+      //   name: "fonts",
+      //   message: "Add fonts folder?",
+      //   default: true,
+      // },
     ]);
   }
 
@@ -75,12 +75,12 @@ module.exports = class extends Generator {
       this.templatePath('_index.php'),
       this.destinationPath('index.php'),
     );
-    if(this.answers.fonts) {
-      this.fs.copy(
-        this.templatePath('fonts'),
-        this.destinationPath('fonts'),
-      );
-    }
+    // if(this.answers.fonts) {
+    this.fs.copy(
+      this.templatePath('fonts'),
+      this.destinationPath('fonts'),
+    );
+    // }
     this.fs.copy(
       this.templatePath('img'),
       this.destinationPath('img'),
