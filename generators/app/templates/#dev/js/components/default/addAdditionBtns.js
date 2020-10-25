@@ -29,8 +29,7 @@ if(additionBlock) {
   });
 
   document.addEventListener('keydown', (e) => {
-    const keyCode = e.code,
-          projectPage = location.href.split('/')[4].split('?')[0];
+    const keyCode = e.code;
 
 
     // go to lottery
@@ -73,9 +72,12 @@ if(additionBlock) {
     }
 
     // active logged state
-    if(projectPage === 'index.php') {
-      if (e.ctrlKey && keyCode === 'Digit2') {
-        location.href = `?logged`;
+    if(location.hostname !== 'localhost') {
+      const projectPage = location.href.split('/')[4].split('?')[0];
+      if (projectPage === 'index.php') {
+        if (e.ctrlKey && keyCode === 'Digit2') {
+          location.href = `?logged`;
+        }
       }
     }
 
