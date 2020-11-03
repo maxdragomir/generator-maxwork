@@ -90,9 +90,9 @@ module.exports = class extends Generator {
       this.destinationPath('#dev'),
       {
         project: this.answers.appname,
-        rtl: this.answers.rtl,
         account: this.answers.account,
         raffle: this.answers.raffle,
+        rtl: this.answers.rtl,
       }
     );
   }

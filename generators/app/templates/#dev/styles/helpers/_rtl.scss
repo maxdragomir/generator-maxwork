@@ -5,15 +5,15 @@
 @function opposite-direction($directions) {
   $opposite-directions: ();
   $direction-map: (
-          'top':    'bottom',
-          'bottom': 'top',
-          'right':  'left',
-          'left':   'right',
-          'center': 'center',
-          'ltr':    'rtl',
-          'rtl':    'ltr',
+          'top':         'bottom',
+          'bottom':      'top',
+          'right':       'left',
+          'left':        'right',
+          'center':      'center',
+          'ltr':         'rtl',
+          'rtl':         'ltr',
           'flex-end':    'flex-start',
-          'flex-start':    'flex-end'
+          'flex-start':   'flex-end'
   );
 
   @each $direction in $directions {

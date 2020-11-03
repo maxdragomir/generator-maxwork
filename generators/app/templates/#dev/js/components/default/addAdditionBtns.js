@@ -33,22 +33,24 @@ if(additionBlock) {
 
 
     // go to lottery
-    if (keyCode === 'Digit1' && e.shiftKey) {
-      if(location.hostname === 'localhost') {
-        location.href = `lottery.html`;
+    if (e.shiftKey && keyCode === 'Digit1') {
+
+      if (location.hostname === 'localhost') {
+        location.pathname = `lottery.html`;
       } else {
-        location.href = `index.php`;
+        location.pathname = hashArray[1] + `/index.php`;
       }
+
     }
 
 
     // go to raffle
     <%_ if (raffle) { -%>
-      if (keyCode === 'Digit2' && e.shiftKey) {
+      if (e.shiftKey && keyCode === 'Digit2') {
         if(location.hostname === 'localhost') {
-          location.href = `raffle.html`;
+          location.pathname = `raffle.html`;
         } else {
-          location.href = `raffle.php`;
+          location.pathname = hashArray[1] + `/raffle.php`;
         }
       }
     <%_ } -%>
@@ -56,30 +58,54 @@ if(additionBlock) {
 
     // go to account
     <%_ if (account) { -%>
-      if (keyCode === 'Digit3' && e.shiftKey) {
-        if(location.hostname === 'localhost') {
-          location.href = `account.html`;
+      if (e.shiftKey && keyCode === 'Digit3') {
+
+        if (location.hostname === 'localhost') {
+          location.pathname = `account.html`;
         } else {
-          location.href = `account.php`;
+          location.pathname = hashArray[1] + `/account.php`;
         }
+
       }
     <%_ } -%>
 
 
     // active RTL state
-    if (e.ctrlKey && keyCode === 'Digit1') {
-      location.href = `?rtl`;
+    if (e.altKey && keyCode === 'Digit1') {
+
+      if(location.search === '?rtl') {
+        location.search = '';
+        location.href = location.origin + location.pathname;
+      } else {
+        location.search = `?rtl`;
+      }
+
     }
 
+
     // active logged state
-    if(location.hostname !== 'localhost') {
-      const projectPage = location.href.split('/')[4].split('?')[0];
-      if (projectPage === 'index.php') {
-        if (e.ctrlKey && keyCode === 'Digit2') {
-          location.href = `?logged`;
+    if (e.altKey && keyCode === 'Digit2') {
+      if (pageType === 'index') {
+
+        if(location.search === '?logged') {
+          location.search = ``;
+          location.href = location.origin + location.pathname;
+        } else {
+          location.search = `?logged`;
         }
+
+      } else if (pageType === 'lottery') {
+
+        if(location.search === '?logged') {
+          location.search = ``;
+          location.href = location.origin + location.pathname;
+        } else {
+          location.search = `?logged`;
+        }
+
       }
     }
+
 
     // fix Sidebar
     if (keyCode === 'Backquote' && e.shiftKey) {

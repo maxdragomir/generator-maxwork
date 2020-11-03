@@ -16,7 +16,7 @@
   font-smooth: antialiased;
   overflow: hidden;
   scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
+  text-rendering: optimizeLegibility;
   direction: opposite-direction(ltr);
   box-sizing: border-box;
 
@@ -259,13 +259,7 @@
       }
 
       &--account {
-
-        //media
-        @include mediaMixin(max, 1000) {
-          display: none;
-        }
-        //media
-
+        display: none;
       }
     }
 
@@ -410,10 +404,7 @@
     z-index: 2;
     top: em(20, $fz);
     display: flex;
-
-    @include dir((
-      left: em(20, $fz)
-    ));
+    #{dir(left)}: em(20, $fz);
 
     li {
       color: $white_color;
@@ -432,12 +423,8 @@
       }
       &::before {
         content: "/";
-
-        @include dir((
-          margin-left: em(4, $fz),
-          margin-right: em(8, $fz)
-        ));
-
+        margin-#{dir(left)}: em(4, $fz);
+        margin-#{dir(right)}: em(8, $fz);
       }
     }
 

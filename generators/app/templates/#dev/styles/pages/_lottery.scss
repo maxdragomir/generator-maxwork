@@ -9,7 +9,13 @@
 
   // media
   @include mediaMixin(max, 1920) {
-    font-size: .835vw;
+    font-size: .83334vw;
+  }
+  @include mediaMixin(max, 1200) {
+    font-size: .9vw;
+  }
+  @include mediaMixin(max, 1000) {
+    font-size: 1vw;
   }
   // media
 
