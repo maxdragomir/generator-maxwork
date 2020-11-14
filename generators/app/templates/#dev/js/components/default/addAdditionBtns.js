@@ -18,7 +18,6 @@ if(additionBlock) {
     }
   }, 1000);
 
-
   additionBlock.addEventListener('click', (e) => {
     const target = e.target;
 
@@ -47,6 +46,11 @@ if(additionBlock) {
     // go to raffle
     <%_ if (raffle) { -%>
       if (e.shiftKey && keyCode === 'Digit2') {
+
+        if(location.search === '?logged') {
+          removeParam();
+        }
+
         if(location.hostname === 'localhost') {
           location.pathname = `raffle.html`;
         } else {
@@ -59,6 +63,10 @@ if(additionBlock) {
     // go to account
     <%_ if (account) { -%>
       if (e.shiftKey && keyCode === 'Digit3') {
+
+        if(location.search === '?logged') {
+          removeParam();
+        }
 
         if (location.hostname === 'localhost') {
           location.pathname = `account.html`;
@@ -74,7 +82,6 @@ if(additionBlock) {
     if (e.altKey && keyCode === 'Digit1') {
 
       if(location.search === '?rtl') {
-        location.search = '';
         location.href = location.origin + location.pathname;
       } else {
         location.search = `?rtl`;
@@ -88,7 +95,6 @@ if(additionBlock) {
       if (pageType === 'index') {
 
         if(location.search === '?logged') {
-          location.search = ``;
           location.href = location.origin + location.pathname;
         } else {
           location.search = `?logged`;
@@ -97,7 +103,6 @@ if(additionBlock) {
       } else if (pageType === 'lottery') {
 
         if(location.search === '?logged') {
-          location.search = ``;
           location.href = location.origin + location.pathname;
         } else {
           location.search = `?logged`;
@@ -114,7 +119,15 @@ if(additionBlock) {
     }
   });
 
+}
 
+function removeParam() {
+  let query = window.location.search.substring(1);
+  if(query.length) {
+    if(window.history !== undefined && window.history.pushState !== undefined) {
+      window.history.pushState({}, document.title, window.location.pathname);
+    }
+  }
 }
 
 function svgCheck() {

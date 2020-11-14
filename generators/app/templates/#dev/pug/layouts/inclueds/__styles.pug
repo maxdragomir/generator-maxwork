@@ -1,6 +1,13 @@
 //- Styles
 
+
 link(href="styles/vendors.css", rel="stylesheet")
-link(href="styles/styles.css", rel="stylesheet", id='ltr')
-if rtl
-	link(href="styles/rtl.css", rel="stylesheet", id='rtl')
+
+if pageType === 'account'
+  link(href="styles/account.css", rel="stylesheet", id='ltr')
+  if rtl
+    link(href="styles/account-rtl.css", rel="stylesheet", id='rtl')
+else
+  link(href="styles/styles.css", rel="stylesheet", id='ltr')
+  if rtl
+    link(href="styles/rtl.css", rel="stylesheet", id='rtl')

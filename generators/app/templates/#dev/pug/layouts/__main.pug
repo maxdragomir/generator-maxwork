@@ -7,94 +7,94 @@ include ../components/__allMixins
 //- Variables
 block vars
 -
-	set_bemto_settings({
-		prefix: `${lotteryName}-`,
-		element: '__',
-		modifier: '--'
-	})
+  set_bemto_settings({
+  prefix: `${lotteryName}-`,
+  element: '__',
+  modifier: '--'
+  })
 
 if devMode
 
-	doctype html
-	html(lang='en')
-		head
+  doctype html
+  html(lang='en')
+    head
 
-			include inclueds/__head
+      include inclueds/__head
 
-		body
+    body
 
-			// Styles ----------------------------------------------------------------------------------------------------
-			if styles
-				include inclueds/__styles
-			// Styles ------------------------------------------------------------------------------------------------------
-
-
-
-			// Landing ---------------------------------------------------------------------------------------------------
-			main(class=`${lotteryName} ${lotteryName}-${pageType} ${lotteryName}-wrapper`)
-
-				//- Breadcrumbs
-				if breadcrumbs
-					+addBreadcrumbs(lotteryName)
-				//- Breadcrumbs
-
-
-				//- Content
-				if no2kSize
-					div(class=`${lotteryName}-inner`)
-						block content
-				else
-					block content
-				//- Content
-
-			// Landing -----------------------------------------------------------------------------------------------------
+      // Styles ----------------------------------------------------------------------------------------------------
+      if styles
+        include inclueds/__styles
+      // Styles ------------------------------------------------------------------------------------------------------
 
 
 
-			// Javascript ------------------------------------------------------------------------------------------------
-			if js === 'lottery'
-				include inclueds/__scripts-lottery
-			else if js === 'raffle'
-				include inclueds/__scripts-raffle
-			else if js === 'account'
-				include inclueds/__scripts-account
-			// Javascript --------------------------------------------------------------------------------------------------
+      // Landing ---------------------------------------------------------------------------------------------------
+      main(class=`${lotteryName} ${lotteryName}-${pageType} ${lotteryName}-wrapper` :class=`{ '${lotteryName}--is-mobile': mobile }`)
+
+        //- Breadcrumbs
+        if breadcrumbs
+          +addBreadcrumbs(lotteryName)
+        //- Breadcrumbs
+
+
+        //- Content
+        if no2kSize
+          div(class=`${lotteryName}-inner`)
+            block content
+        else
+          block content
+        //- Content
+
+      // Landing -----------------------------------------------------------------------------------------------------
+
+
+
+      // Javascript ------------------------------------------------------------------------------------------------
+      if js === 'lottery'
+        include inclueds/__scripts-lottery
+      else if js === 'raffle'
+        include inclueds/__scripts-raffle
+      else if js === 'account'
+        include inclueds/__scripts-account
+      // Javascript --------------------------------------------------------------------------------------------------
 
 else
 
-	// Styles --------------------------------------------------------------------------------------------------------
-	if styles
-		include inclueds/__styles
-	// Styles ------------------------------------------------------------------------------------------------------
+  // Styles --------------------------------------------------------------------------------------------------------
+  if styles
+    include inclueds/__styles
+  // Styles ------------------------------------------------------------------------------------------------------
 
 
 
-	// Landing ---------------------------------------------------------------------------------------------------
-	main(class=`${lotteryName} ${lotteryName}-${pageType} ${lotteryName}-wrapper`)
+  // Landing ---------------------------------------------------------------------------------------------------
+  main(class=`${lotteryName} ${lotteryName}-${pageType} ${lotteryName}-wrapper` :class=`{ '${lotteryName}--is-mobile': mobile }`)
 
-		//- Breadcrumbs
-		if breadcrumbs
-			+addBreadcrumbs(lotteryName)
-		//- Breadcrumbs
-
-
-		//- Content
-		if no2kSize
-			div(class=`${lotteryName}-inner`)
-				block content
-		else
-			block content
-		//- Content
-
-	// Landing -----------------------------------------------------------------------------------------------------
+    //- Breadcrumbs
+    if breadcrumbs
+      +addBreadcrumbs(lotteryName)
+    //- Breadcrumbs
 
 
+    //- Content
+    if no2kSize
+      div(class=`${lotteryName}-inner`)
+        block content
+    else
+      block content
+    //- Content
 
-	// Javascript ------------------------------------------------------------------------------------------------
-	if js === 'lottery'
-		include inclueds/__scripts-lottery
-	else if js === 'raffle'
-		include inclueds/__scripts-raffle
-	else if js === 'account'
-		include inclueds/__scripts-account
-	// Javascript --------------------------------------------------------------------------------------------------
+  // Landing -----------------------------------------------------------------------------------------------------
+
+
+
+  // Javascript ------------------------------------------------------------------------------------------------
+  if js === 'lottery'
+    include inclueds/__scripts-lottery
+  else if js === 'raffle'
+    include inclueds/__scripts-raffle
+  else if js === 'account'
+    include inclueds/__scripts-account
+  // Javascript --------------------------------------------------------------------------------------------------

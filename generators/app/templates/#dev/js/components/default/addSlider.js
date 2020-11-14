@@ -3,8 +3,9 @@
 
 let swiperSlider = new Swiper(`.${lotteryName}-js-slider`, {
 
+  effect: 'slide',
   direction: 'horizontal',
-  loop: false,
+  loop: true,
   slidesPerView: 1,
   grabCursor: true,
   simulateTouch: true,
@@ -17,7 +18,6 @@ let swiperSlider = new Swiper(`.${lotteryName}-js-slider`, {
   autoplay: {
     delay: 3000,
   },
-  effect: 'slide',
   pagination: {
     el: `.${lotteryName}-slider__pagination`,
     clickable: true,

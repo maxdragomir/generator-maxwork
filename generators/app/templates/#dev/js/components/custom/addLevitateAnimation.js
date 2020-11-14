@@ -7,7 +7,7 @@ function tweenProperty(target, prop, min, max) {
   var randomDelay = gsap.utils.random(0.2, 1, 0.5);
 
   gsap.to(target, {
-    [prop]: gsap.utils.random(min, max),
+    [prop]: gsap.utils.random(min, max) + 'em',
     duration: randomDur,
     delay: randomDelay,
     ease: 'none',

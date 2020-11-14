@@ -65,6 +65,7 @@
     }
 
   }
+
   &-addition {
     position: fixed;
     left: 0;
@@ -102,6 +103,9 @@
       justify-content: flex-start;
 
       a[href='account.php'] {
+        display: none;
+      }
+      button[title='tickets'] {
         display: none;
       }
     }
@@ -358,8 +362,8 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 100%;
-      height: 100%;
+      width: 102%;
+      height: 110%;
       margin: 0 auto;
       background: hsl(0, 0%, 93%);
       z-index: 0;
@@ -368,6 +372,7 @@
       transform: translate3d(-50%, -50%, 0);
       transition: opacity 0.5s ease
     }
+
 
     @include on-hover {
       transition: transform .5s ease, box-shadow .5s ease;
@@ -456,6 +461,7 @@
 
 
   }
+
   .v--modal {
     top: auto !important;
     left: auto !important;
@@ -488,51 +494,4 @@
 }
 .noScroll {
   overflow: hidden;
-}
-
-// Account styles
-.#{$lottery_name}-#{$page_account} {
-
-  &-logged {
-    margin-top: em(20, $fz);
-  }
-  &__wrapper {
-    position: relative;
-
-    //media
-    @include mediaMixin(max, 1780) {
-      font-size: .85vw;
-    }
-    @include mediaMixin(max, 1599) {
-      font-size: 16px;
-    }
-    @include mediaMixin(max, 1450) {
-      font-size: 14px;
-    }
-    //media
-
-  }
-  &__body {
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    min-height: em(245, $fz);
-    padding: em(20 195, $fz);
-    overflow: hidden;
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url(../img/account/bg.jpg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      z-index: -1;
-    }
-  }
 }

@@ -1,4 +1,4 @@
-// STYLES
+// ACCOUNT STYLES
 // =====================================================================================================================
 
 
@@ -19,13 +19,4 @@ $is_rtl: 0;
 @import "components/_common";
 
 // Pages
-<%_ if (account) { -%>
 @import "pages/_account";
-<%_ } -%>
-@import "pages/_lottery";
-<%_ if (raffle) { -%>
-@import "pages/_raffle";
-<%_ } -%>
-
-// Components
-@import "components/_modals";

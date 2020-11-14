@@ -13,7 +13,8 @@ let app = new Vue({
     points: [300, 500, 1000, 2000, 3000, 4000, 5000],
     chosenName: 0,
     isLogged: false,
-    btnText: 'принять участие'
+    btnText: 'принять участие',
+    mobile: is_mob
   },
   mounted() {
     if (hash === "logged") {

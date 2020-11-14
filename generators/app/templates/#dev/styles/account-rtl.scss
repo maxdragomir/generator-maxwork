@@ -1,9 +1,9 @@
-// STYLES
+// ACCOUNT STYLES
 // =====================================================================================================================
 
 
 @import "vars.scss";
-$is_rtl: 0;
+$is_rtl: 1;
 
 // Helpers
 @import "helpers/_media-variables";
@@ -19,13 +19,4 @@ $is_rtl: 0;
 @import "components/_common";
 
 // Pages
-<%_ if (account) { -%>
 @import "pages/_account";
-<%_ } -%>
-@import "pages/_lottery";
-<%_ if (raffle) { -%>
-@import "pages/_raffle";
-<%_ } -%>
-
-// Components
-@import "components/_modals";
