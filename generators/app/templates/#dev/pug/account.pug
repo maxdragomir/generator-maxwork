@@ -18,16 +18,16 @@ block content
 
 
   // Account
-  div(class=`${lotteryName}-account__wrapper`)
-    div(class=`${lotteryName}-account__body`)
+  +b.account__wrapper
+    +e.body
       +addTestText(`${lotteryName}-test-text`)
   // Account
 
 
 
   // Account Tickets
-  div(class=`${lotteryName}-account__wrapper ${lotteryName}-account-logged`)
-    div(class=`${lotteryName}-account__body`)
+  +b(class=`${lotteryName}-account__wrapper--logged`)
+    +e.body
       +addTestText(`${lotteryName}-test-text`)
   // Account Tickets
 
