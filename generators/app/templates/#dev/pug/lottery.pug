@@ -19,7 +19,7 @@ block content
 
 
   // Section main
-  +b.SECTION.section--main
+  +b.SECTION.section--main(id=`${lotteryName}-show-main`)
     +addTestText
   // Section main
 
@@ -34,28 +34,28 @@ block content
 
   // Enter
   -modal = 'modal-enter'
-  +addModal(modal, customClose = false, customBg = false)
+  +addModal(modal, customClose = false, customBg = false, modalNumber = false)
   // Enter
 
 
 
   // Rules
   -modal = 'modal-rules'
-  +addModal(modal, customClose = false, customBg = false)
+  +addModal(modal, customClose = false, customBg = false, modalNumber = false)
   // Rules
 
 
 
   // Tickets
   -modal = 'modal-tickets'
-  +addModal(modal, customClose = false, customBg = false)
+  +addModal(modal, customClose = false, customBg = false, modalNumber = false)
   // Tickets
 
 
 
   // Hello
   -modal = 'modal-hello'
-  +addModal(modal, customClose = true, customBg = false)
+  +addModal(modal, customClose = false, customBg = false, modalNumber = false)
   // Hello
 
 

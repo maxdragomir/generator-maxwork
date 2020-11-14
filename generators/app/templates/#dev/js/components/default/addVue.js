@@ -12,11 +12,21 @@ let app = new Vue({
   data: {
     points: [300, 500, 1000, 2000, 3000, 4000, 5000],
     chosenName: 0,
-    isLogged: false
+    isLogged: false,
+    btnText: 'принять участие'
+  },
+  mounted() {
+    if (hash === "logged") {
+      this.isLogged = true;
+      this.btnText = 'сделать ставку';
+    }
+    if (hash !== '' && hash !== 'logged' && hash !== 'rtl') {
+      this.$modal.show('modal-' + hash);
+    }
   },
   methods: {
     beforeOpen: function beforeOpen() {
-      html.classList.add('noScroll');
+      body.classList.add('noScroll');
     },
     opened: function opened() {
       let chosenNumber = this.getRandom(0, this.points.length - 1);
@@ -24,19 +34,12 @@ let app = new Vue({
     },
     closed: function closed() {},
     beforeClose: function beforeClose() {
-      html.classList.remove('noScroll');
+      body.classList.remove('noScroll');
     },
 
-
-    openModal: function() {
-      if (hash === "logged") {
-        this.isLogged = true;
-      }
-
-      if(this.isLogged) {
-
-      } else {
-
+    mainBtn: function() {
+      if(!this.isLogged) {
+        this.$modal.show('modal-enter');
       }
     },
     getRandom: function(min, max) {
@@ -46,10 +49,6 @@ let app = new Vue({
     },
   }
 });
-
-if (hash !== '' && hash !== 'logged' && hash !== 'rtl') {
-  app.$modal.show('modal-' + hash);
-}
 
 const myApp = app.$el;
 
