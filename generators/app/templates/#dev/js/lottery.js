@@ -10,7 +10,7 @@
 //@prepros-prepend helpers/start.js
 
 //@prepros-append components/default/addVue.js
-//@prepros-append components/default/addAdditionBtns.js
+//@prepros-append components/default/addDemoPanel.js
 //@prepros-append components/default/addAOS.js
 
 //@prepros-append customLottery.js

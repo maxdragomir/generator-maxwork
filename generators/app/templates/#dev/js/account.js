@@ -10,7 +10,7 @@
 
 //@prepros-prepend helpers/start.js
 
-//@prepros-append components/default/addAdditionBtns.js
+//@prepros-append components/default/addDemoPanel.js
 //@prepros-append customAccount.js
 
 //@prepros-append helpers/end.js
