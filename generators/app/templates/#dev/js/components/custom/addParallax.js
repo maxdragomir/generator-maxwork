@@ -5,7 +5,7 @@ function simpleParallax(intensity, element) {
   window.addEventListener('scroll', function() {
     let scrolled = window.pageYOffset;
     let calc = -(scrolled * intensity);
-    element.style.transform = `translateY(${calc}px)`;
+    element.style.transform = `translate3d(0,${calc}px,0)`;
   });
 }
 
