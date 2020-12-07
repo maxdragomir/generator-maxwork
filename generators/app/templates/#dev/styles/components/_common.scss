@@ -66,237 +66,41 @@
 
   }
 
-  &-addition {
+  &-js-addition-title {
     position: fixed;
-    left: 0;
-    bottom: 0;
-    top: 0;
-    cursor: pointer;
     display: flex;
     justify-content: center;
-    flex-flow: column;
+    align-items: center;
+    min-height: em(30, $fz);
+    background: $black_color;
+    border: 2px solid $white_color;
+    font-size: em(16, $fz_base);
+    text-transform: uppercase;
+    color: $main_color;
     z-index: 999;
-    width: em(60, $fz);
-    background: hsla(0, 0%, 0%, 0.2);
-    padding: em(0 10 0 0, $fz);
-    direction: ltr;
-    will-change: transform;
-    transform: translate3d(em(-50, $fz), 0, 0);
-    transition: all 0.5s ease;
+    font-weight: 900;
+    padding-right: em(10, $fz);
+    padding-left: em(10, $fz);
+    pointer-events: none;
 
     //media
+    @include mediaMixin(max, 1920) {
+      font-size: .9vw;
+    }
     @include mediaMixin(max, 1680) {
-      font-size: .75vw;
+      font-size: .85vw;
     }
     @include mediaMixin(max, 1366) {
-      font-size: .65vw;
+      font-size: .75vw;
     }
     @include mediaMixin(max, 1300) {
       font-size: .8vw;
     }
     @include mediaMixin(max, 1000) {
-      font-size: 1.8vw;
-      width: em(70, $fz);
-      padding: 0;
-      overflow: auto;
-      flex-flow: row wrap;
-      justify-content: flex-start;
-
-      a[href='account.php'] {
-        display: none;
-      }
-      button[title='tickets'] {
-        display: none;
-      }
-    }
-    @include mediaMixin(max, 550) {
-      font-size: 3vw;
+      display: none;
     }
     //media
-
-    &--is-fixed {
-      transform: translate3d(0, 0, 0);
-      background: hsla(0, 0%, 0%, 0.7);
-
-      //media
-      @include mediaMixin(max, 1000) {
-        width: em(100, $fz);
-      }
-      //media
-
-      button, a {
-        transform: translate3d(0, 0, 0);
-      }
-
-    }
-    &--is-show {
-      transform: translate3d(0, 0, 0);
-
-      button, a {
-        transform: translate3d(0, 0, 0);
-      }
-    }
-
-    &__svg {
-      position: absolute;
-      bottom: em(25, $fz);
-      left: 50%;
-      transform: translateX(-50%);
-      pointer-events: none;
-
-      //media
-      @include mediaMixin(max, 1000) {
-        display: none;
-      }
-      //media
-
-      &-icon {
-        width: em(40, $fz);
-        transition: all .5s ease;
-      }
-      &-close {
-        display: none;
-        filter: drop-shadow(2px 2px 0 $black_color);
-        path {
-          fill: $main_color;
-        }
-      }
-      &-open {
-        filter: drop-shadow(2px 2px 0 $main_color);
-        path {
-          fill: $black_color;
-        }
-      }
-
-    }
-    &__btn {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-width: em(30, $fz);
-      min-height: em(30, $fz);
-      text-align: center;
-      cursor: pointer;
-      font-weight: 900;
-      background: $white_color;
-      color: $black_color;
-      border: 2px solid $white_color;
-      outline: none;
-      will-change: transform;
-      text-transform: uppercase;
-      font-size: em(20, $fz_base);
-      margin-bottom: em(5, $fz);
-      box-shadow: em(0 10 20, $fz) hsla(0, 0%, 0%, 0.2);
-      transform: translate3d(em(-47, $fz), 0, 0);
-      transition: all 0.3s ease;
-
-      //media
-      @include mediaMixin(max, 1000) {
-        width: em(50, $fz);
-        min-height: em(60, $fz);
-      }
-      //media
-
-      span {
-        display: block;
-      }
-      &:last-child {
-        margin-bottom: 0;
-      }
-      &:active {
-        transform: scale(0.9);
-        transition: all 0.1s ease;
-      }
-
-      &::after{
-        content: attr(title);
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        background: $black_color;
-        color: inherit;
-        font-size: inherit;
-        z-index: 1;
-        padding-right: em(10, $fz);
-        padding-left: em(10, $fz);
-        opacity: 0;
-        transform: translate3d(-50%, 0, 0);
-        transition: all .5s ease .5s;
-
-        //media
-        @include mediaMixin(max, 1000) {
-          display: none;
-        }
-        //media
-      }
-
-      //hover
-      @include on-hover {
-        background: $black_color;
-        color: $main_color;
-        transition: all 0.3s ease;
-
-        &::after{
-          opacity: 1;
-          transform: translate3d(0, 0, 0);
-          transition: opacity .1s ease, transform .3s ease;
-        }
-      }
-      //hover
-
-
-      &--spacer {
-        background: transparent;
-        border: 0;
-        min-height: em(30, $fz);
-        margin: 0;
-        pointer-events: none;
-        font-size: inherit;
-
-        &::after {
-          display: none;
-        }
-
-        span {
-          $fz: 10;
-
-          position: absolute;
-          top: 50%;
-          left: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 100%;
-          height: 100%;
-          color: $white_color;
-          font-size: em($fz, $fz_base);;
-          z-index: 1;
-          transform: translate3d(0, -60%, 0);
-        }
-
-      }
-
-      &--account {
-        display: none;
-      }
-    }
-
-    //hover
-    @include on-hover {
-      transform: translate3d(0, 0, 0);
-      button, a {
-        transform: translate3d(0, 0, 0);
-      }
-    }
-    //hover
-
   }
-
 
   &-section {
     position: relative;
@@ -402,7 +206,6 @@
     }
   }
 
-
   &-test-page {
     display: flex;
     flex-flow: column;
@@ -417,6 +220,587 @@
     font-size: 3vw;
     text-transform: uppercase;
     color: $main_color;
+  }
+  &-btn-test {
+    position: absolute;
+    top: 40%;
+    right: em(-125, $fz);
+
+    //media
+    @include mediaMixin(max, 1000) {
+      top: em(adaptive1000(-30), $fz);
+      right: em(adaptive1000(10), $fz);
+    }
+    @include mediaMixin(max, 560) {
+      top: em(adaptive560(-64), $fz);
+      right: em(adaptive560(2), $fz);
+    }
+    //media
+
+
+    &__tickets {
+      $fz: 40;
+
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: em(0, $fz);
+      @include size(em(50, $fz));
+      border-radius: 50%;
+      color: $black_color;
+      background: $white_color;
+      box-shadow: 0 0 0 3px $black_color;
+      border: 0;
+      font-size: em($fz, $fz_base);
+      font-weight: 300;
+      transform: translate3d(0, -50%, 0) scale(1);
+      transition: all .5s ease;
+
+      //media
+      @include mediaMixin(max, 1000) {
+        $fz: adaptive1000(30);
+
+        @include size(em(adaptive1000(30), $fz));
+        font-size: em($fz, $fz_base);
+      }
+      @include mediaMixin(max, 560) {
+        $fz: adaptive560(30);
+
+        @include size(em(adaptive560(30), $fz));
+        font-size: em($fz, $fz_base);
+      }
+      //media
+
+
+      @include on-hover {
+        color: $black_color;
+        background: $white_color;
+        box-shadow: 0 0 5px 1px $black_color, em(0 0 20 3, $fz) hsla(0, 0%, 100%, .5);
+        transform: translate3d(0, -50%, 0) scale(1.1);
+        transition: all .5s ease;
+      }
+
+      &:active {
+        box-shadow: 0 0 2.5px 1px $black_color, 0 0 10px 3px $white_color;
+        transform: translate3d(0, -50%, 0) scale(.95);
+        transition: all .2s ease;
+      }
+
+    }
+  }
+  &-demo-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    display: none;
+  }
+  &-demo {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: em(400, $fz);
+    z-index: 999;
+    direction: ltr;
+    transform: translate3d(99%,0,0);
+    transition: transform .5s ease;
+    $demo: &;
+
+    //media
+    @include mediaMixin(max, 1000) {
+      $fz: 25;
+
+      font-size: em($fz, $fz_base);
+    }
+    @include mediaMixin(max, 560) {
+      $fz: 50;
+
+      font-size: em($fz, $fz_base);
+      width: em(adaptive560(200), $fz);
+    }
+    //media
+
+
+    @include on-hover {
+      opacity: 1;
+      transform: translate3d(0%,0,0);
+      transition: transform .5s ease;
+
+      #{$demo} {
+        &__switch-button {
+          opacity: 1;
+          transition: all .5s ease;
+        }
+        &__switch-button-svg {
+          transform: translate3d(-50%,-50%,0) rotate(180deg);
+          transition: all 1s ease;
+        }
+        &__content {
+          transform: translate3d(0%,0,0);
+          transition: all .5s ease;
+        }
+      }
+
+    }
+
+    &--is-show {
+      opacity: 1;
+      transform: translate3d(0%,0,0);
+      transition: transform .5s ease;
+
+      #{$demo} {
+        &__switch-button {
+          opacity: 1;
+          transition: all .3s ease;
+        }
+        &__switch-button-svg {
+          transform: translate3d(-50%,-50%,0) rotate(0);
+          transition: all 1s ease;
+        }
+
+        &__content {
+          transform: translate3d(0%,0,0);
+          transition: all .5s ease;
+        }
+      }
+    }
+    &--is-fixed {
+      opacity: 1;
+      transform: translate3d(0%,0,0);
+      transition: transform .5s ease;
+
+      #{$demo} {
+        &__switch-button {
+          opacity: 1;
+          transition: all .3s ease;
+        }
+        &__switch-button-svg {
+          transform: translate3d(-50%,-50%,0) rotate(180deg);
+          transition: all 1s ease;
+        }
+        &__content {
+          transform: translate3d(0%,0,0);
+          transition: all .5s ease;
+        }
+      }
+    }
+
+    &__switcher {
+      position: absolute;
+      bottom: em(70, $fz);
+      left: em(-70, $fz);
+      width: em(70, $fz);
+      height: em(70, $fz);
+      display: block;
+      padding: em(8, $fz);
+
+      //media
+      @include mediaMixin(max, 560) {
+        bottom: em(adaptive560(40), $fz);
+      }
+      //media
+
+    }
+    &__switch-button {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #e6e7ed;
+      box-shadow: inset em(4 4 8, $fz) hsl(230, 4%, 73%),inset em(-5 -5 10, $fz) hsl(0, 0%, 100%);
+      border: 1px solid hsl(217, 30%, 86%);
+      border-radius: em(10, $fz);
+      will-change: transform;
+      opacity: .2;
+      transform: translate3d(0,0,0) scale(1);
+      transition: all .5s ease;
+
+      //media
+      @include mediaMixin(max, 1000) {
+        opacity: .5;
+      }
+      //media
+
+
+      &--is-active {
+        #{$demo}__switch-button-svg {
+          opacity: 1;
+          transition: all 1s ease;
+
+          path {
+            stroke-width: em(10, $fz);
+            stroke: hsl(233, 21%, 24%);
+            transition: all .5s ease;
+          }
+        }
+      }
+      @include on-hover {
+        opacity: 1;
+        transform: translate3d(0,0,0) scale(1.05);
+        transition: all .3s ease;
+      }
+      &:active {
+        box-shadow: inset em(2 2 5, $fz) hsl(230, 4%, 73%),inset em(-3 -3 7, $fz) hsl(0, 0%, 100%);
+        transform: translate3d(0,0,0) scale(1);
+        transition: all .2s ease;
+      }
+    }
+    &__switch-button-svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      width: 70%;
+      margin: 0 auto;
+      transform: translate3d(-50%,-50%,0) rotate(0);
+      transform-origin: center;
+      opacity: .5;
+      transition: all 1s ease;
+
+      path {
+        fill: hsl(233, 21%, 24%);
+        transition: all .5s ease;
+      }
+    }
+
+    &__content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: hsl(231, 16%, 92%);
+      border-left: 1px solid hsl(217, 30%, 86%);
+      transform: translate3d(20%,0,0);
+      box-shadow: 0 0 em(40, $fz) hsla(0, 0%, 0%, .5);
+      transition: all .5s ease;
+
+      //media
+      @include mediaMixin(max, 560) {
+        padding-bottom: em(adaptive560(10), $fz);
+      }
+      //media
+
+    }
+
+    &__lock {
+      position: absolute;
+      top: em(5, $fz);
+      left: em(5, $fz);
+      opacity: .3;
+      cursor: pointer;
+      transition: all .5s ease;
+
+      @include on-hover {
+        opacity: .5;
+        transition: all .5s ease;
+      }
+
+      //media
+      @include mediaMixin(max, 1000) {
+        display: none;
+      }
+      //media
+
+    }
+    &__lock-icon {
+      display: block;
+      width: em(25, $fz);
+      transition: all .5s ease;
+
+      &--open {
+        filter: drop-shadow(1px 1px 0 $white_color);
+
+        path {
+          fill: hsl(233, 21%, 24%);
+        }
+      }
+      &--close {
+        display: none;
+      }
+    }
+    &__version {
+      $fz: 20;
+
+      position: absolute;
+      top: em(5, $fz);
+      right: em(5, $fz);
+      font-size: em($fz, $fz_base);
+      text-transform: lowercase;
+      color: hsl(233, 21%, 24%);
+      text-shadow: 1px 1px 0 $white_color;
+      font-weight: 100;
+      opacity: .3;
+    }
+
+    &__name {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: em(30 15, $fz);
+    }
+    &__name-text {
+      $fz: 30;
+
+      font-size: em($fz, $fz_base);
+      text-align: center;
+      text-transform: capitalize;
+      font-weight: 300;
+      color: hsl(233, 21%, 24%);
+      text-shadow: 1px 1px 0 $white_color;
+      margin-right: em(5, $fz);
+    }
+    &__name-info {
+      $fz: 18;
+
+      font-size: em($fz, $fz_base);
+      position: relative;
+      display: block;
+      @include size(em(20, $fz));
+      border-radius: 50%;
+      color: $white_color;
+      background: hsl(233, 21%, 24%);
+      text-transform: lowercase;
+      text-shadow: none;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      opacity: .3;
+      transition: all .5s ease;
+
+      @include on-hover {
+        opacity: 1;
+        transition: all .5s ease;
+      }
+
+      //media
+      @include mediaMixin(max, 1000) {
+        display: none;
+      }
+      //media
+
+    }
+    &__block {
+      position: relative;
+      margin: em(15 15 40 15, $fz);
+    }
+    &__block-keys {
+      display: none;
+
+      &--is-show {
+        display: block;
+      }
+    }
+
+    &__title {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: hsl(233, 21%, 24%);
+      margin-bottom: em(5, $fz);
+      text-shadow: 1px 1px 0 $white_color;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: #d1d9e6;
+        transform: translate3d(0, -50%, 0);
+        z-index: 0;
+      }
+
+      &--page {
+        color: hsla(161, 61%, 24%, 1);
+
+        &::after {
+          background: hsla(161, 61%, 24%, .3);
+        }
+      }
+      &--state {
+        color: hsla(354, 70%, 39%, 1);
+
+        &::after {
+          background: hsla(354, 70%, 39%, .3);
+        }
+      }
+      &--modal {
+        color: hsla(211, 100%, 35%, 1);
+
+        &::after {
+          background: hsla(211, 100%, 35%, .3);
+        }
+      }
+
+    }
+    &__title-icon {
+      position: relative;
+      display: none;
+      width: 7%;
+      background: hsl(231, 16%, 92%);
+      z-index: 1;
+
+      path {
+        fill: hsl(233, 21%, 24%);
+      }
+    }
+    &__title-text {
+      $fz: 20;
+
+      position: relative;
+      display: inline-block;
+      padding: em(0 10 0 10, $fz);
+      background: hsl(231, 16%, 92%);
+      font-size: em($fz, $fz_base);
+      text-transform: capitalize;
+      font-weight: 300;
+      z-index: 1;
+      transition: all .5s ease;
+    }
+
+    &__wrapper {
+      position: relative;
+      display: flex;
+      justify-content: stretch;
+      align-items: flex-start;
+      flex-flow: row wrap;
+      box-shadow: inset em(2 2 5, $fz) hsl(230, 4%, 73%),inset em(-3 -3 7, $fz) hsl(0, 0%, 100%);
+      border: 1px solid hsl(217, 30%, 86%);
+      padding: em(15 5 0 15, $fz);
+      border-radius: em(10, $fz);
+    }
+    &__key {
+      position: relative;
+      flex: 1;
+      flex-basis: 100%;
+      text-align: center;
+      margin: em(0 15 18 0, $fz);
+      background: transparent;
+      border-radius: em(10, $fz);
+      padding: 0;
+      box-shadow: em(4 4 10, $fz) hsl(230, 4%, 73%), em(-4 -4 10, $fz) hsl(0, 0%, 100%);
+      border: 1px solid hsl(217, 30%, 86%);
+      color: hsl(233, 21%, 24%);
+      text-shadow: 1px 1px 0 $white_color;
+      will-change: transform;
+      transform: translate3d(0,0,0) scale(1);
+      transition: all .5s ease .2s;
+
+      &--page {
+        color: hsla(161, 61%, 24%, 1);
+      }
+      &--state {
+        color: hsla(354, 70%, 39%, 1);
+      }
+
+      @include on-hover {
+        transform: translate3d(0, -2px, 0) scale(1.015);
+        transition: all .3s ease;
+      }
+
+    }
+    &__key-text {
+      $fz: 16;
+
+      display: block;
+      font-size: em($fz, $fz_base);
+      padding: em(5, $fz);
+      text-transform: uppercase;
+      font-weight: 600;
+
+      &--description {
+        text-transform: initial;
+        font-weight: 400;
+        opacity: .7;
+        color: hsl(233, 21%, 24%);
+      }
+    }
+    &__button {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column;
+      flex: 1;
+      flex-basis: 30%;
+      min-height: em(50, $fz);
+      margin: em(0 15 18 0, $fz);
+      background: transparent;
+      border-radius: em(10, $fz);
+      padding: 0;
+      box-shadow: em(4 4 10, $fz) hsl(230, 4%, 73%), em(-4 -4 10, $fz) hsl(0, 0%, 100%);
+      border: 1px solid hsl(217, 30%, 86%);
+      color: hsl(233, 21%, 24%);
+      text-shadow: 1px 1px 0 $white_color;
+      will-change: transform;
+      transform: translate3d(0,0,0) scale(1);
+      transition: all .5s ease .2s;
+      $demo_button: &;
+
+      &--page {
+        border: 1px solid hsla(161, 61%, 24%, .3);
+      }
+      &--state {
+        border: 1px solid hsla(354, 70%, 39%, .3);
+      }
+      &--modal {
+        border: 1px solid hsla(211, 100%, 35%, .3);
+      }
+
+
+      @include on-hover {
+        transform: translate3d(0,-2px,0) scale(1.015);
+        transition: all .3s ease;
+
+        &#{$demo_button}--page {
+          color: hsla(161, 61%, 24%, 1);
+        }
+        &#{$demo_button}--state {
+          color: hsla(354, 70%, 39%, 1);
+        }
+        &#{$demo_button}--modal {
+          color: hsla(211, 100%, 35%, 1);
+        }
+
+      }
+
+      &:active {
+        transform: translate3d(0,0,0) scale(1);
+        box-shadow: inset em(2 2 5, $fz) hsl(230, 4%, 73%),inset em(-3 -3 7, $fz) hsl(0, 0%, 100%);
+        transition: all .2s ease;
+      }
+
+      //media
+      @include mediaMixin(max, 560) {
+        flex-basis: 100%;
+      }
+      //media
+
+    }
+    &__button-text {
+      $fz: 18;
+
+      font-size: em($fz, $fz_base);
+      display: block;
+      text-transform: capitalize;
+      font-weight: 400;
+
+      //media
+      @include mediaMixin(max, 560) {
+
+      }
+      //media
+
+    }
   }
 
   .no-animate {

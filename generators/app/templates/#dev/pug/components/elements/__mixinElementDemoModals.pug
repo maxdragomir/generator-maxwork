@@ -2,15 +2,11 @@
 //- ====================================================================================================================
 
 
-mixin addBtnModal(nameOpenModal)
+mixin addDemoModals(nameOpenModal)
   - firstLetter = nameOpenModal.charAt(0).toUpperCase();
   - lastLetter = parseFloat(nameOpenModal.charAt(nameOpenModal.length - 1));
+  - number = Number(nameOpenModal.replace(/\D+/g,""));
 
   if nameOpenModal
-    button(class=`${lotteryName}-addition__btn` title=`${nameOpenModal}` @click=`$modal.show('modal-${nameOpenModal}')`)&attributes(
-      attributes)
-
-      if lastLetter
-        span= firstLetter + lastLetter
-      else
-        span= firstLetter
+    +e.BUTTON.button--modal(title=`${nameOpenModal}` @click=`$modal.show('modal-${nameOpenModal}')`)&attributes(attributes)
+      +e.SPAN.button-text= nameOpenModal

@@ -1,0 +1,17 @@
+//- Mixin element linkPages
+//- ====================================================================================================================
+
+
+mixin addDemoStates(nameLink)
+
+  //if nameLink === 'index'
+  //  - text = 'lottery'
+  //  - firstLetter = text.charAt(0).toUpperCase()
+  //else
+  //  - text = nameLink
+  //  - firstLetter = text.charAt(0).toUpperCase()
+
+  if nameLink
+    +e.BUTTON.button--state(title=`${nameLink.toLowerCase()}`)&attributes(attributes)
+      +e.SPAN.button-text= nameLink
+

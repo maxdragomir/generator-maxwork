@@ -2,7 +2,7 @@
 //- ====================================================================================================================
 
 
-mixin addBtnLink(nameLink)
+mixin addDemoPages(nameLink)
 
   if nameLink === 'index'
     - text = 'lottery'
@@ -11,7 +11,6 @@ mixin addBtnLink(nameLink)
     - text = nameLink
     - firstLetter = text.charAt(0).toUpperCase()
 
-
   if nameLink
-    a(href=`${nameLink}.php` class=`${lotteryName}-addition__btn` title=`${text}`)&attributes(attributes)
-      span= firstLetter
+    +e.A.button--page(href=`${nameLink}.php` title=`${text}`)&attributes(attributes)
+        +e.SPAN.button-text= text

@@ -3,25 +3,25 @@
 
 
 mixin addModal(modalName, customClose, customBg, modalNumber)
-  - modalNumber = + modalNumber || ''
+  - modalNumber = modalNumber || ''
+  if customClose
+    - closeBtn = 'img/modal/hello/close.png'
+  else
+    - closeBtn = 'img/modal/close.png'
 
   if modalName
     modal(name=`${modalName}${modalNumber}` @before-open="beforeOpen" @before-close="beforeClose" @opened="opened" @closed="closed")
       div(class=`${lotteryName}-modal ${lotteryName}-${modalName}`)&attributes(attributes)
 
         //- close
-        if customClose
-          button(class=`${lotteryName}-modal__close ${lotteryName}-${modalName}__close` @click=`$modal.hide("${modalName}")`)
-            img(class=`${lotteryName}-modal__close-img ${lotteryName}-${modalName}__close-img` src='img/modal/hello/close.png' alt='image')
-        else
-          button(class=`${lotteryName}-modal__close` @click=`$modal.hide("${modalName}${modalNumber}")`)
-            img(class=`${lotteryName}-modal__close-img` src='img/modal/close.png' alt='image')
+        button(class=`${lotteryName}-modal__close ${lotteryName}-${modalName}__close` @click=`$modal.hide("${modalName}${modalNumber}")`)
+          img(class=`${lotteryName}-modal__close-img ${lotteryName}-${modalName}__close-img` src=`${closeBtn}` alt='image')
         //- close
 
 
         //- bg
         if customBg
-          div(class=`${lotteryName}-modal__bg ${lotteryName}-${modal}__bg`)
+          div(class=`${lotteryName}-modal__bg ${lotteryName}-${modalName}__bg`)
         //- bg
 
 

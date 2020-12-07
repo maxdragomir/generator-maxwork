@@ -6,6 +6,11 @@ $lottery_name            : '<%= project %>';
 
 $fz_base                 : 16;
 $fz                      : $fz_base;
+$size_640                : 2.5;
+$size_320                : 5;
+$media1000               : 1000;
+$media560                : 560;
+
 $main_font               : 'Roboto', sans-serif;
 $secondary_font          : 'Roboto Condensed', sans-serif;
 $add_custom_font         : '';

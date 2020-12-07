@@ -140,3 +140,10 @@
 
   @return if(length($result) == 1, nth($result, 1), $result);
 }
+
+@function adaptive1000($number) {
+  @return ($number * 2.5)
+}
+@function adaptive560($number) {
+  @return ($number * 5)
+}
