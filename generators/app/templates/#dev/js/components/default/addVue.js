@@ -14,7 +14,7 @@ let app = new Vue({
 
     // for bonus modal
     points: [50, 100, 1000, 3000, 5000],
-    chosenName: 0,
+    chosenBet: 0,
 
     // logged state
     isLogged: false,
@@ -44,7 +44,7 @@ let app = new Vue({
 
       if(e.name === 'modal-win') {
         let chosenNumber = this.getRandom(0, this.points.length - 1);
-        this.chosenName = this.points[chosenNumber];
+        this.chosenBet = this.points[chosenNumber];
       }
 
     },
