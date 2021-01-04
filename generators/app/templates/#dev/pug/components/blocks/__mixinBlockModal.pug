@@ -3,12 +3,12 @@
 
 
 mixin addModal(modalName, customClose, customBg, modalNumber)
+
   - modalNumber = modalNumber || ''
   if customClose
     - closeBtn = 'img/modal/hello/close.png'
   else
     - closeBtn = 'img/modal/close.png'
-
 
   if modalName
     modal(name=`${modalName}${modalNumber}` @before-open="beforeOpen" @before-close="beforeClose" @opened="opened" @closed="closed")
