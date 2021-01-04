@@ -134,6 +134,7 @@
     transform: scale(1);
     transition: transform .5s ease, box-shadow .5s ease;
 
+    // text
     span {
       position: relative;
       display: block;
@@ -144,6 +145,7 @@
       font-size: em(18, $fz_base);
       padding: em(21 15, $fz);
 
+      // light
       &::after {
         content: '';
         position: absolute;
@@ -160,7 +162,7 @@
       }
     }
 
-    //bg
+    // bg color
     &::before {
       content: "";
       position: absolute;
@@ -177,7 +179,7 @@
       transition: opacity 0.5s ease
     }
 
-
+    // states
     @include on-hover {
       transition: transform .5s ease, box-shadow .5s ease;
 
@@ -192,7 +194,6 @@
         }
       }
     }
-
     &:active {
       transform: scale(.95);
       transform-origin: center;
@@ -204,6 +205,7 @@
         transition: opacity .5s ease;
       }
     }
+
   }
 
   &-test-page {
@@ -221,74 +223,7 @@
     text-transform: uppercase;
     color: $main_color;
   }
-  &-btn-test {
-    position: absolute;
-    top: 40%;
-    right: em(-125, $fz);
 
-    //media
-    @include mediaMixin(max, 1000) {
-      top: em(adaptive1000(-30), $fz);
-      right: em(adaptive1000(10), $fz);
-    }
-    @include mediaMixin(max, 560) {
-      top: em(adaptive560(-64), $fz);
-      right: em(adaptive560(2), $fz);
-    }
-    //media
-
-
-    &__tickets {
-      $fz: 40;
-
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: em(0, $fz);
-      @include size(em(50, $fz));
-      border-radius: 50%;
-      color: $black_color;
-      background: $white_color;
-      box-shadow: 0 0 0 3px $black_color;
-      border: 0;
-      font-size: em($fz, $fz_base);
-      font-weight: 300;
-      transform: translate3d(0, -50%, 0) scale(1);
-      transition: all .5s ease;
-
-      //media
-      @include mediaMixin(max, 1000) {
-        $fz: adaptive1000(30);
-
-        @include size(em(adaptive1000(30), $fz));
-        font-size: em($fz, $fz_base);
-      }
-      @include mediaMixin(max, 560) {
-        $fz: adaptive560(30);
-
-        @include size(em(adaptive560(30), $fz));
-        font-size: em($fz, $fz_base);
-      }
-      //media
-
-
-      @include on-hover {
-        color: $black_color;
-        background: $white_color;
-        box-shadow: 0 0 5px 1px $black_color, em(0 0 20 3, $fz) hsla(0, 0%, 100%, .5);
-        transform: translate3d(0, -50%, 0) scale(1.1);
-        transition: all .5s ease;
-      }
-
-      &:active {
-        box-shadow: 0 0 2.5px 1px $black_color, 0 0 10px 3px $white_color;
-        transform: translate3d(0, -50%, 0) scale(.95);
-        transition: all .2s ease;
-      }
-
-    }
-  }
   &-demo-overlay {
     position: fixed;
     top: 0;
@@ -414,7 +349,6 @@
       width: 100%;
       height: 100%;
       background: #e6e7ed;
-      //box-shadow: inset em(4 4 8, $fz) hsl(230, 4%, 73%),inset em(-5 -5 10, $fz) hsl(0, 0%, 100%);
       border: 1px solid hsl(217, 30%, 86%);
       border-radius: em(10, $fz);
       will-change: transform;

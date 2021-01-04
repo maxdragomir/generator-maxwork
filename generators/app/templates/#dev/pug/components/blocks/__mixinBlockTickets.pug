@@ -4,7 +4,7 @@
 
 mixin addTickets(classTickets, winTicket, countTickets)
 
-  div(class=`${lotteryName}-${classTickets}__block`)
+  div(class=`${lotteryName}-${classTickets}__block`)&attributes(attributes)
 
     if winTicket
       div(class=`${lotteryName}-${classTickets}__ticket ${lotteryName}-${classTickets}__ticket--win`)

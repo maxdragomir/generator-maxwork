@@ -65,6 +65,7 @@
     &__body {
       position: relative;
       z-index: 2;
+      padding: em(0, $fz);
 
       @include size(100%);
     }
@@ -87,6 +88,17 @@
       line-height: 1.5;
       text-align: #{dir(left)};
       padding-#{dir(right)}: em(15, $fz);
+    }
+
+    // bg image
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include size(100%);
+      //background: url(../img/modal/modal-bg.png) no-repeat center;
+      background-size: 100% 100%;
     }
   }
   // Others Styles End ------------------------------------------------------------------------------------------------------

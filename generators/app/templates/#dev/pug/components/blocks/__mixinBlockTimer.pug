@@ -5,7 +5,7 @@
 mixin addTimer(className, days, hours, minutes, seconds)
   - className = '' || className
 
-  div(class=`${className} ${lotteryName}-block-timer`)
+  div(class=`${className} ${lotteryName}-block-timer`)&attributes(attributes)
     countdown(:time='15 * 24 * 60 * 60 * 1000')
       template(slot-scope='props')
         ul(class=`${lotteryName}-block-timer__list`)

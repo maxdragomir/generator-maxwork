@@ -25,7 +25,6 @@ let app = new Vue({
     // states
     if (hash === "logged") {
       this.isLogged = true;
-      this.btnText = 'сделать ставку';
     }
 
     // modals
@@ -57,6 +56,8 @@ let app = new Vue({
     mainBtn: function() {
       if(!this.isLogged) {
         this.$modal.show('modal-enter');
+      } else {
+        this.btnText = 'сделать ставку';
       }
     },
 
