@@ -7,12 +7,12 @@ let demoPanel = document.querySelector(`.${lotteryName}-demo`),
   svgClose = document.querySelector(`.${lotteryName}-demo__lock-icon--close`),
   svgLock = document.querySelector(`.${lotteryName}-demo__lock`),
   switchButton = document.querySelector(`.${lotteryName}-demo__switch-button`),
-  block = document.querySelectorAll(`.${lotteryName}-demo__block`),
+  block = Array.prototype.slice.call(document.querySelectorAll(`.${lotteryName}-demo__block`)),
   infoBtn = document.querySelector(`.${lotteryName}-demo__name-info`),
   infoWrapper = document.querySelector(`.${lotteryName}-demo__block-keys .${lotteryName}-demo__wrapper`),
   infoBLock = document.querySelector(`.${lotteryName}-demo__block-keys`),
-  buttonStates = document.querySelectorAll(`.${lotteryName}-demo__block-states button`),
-  pageButtons = document.querySelectorAll(`.${lotteryName}-demo__block-pages a`),
+  buttonStates = Array.prototype.slice.call(document.querySelectorAll(`.${lotteryName}-demo__block-states button`)),
+  pageButtons = Array.prototype.slice.call(document.querySelectorAll(`.${lotteryName}-demo__block-pages a`)),
   countPage = 1,
   countStates = 1;
 
@@ -49,8 +49,8 @@ if(demoPanel) {
 
   // delete empty block
   block.forEach(function (item) {
-    let buttonsInBlock = item.querySelectorAll(`.${lotteryName}-demo__wrapper button`),
-      linkInBlock = item.querySelectorAll(`.${lotteryName}-demo__wrapper a`);
+    let buttonsInBlock = Array.prototype.slice.call(item.querySelectorAll(`.${lotteryName}-demo__wrapper button`)),
+      linkInBlock = Array.prototype.slice.call(item.querySelectorAll(`.${lotteryName}-demo__wrapper a`));
 
     if(!item.classList.contains(`${lotteryName}-demo__block-keys`)) {
       if(!linkInBlock.length && !buttonsInBlock.length) {

@@ -2,15 +2,17 @@ extends layouts/__main
 
 
 block vars
+  -devMode          = true
+  -demo             = true
   -lotteryName      = '<%= project %>'
   -pageType         = 'raffle'
-  -devMode          = true
-  -no2kSize         = true
-  -rtl              = <%= rtl %>
+  -modal            = 'modal-custom'
+  -breadcrumbsText  = lotteryName
   -breadcrumbs      = true
+  -rtl              = <%= rtl %>
+  -no2kSize         = true
   -styles           = true
   -js               = pageType
-  -modal            = 'modal-custom'
 
 
 block content
@@ -61,6 +63,7 @@ block content
   +addDemo(
     pageType,
     '#index',
+
     <%_ if (account) { -%>
     '#account',
     <%_ } -%>

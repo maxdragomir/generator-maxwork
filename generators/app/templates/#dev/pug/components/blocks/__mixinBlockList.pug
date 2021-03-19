@@ -4,6 +4,6 @@
 
 mixin addList(classList, classItem, ...items)
 
-  ul(class=classList)
+  ul(class=classList)ul(class=classList)&attributes(attributes)
     each item in items
       li(class=classItem)= item

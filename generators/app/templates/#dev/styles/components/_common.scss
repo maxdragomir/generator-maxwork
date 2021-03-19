@@ -36,7 +36,7 @@
     background-size: auto;
 
     //media
-    @include mediaMixin(min, 1920) {
+    @include MQ($media_max, min) {
       width: 1920px;
     }
     //media
@@ -76,7 +76,7 @@
     border: 2px solid $white_color;
     font-size: em(16, $fz_base);
     text-transform: uppercase;
-    color: $main_color;
+    color: $test_color;
     z-index: 999;
     font-weight: 900;
     padding-right: em(10, $fz);
@@ -216,12 +216,12 @@
     height: 100vh;
     font-size: 5vw;
     text-transform: uppercase;
-    color: $main_color;
+    color: $test_color;
   }
   &-test-text {
     font-size: 3vw;
     text-transform: uppercase;
-    color: $main_color;
+    color: $test_color;
   }
 
   &-demo-overlay {
@@ -445,7 +445,7 @@
     }
     &__lock-icon {
       display: block;
-      width: em(25, $fz);
+      @include size(em(25, $fz));
       transition: all .5s ease;
 
       &--open {
@@ -661,17 +661,14 @@
     }
     &__button {
       position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-flow: column;
+      display: block;
+      text-align: center;
       flex: 1;
       flex-basis: 30%;
-      min-height: em(50, $fz);
       margin: em(0 15 18 0, $fz);
       background: transparent;
       border-radius: em(10, $fz);
-      padding: 0;
+      padding: em(15 0, $fz);
       box-shadow: em(4 4 10, $fz) hsl(230, 4%, 73%), em(-4 -4 10, $fz) hsl(0, 0%, 100%);
       border: 1px solid hsl(217, 30%, 86%);
       color: hsl(233, 21%, 24%);
@@ -725,7 +722,7 @@
       $fz: 18;
 
       font-size: em($fz, $fz_base);
-      display: block;
+      display: inline-block;
       text-transform: capitalize;
       font-weight: 400;
 

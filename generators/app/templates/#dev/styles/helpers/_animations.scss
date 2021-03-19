@@ -8,3 +8,15 @@
     transform: translate3d(150%, 0, 0) skew(-50deg);
   }
 }
+
+// Levitation
+@keyframes levitation-x {
+  50% {
+    transform: translate3d(10%, 0, 0);
+  }
+}
+@keyframes levitation-y {
+  50% {
+    transform: translate3d(0, 10%, 0);
+  }
+}

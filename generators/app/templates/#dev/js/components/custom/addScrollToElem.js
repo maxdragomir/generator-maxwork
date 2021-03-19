@@ -1,7 +1,7 @@
 // Scroll to elem
 
 
-function scrollToElem(elem, duration) {
+function useScrollTo(elem, duration) {
   let jsScrollTo = document.querySelectorAll(`.${lotteryName}-js-scroll-to`);
   let element = document.querySelector(elem);
 

@@ -2,15 +2,17 @@ extends layouts/__main
 
 
 block vars
+  -devMode          = true
+  -demo             = true
   -lotteryName      = '<%= project %>'
   -pageType         = 'lottery'
-  -devMode          = true
-  -no2kSize         = true
-  -rtl              = <%= rtl %>
+  -modal            = 'modal-custom'
+  -breadcrumbsText  = lotteryName
   -breadcrumbs      = true
+  -rtl              = <%= rtl %>
+  -no2kSize         = true
   -styles           = true
   -js               = pageType
-  -modal            = 'modal-custom'
 
 
 block content
@@ -65,22 +67,24 @@ block content
 
 
   // Demo --------------------------------------------------------------------------------------------------------------
-  +addDemo(
-    pageType,
-    <%_ if (raffle) { -%>
-    '#raffle',
-    <%_ } -%>
-    <%_ if (account) { -%>
-    '#account',
-    <%_ } -%>
+  if demo
+    +addDemo(
+      pageType,
 
-    <%_ if (rtl) { -%>
-    '@RTL',
-    <%_ } -%>
+      <%_ if (raffle) { -%>
+      '#raffle',
+      <%_ } -%>
+      <%_ if (account) { -%>
+      '#account',
+      <%_ } -%>
 
-    'enter',
-    'rules',
-    'tickets',
-    'hello'
-    )
+      <%_ if (rtl) { -%>
+      '@RTL',
+      <%_ } -%>
+
+      'enter',
+      'rules',
+      'tickets',
+      'hello'
+      )
   // Demo --------------------------------------------------------------------------------------------------------------

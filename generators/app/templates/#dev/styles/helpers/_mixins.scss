@@ -22,7 +22,41 @@
 }
 
 
+
 // media
+$max               : $media_max;
+$l                 : $media_l;
+$m                 : $media_m;
+$s                 : $media_s;
+$xs                : $media_xs;
+
+@mixin MQ($breakpoints, $min_max: max, $width_height: width) {
+  @if $breakpoints == max {
+    @media only screen and (#{$min_max}-#{$width_height}: #{$max}px) {
+      @content;
+    }
+  } @else if $breakpoints == l {
+    @media only screen and (#{$min_max}-#{$width_height}: #{$l}px) {
+      @content;
+    }
+  } @else if $breakpoints == m {
+    @media only screen and (#{$min_max}-#{$width_height}: #{$m}px) {
+      @content;
+    }
+  } @else if $breakpoints == s {
+    @media only screen and (#{$min_max}-#{$width_height}: #{$s}px) {
+      @content;
+    }
+  } @else if $breakpoints == xs {
+    @media only screen and (#{$min_max}-#{$width_height}: #{$xs}px) {
+      @content;
+    }
+  } @else {
+    @media only screen and (#{$min_max}-#{$width_height}: #{$breakpoints}px) {
+      @content;
+    }
+  }
+}
 @mixin mediaMixin($minMax, $width) {
   @media only screen and (#{$minMax}-width: #{$width}px) {
     @content
@@ -146,4 +180,7 @@
 }
 @function adaptive560($number) {
   @return ($number * 5)
+}
+@function adaptive($number) {
+  @return calc(#{$number} * var(--media))
 }

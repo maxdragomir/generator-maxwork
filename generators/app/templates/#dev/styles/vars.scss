@@ -2,24 +2,49 @@
 // =====================================================================================================================
 
 
+// base
 $lottery_name            : '<%= project %>';
-
 $fz_base                 : 16;
 $fz                      : $fz_base;
-$size_640                : 2.5;
-$size_320                : 5;
-$media1000               : 1000;
-$media560                : 560;
-
 $main_font               : 'Roboto', sans-serif;
 $secondary_font          : 'Roboto Condensed', sans-serif;
 $add_custom_font         : '';
 $custom_font             : $add_custom_font, sans-serif;
 
-$white_color             : hsl(0, 0%, 100%);
-$grey_color              : hsl(0, 0%, 12%);
-$black_color             : hsl(0, 0%, 0%);
-$main_color              : hsl(101, 100%, 69%);
+// media
+$media_max               : 1920;
+$media_l                 : 1500; // media for 1366
+$media_m                 : 1300; // media for 1024
+$media_s                 : 1000; // media for 640
+$media_xs                : 560;  // media for 320
 
+// colors
+$white_color             : hsl(0, 0%, 100%);
+$grey_color              : hsl(0, 0%, 15%);
+$black_color             : hsl(0, 0%, 0%);
+$test_color              : hsl(101, 100%, 69%);
+
+// types
 $page_account            : 'account';
 $page_raffle             : 'raffle';
+
+// scale
+:root {
+  --media: 1;
+
+  // media
+  @media (max-width: #{$media_l}px) {
+    --media: 1.1714;
+  }
+  @media (max-width: #{$media_m}px) {
+    --media: 1.5625;
+  }
+  @media (max-width: #{$media_s}px) {
+    --media: 2.5;
+  }
+  @media (max-width: #{$media_xs}px) {
+    --media: 5;
+  }
+  // media
+
+}
