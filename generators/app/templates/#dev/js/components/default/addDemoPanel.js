@@ -3,23 +3,30 @@
 
 
 let demoPanel = document.querySelector(`.${lotteryName}-demo`),
-    svgOpen = document.querySelector(`.${lotteryName}-demo__lock-icon--open`),
-    svgClose = document.querySelector(`.${lotteryName}-demo__lock-icon--close`),
-    svgLock = document.querySelector(`.${lotteryName}-demo__lock`),
-    switchButton = document.querySelector(`.${lotteryName}-demo__switch-button`),
-    block = Array.prototype.slice.call(document.querySelectorAll(`.${lotteryName}-demo__block`)),
-    infoBtn = document.querySelector(`.${lotteryName}-demo__name-info`),
-    infoWrapper = document.querySelector(`.${lotteryName}-demo__block-keys .${lotteryName}-demo__wrapper`),
-    infoBLock = document.querySelector(`.${lotteryName}-demo__block-keys`),
-    buttonStates = Array.prototype.slice.call(document.querySelectorAll(`.${lotteryName}-demo__block-states button`)),
-    pageButtons = Array.prototype.slice.call(document.querySelectorAll(`.${lotteryName}-demo__block-pages a`)),
-    countPage = 1,
-    countStates = 1;
+  svgOpen = document.querySelector(`.${lotteryName}-demo__lock-icon--open`),
+  svgClose = document.querySelector(`.${lotteryName}-demo__lock-icon--close`),
+  svgLock = document.querySelector(`.${lotteryName}-demo__lock`),
+  switchButton = document.querySelector(`.${lotteryName}-demo__switch-button`),
+  block = Array.prototype.slice.call(document.querySelectorAll(`.${lotteryName}-demo__block`)),
+  infoBtn = document.querySelector(`.${lotteryName}-demo__name-info`),
+  infoWrapper = document.querySelector(`.${lotteryName}-demo__block-keys .${lotteryName}-demo__wrapper`),
+  infoBLock = document.querySelector(`.${lotteryName}-demo__block-keys`),
+  toggleSideCheckbox = document.querySelector(`.${lotteryName}-demo__input--side`),
+  toggleLoadCheckbox = document.querySelector(`.${lotteryName}-demo__input--load`),
+  settingsBtn = document.querySelector(`.${lotteryName}-demo__settings`),
+  settingsWrapper = document.querySelector(`.${lotteryName}-demo__block-settings .${lotteryName}-demo__wrapper`),
+  settingsBLock = document.querySelector(`.${lotteryName}-demo__block-settings`),
+  buttonStates = Array.prototype.slice.call(document.querySelectorAll(`.${lotteryName}-demo__block-states button`)),
+  pageButtons = Array.prototype.slice.call(document.querySelectorAll(`.${lotteryName}-demo__block-pages a`)),
+  countPage = 1,
+  countStates = 1;
 
 if(demoPanel) {
 
   // default demoPanel
   svgClose.style.display = "none";
+  checkPanelSide();
+  checkPanelLoad();
 
   let header = null;
   if(is_mob) {
@@ -34,34 +41,51 @@ if(demoPanel) {
     demoPanel.style.height = `calc(100vh - ${hederHeight}px)`;
   }
 
-  setTimeout(function () {
-    demoPanel.classList.remove(`${lotteryName}-demo--is-show`);
-
-    // if(hash !== '') {
-    //   fixSideBar();
-    // }
-  }, 1000);
-
   // btn switch
-  switchButton.addEventListener('click', (e) => {
+  switchButton.addEventListener('click', function () {
     fixSideBar();
   });
 
   // delete empty block
   block.forEach(function (item) {
+    console.log(item);
     let buttonsInBlock = Array.prototype.slice.call(item.querySelectorAll(`.${lotteryName}-demo__wrapper button`)),
       linkInBlock = Array.prototype.slice.call(item.querySelectorAll(`.${lotteryName}-demo__wrapper a`));
 
-    if(!item.classList.contains(`${lotteryName}-demo__block-keys`)) {
+    if(!item.classList.contains(`${lotteryName}-demo__block-keys`) && !item.classList.contains(`${lotteryName}-demo__block-settings`)) {
       if(!linkInBlock.length && !buttonsInBlock.length) {
         item.parentNode.removeChild(item);
       }
     }
   });
 
+  // toggle load
+  toggleLoadCheckbox.addEventListener('click',  function () {
+    if(this.checked) {
+      localStorage.load = 'yes'
+    } else {
+      localStorage.load = 'no'
+    }
+  });
+
+  // toggle side
+  toggleSideCheckbox.addEventListener('click',  function () {
+    if(this.checked) {
+      localStorage.side = 'right'
+    } else {
+      localStorage.side = 'left'
+    }
+    checkPanelSide();
+  })
+
   // info btn
-  infoBtn.addEventListener('click', (e) => {
+  infoBtn.addEventListener('click', function () {
     infoBLock.classList.toggle(`${lotteryName}-demo__block-keys--is-show`);
+  });
+
+  //settings btn
+  settingsBtn.addEventListener('click', function () {
+    settingsBLock.classList.toggle(`${lotteryName}-demo__block-settings--is-show`);
   });
 
   // fix sidebar
@@ -109,6 +133,31 @@ if(demoPanel) {
 
   });
 
+}
+
+function checkPanelLoad() {
+  if(!localStorage.getItem('load') || localStorage.getItem('load') === 'yes') {
+    demoPanel.classList.add(`${lotteryName}-demo--is-show`);
+    toggleLoadCheckbox.checked = true;
+    setTimeout(function () {
+      demoPanel.classList.remove(`${lotteryName}-demo--is-show`);
+
+      // if(hash !== '') {
+      //   fixSideBar();
+      // }
+    }, 1000);
+  } else {
+    toggleLoadCheckbox.checked = false;
+  }
+}
+function checkPanelSide() {
+  if(!localStorage.getItem('side') || localStorage.getItem('side') === 'right') {
+    demoPanel.classList.remove(`${lotteryName}-demo--reverse`);
+    toggleSideCheckbox.checked = true;
+  } else {
+    demoPanel.classList.add(`${lotteryName}-demo--reverse`);
+    toggleSideCheckbox.checked = false;
+  }
 }
 
 function addKeyLink(pageName, keyNum) {
