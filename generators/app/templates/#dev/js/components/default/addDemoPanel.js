@@ -48,7 +48,6 @@ if(demoPanel) {
 
   // delete empty block
   block.forEach(function (item) {
-    console.log(item);
     let buttonsInBlock = Array.prototype.slice.call(item.querySelectorAll(`.${lotteryName}-demo__wrapper button`)),
       linkInBlock = Array.prototype.slice.call(item.querySelectorAll(`.${lotteryName}-demo__wrapper a`));
 
