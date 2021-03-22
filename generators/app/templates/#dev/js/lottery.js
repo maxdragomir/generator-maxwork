@@ -9,7 +9,10 @@
 <%_ } -%>
 //@prepros-prepend helpers/start.js
 
-//@prepros-append components/default/addVue.js
+//@prepros-append vue/components/timer.js
+//@prepros-append vue/components/modal.js
+//@prepros-append vue/addVue.js
+
 //@prepros-append components/default/addDemoPanel.js
 //@prepros-append components/default/addAOS.js
 

@@ -1,11 +1,7 @@
 // Vue
 
 
-Vue.use(window["vue-js-modal"].default, {
-  dialog: true,
-  dynamic: true,
-  injectModalsContainer: true
-});
+Vue.config.devtools = true;
 
 let app = new Vue({
   el: `.${lotteryName}`,
@@ -37,7 +33,7 @@ let app = new Vue({
 
     // modal
     beforeOpen: function beforeOpen() {
-      body.classList.add('noScroll');
+      document.querySelector('body').style.overflowY = 'hidden';
     },
     opened: function opened(e) {
 
@@ -49,7 +45,7 @@ let app = new Vue({
     },
     closed: function closed() {},
     beforeClose: function beforeClose() {
-      body.classList.remove('noScroll');
+      document.querySelector('body').style.overflowY = 'auto';
     },
 
     // states

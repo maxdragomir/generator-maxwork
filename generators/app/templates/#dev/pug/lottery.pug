@@ -1,7 +1,7 @@
 extends layouts/__main
 
 
-block vars
+block variables
   -devMode          = true
   -demo             = true
   -lotteryName      = '<%= project %>'
@@ -13,6 +13,10 @@ block vars
   -no2kSize         = true
   -styles           = true
   -js               = pageType
+
+  //- Add data ---------------------------------------------------------------------------------------------------------
+  include data/data
+  //- Add data ---------------------------------------------------------------------------------------------------------
 
 
 block content

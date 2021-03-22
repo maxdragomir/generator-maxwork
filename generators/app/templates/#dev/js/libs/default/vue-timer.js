@@ -420,5 +420,3 @@
   return index;
 
 })));
-
-Vue.component(VueCountdown.name, VueCountdown);

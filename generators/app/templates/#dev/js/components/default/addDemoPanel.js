@@ -3,18 +3,18 @@
 
 
 let demoPanel = document.querySelector(`.${lotteryName}-demo`),
-  svgOpen = document.querySelector(`.${lotteryName}-demo__lock-icon--open`),
-  svgClose = document.querySelector(`.${lotteryName}-demo__lock-icon--close`),
-  svgLock = document.querySelector(`.${lotteryName}-demo__lock`),
-  switchButton = document.querySelector(`.${lotteryName}-demo__switch-button`),
-  block = Array.prototype.slice.call(document.querySelectorAll(`.${lotteryName}-demo__block`)),
-  infoBtn = document.querySelector(`.${lotteryName}-demo__name-info`),
-  infoWrapper = document.querySelector(`.${lotteryName}-demo__block-keys .${lotteryName}-demo__wrapper`),
-  infoBLock = document.querySelector(`.${lotteryName}-demo__block-keys`),
-  buttonStates = Array.prototype.slice.call(document.querySelectorAll(`.${lotteryName}-demo__block-states button`)),
-  pageButtons = Array.prototype.slice.call(document.querySelectorAll(`.${lotteryName}-demo__block-pages a`)),
-  countPage = 1,
-  countStates = 1;
+    svgOpen = document.querySelector(`.${lotteryName}-demo__lock-icon--open`),
+    svgClose = document.querySelector(`.${lotteryName}-demo__lock-icon--close`),
+    svgLock = document.querySelector(`.${lotteryName}-demo__lock`),
+    switchButton = document.querySelector(`.${lotteryName}-demo__switch-button`),
+    block = Array.prototype.slice.call(document.querySelectorAll(`.${lotteryName}-demo__block`)),
+    infoBtn = document.querySelector(`.${lotteryName}-demo__name-info`),
+    infoWrapper = document.querySelector(`.${lotteryName}-demo__block-keys .${lotteryName}-demo__wrapper`),
+    infoBLock = document.querySelector(`.${lotteryName}-demo__block-keys`),
+    buttonStates = Array.prototype.slice.call(document.querySelectorAll(`.${lotteryName}-demo__block-states button`)),
+    pageButtons = Array.prototype.slice.call(document.querySelectorAll(`.${lotteryName}-demo__block-pages a`)),
+    countPage = 1,
+    countStates = 1;
 
 if(demoPanel) {
 
