@@ -45,6 +45,35 @@ mixin addDemo(pageType, ...items)
 
 
       //- block
+      +e.block.__block-keys
+
+        //- title
+        +e.P.title
+          +e.SPAN.title-text keys
+        //- title
+
+
+        //- wrapper
+        +e.wrapper
+
+          +e.P.key
+            +e.SPAN.key-text shift + ~
+            +e.SPAN.key-text--description close/open demo panel
+
+          +e.P.key
+            +e.SPAN.key-text shift + i
+            +e.SPAN.key-text--description close/open info block
+
+          +e.P.key
+            +e.SPAN.key-text shift + s
+            +e.SPAN.key-text--description close/open settings block
+
+        //- wrapper
+
+      //- block
+
+
+      //- block settings
       +e.block.__block-settings
 
         //- title
@@ -65,7 +94,7 @@ mixin addDemo(pageType, ...items)
                   +e.SPAN.slider--round(class='--color --delay')
                   +e.SPAN.side--left left
                   +e.SPAN.side--right right
-            +e.SPAN.setting-text--description choose a side
+            +e.SPAN.setting-text--description left/right position
 
           +e.setting
             +e.toggle-wrapper
@@ -73,36 +102,11 @@ mixin addDemo(pageType, ...items)
                 +e.INPUT.input--load(type='checkbox')
                 +e.SPAN.slider-wrapper
                   +e.SPAN.slider
-            +e.SPAN.setting-text--description show panel on page load
+            +e.SPAN.setting-text--description show panel when page load
 
         //- wrapper
 
-      //- block
-
-
-      //- block
-      +e.block.__block-keys
-
-        //- title
-        +e.P.title
-          +e.SPAN.title-text keys
-        //- title
-
-
-        //- wrapper
-        +e.wrapper
-
-          +e.P.key
-            +e.SPAN.key-text shift + ~
-            +e.SPAN.key-text--description close/open demo panel
-
-          +e.P.key
-            +e.SPAN.key-text shift + i
-            +e.SPAN.key-text--description close/open info block
-
-        //- wrapper
-
-      //- block
+      //- block settings
 
 
       //- block pages

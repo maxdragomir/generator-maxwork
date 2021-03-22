@@ -130,6 +130,9 @@ if(demoPanel) {
     if (e.shiftKey && keyCode === 'KeyI') {
       infoBLock.classList.toggle(`${lotteryName}-demo__block-keys--is-show`);
     }
+    if (e.shiftKey && keyCode === 'KeyS') {
+      settingsBLock.classList.toggle(`${lotteryName}-demo__block-settings--is-show`);
+    }
 
   });
 
