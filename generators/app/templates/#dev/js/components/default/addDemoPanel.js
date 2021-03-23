@@ -28,17 +28,17 @@ if(demoPanel) {
   checkPanelSide();
   checkPanelLoad();
 
-  let header = null;
+  let header;
   if(is_mob) {
     header = document.querySelector('.header');
   } else {
     header = document.getElementById('fTop');
   }
   if(header) {
-    let hederHeight = header.offsetHeight;
+    let headerHeight = header.offsetHeight;
 
-    demoPanel.style.top = `${hederHeight}px`;
-    demoPanel.style.height = `calc(100vh - ${hederHeight}px)`;
+    demoPanel.style.top = `${headerHeight}px`;
+    demoPanel.style.height = `calc(100vh - ${headerHeight}px)`;
   }
 
   // btn switch
@@ -103,7 +103,7 @@ if(demoPanel) {
 
   // btn states
   buttonStates.forEach(function (item) {
-    item.addEventListener('click', (e) => {
+    item.addEventListener('click', () => {
       let state = item.getAttribute('title');
 
       if(location.search === '?' + state) {
