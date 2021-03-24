@@ -1,0 +1,739 @@
+/*! Demo */
+/*======================================================================================================================*/
+
+
+.#{$lottery_name} {
+  &-demo-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    display: none;
+  }
+  &-demo {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: em(400, $fz);
+    z-index: 999;
+    direction: ltr;
+    transform: translate3d(99%, 0, 0);
+    transition: transform .5s ease;
+    $demo: &;
+
+    //media
+    @include mediaMixin(max, 1000) {
+      $fz: 25;
+
+      font-size: em($fz, $fz_base);
+    }
+    @include mediaMixin(max, 560) {
+      $fz: 50;
+
+      font-size: em($fz, $fz_base);
+      width: em(adaptive560(200), $fz);
+    }
+    //media
+
+
+    @include on-hover {
+      opacity: 1;
+      transform: translate3d(0%, 0, 0);
+      transition: transform .5s ease;
+
+      #{$demo} {
+        &__switch-button {
+          opacity: 1;
+          transition: all .5s ease;
+        }
+
+        &__switch-button-svg {
+          transform: translate3d(-50%, -50%, 0) rotate(180deg);
+          transition: all 1s ease;
+        }
+
+        &__content {
+          transform: translate3d(0%, 0, 0);
+          transition: all .5s ease;
+        }
+      }
+
+    }
+
+    &--reverse {
+      right: auto;
+      left: 0;
+      transform: translate3d(-99%, 0, 0);
+
+      #{$demo} {
+        &__switcher {
+          left: auto;
+          right: em(-70, $fz);
+        }
+
+        &__content {
+          transform: translate3d(-20%, 0, 0);
+        }
+      }
+    }
+
+    &--is-show {
+      opacity: 1;
+      transform: translate3d(0%, 0, 0);
+      transition: transform .5s ease;
+
+      #{$demo} {
+        &__switch-button {
+          opacity: 1;
+          transition: all .3s ease;
+        }
+
+        &__switch-button-svg {
+          transform: translate3d(-50%, -50%, 0) rotate(0);
+          transition: all 1s ease;
+        }
+
+        &__content {
+          transform: translate3d(0%, 0, 0);
+          transition: all .5s ease;
+        }
+      }
+    }
+
+    &--is-fixed {
+      opacity: 1;
+      transform: translate3d(0%, 0, 0);
+      transition: transform .5s ease;
+
+      #{$demo} {
+        &__switch-button {
+          opacity: 1;
+          transition: all .3s ease;
+        }
+
+        &__switch-button-svg {
+          transform: translate3d(-50%, -50%, 0) rotate(180deg);
+          transition: all 1s ease;
+        }
+
+        &__content {
+          transform: translate3d(0%, 0, 0);
+          transition: all .5s ease;
+        }
+      }
+    }
+
+    &__switcher {
+      position: absolute;
+      bottom: em(70, $fz);
+      left: em(-70, $fz);
+      width: em(70, $fz);
+      height: em(70, $fz);
+      display: block;
+      padding: em(8, $fz);
+      z-index: 2;
+
+      //media
+      @include mediaMixin(max, 560) {
+        bottom: em(adaptive560(40), $fz);
+      }
+      //media
+
+    }
+
+    &__switch-button {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #e6e7ed;
+      border: 1px solid hsl(217, 30%, 86%);
+      border-radius: em(10, $fz);
+      will-change: transform;
+      opacity: .2;
+      transform: translate3d(0, 0, 0) scale(1);
+      transition: all .5s ease;
+
+      //media
+      @include mediaMixin(max, 1000) {
+        opacity: .5;
+      }
+      //media
+
+
+      &--is-active {
+        #{$demo}__switch-button-svg {
+          opacity: 1;
+          transition: all 1s ease;
+
+          path {
+            stroke-width: em(10, $fz);
+            stroke: hsl(233, 21%, 24%);
+            transition: all .5s ease;
+          }
+        }
+      }
+
+      @include on-hover {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1.05);
+        transition: all .3s ease;
+      }
+
+      &:active {
+        box-shadow: inset em(2 2 5, $fz) hsl(230, 4%, 73%), inset em(-3 -3 7, $fz) hsl(0, 0%, 100%);
+        transform: translate3d(0, 0, 0) scale(1);
+        transition: all .2s ease;
+      }
+    }
+
+    &__switch-button-svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: block;
+      width: 70%;
+      margin: 0 auto;
+      transform: translate3d(-50%, -50%, 0) rotate(0);
+      transform-origin: center;
+      opacity: .5;
+      transition: all 1s ease;
+
+      path {
+        fill: hsl(233, 21%, 24%);
+        transition: all .5s ease;
+      }
+    }
+
+    &__content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: hsl(231, 16%, 92%);
+      border-left: 1px solid hsl(217, 30%, 86%);
+      transform: translate3d(20%, 0, 0);
+      box-shadow: 0 0 em(40, $fz) hsla(0, 0%, 0%, .5);
+      transition: all .5s ease;
+
+      //media
+      @include mediaMixin(max, 560) {
+        padding-bottom: em(adaptive560(10), $fz);
+      }
+      //media
+
+    }
+
+    &__lock {
+      position: absolute;
+      top: em(5, $fz);
+      left: em(5, $fz);
+      opacity: .3;
+      cursor: pointer;
+      transition: all .5s ease;
+      z-index: 1;
+
+      @include on-hover {
+        opacity: .5;
+        transition: all .5s ease;
+      }
+
+    }
+
+    &__lock-icon {
+      display: block;
+      @include size(em(25, $fz));
+      transition: all .5s ease;
+
+      &--open {
+        filter: drop-shadow(1px 1px 0 $white_color);
+
+        path {
+          fill: hsl(233, 21%, 24%);
+        }
+      }
+
+      &--close {
+        display: none;
+      }
+    }
+
+    &__settings {
+      position: absolute;
+      top: em(5, $fz);
+      right: em(5, $fz);
+      opacity: .3;
+      cursor: pointer;
+      transition: all .5s ease;
+      z-index: 1;
+
+      @include on-hover {
+        opacity: .5;
+        transition: all .5s ease;
+      }
+    }
+
+    &__settings-icon {
+      display: block;
+      @include size(em(25, $fz));
+    }
+
+    &__toggle-wrapper {
+      position: relative;
+      display: inline-block;
+      padding: em(5, $fz);
+    }
+
+    &__toggle {
+      position: relative;
+      cursor: pointer;
+
+      input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        display: none;
+
+        &:checked + #{$demo}__slider-wrapper {
+          #{$demo}__slider {
+            background-color: hsl(43, 100%, 35%);
+
+            &::before {
+              transform: translate3d(em(27, $fz), -50%, 0);
+            }
+
+            &--delay {
+              transition-delay: .2s;
+
+              &::before {
+                transition-delay: .2s;
+              }
+            }
+          }
+        }
+
+        &:checked + #{$demo}__slider-wrapper {
+          #{$demo}__side {
+            opacity: .2;
+            transition-delay: .2s;
+
+            &--right {
+              opacity: 1;
+              transition-delay: .2s;
+            }
+          }
+        }
+      }
+    }
+
+    &__slider-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include size(100%);
+    }
+
+    &__slider {
+      position: relative;
+      display: block;
+      width: em(50, $fz);
+      height: em(20, $fz);
+      background: hsla(233, 21%, 24%, .3);
+      will-change: transform, opacity;
+      transform: translate3d(0, 0, 0);
+      transition: all .5s ease;
+      box-shadow: 1px 1px 1px $white_color;
+
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 50%;
+        left: 0;
+        width: em(20, $fz);
+        height: em(15, $fz);
+        background-color: $white_color;
+        transform: translate3d(em(3, $fz), -50%, 0);
+        transition: all .5s ease;
+        box-shadow: 1px 1px 0 hsla(0, 0%, 0%, .1);
+      }
+
+      &--delay {
+        transition-delay: .2s;
+
+        &::before {
+          transition-delay: .2s;
+        }
+      }
+
+      &--color {
+        background-color: hsl(43, 100%, 35%);
+      }
+
+      &--round {
+        border-radius: 50px;
+
+        &::before {
+          border-radius: 50px;
+        }
+      }
+    }
+
+    &__side {
+      $fz: 14;
+
+      font-size: em($fz, $fz_base);
+      position: absolute;
+      display: block;
+      top: 50%;
+      color: hsl(43, 100%, 35%);
+      font-weight: 300;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 0 $white_color;
+      opacity: 1;
+      transform: translateY(-50%);
+      transition: all .5s ease .3s;
+
+      &--left {
+        right: 110%;
+      }
+
+      &--right {
+        left: 110%;
+        opacity: .2;
+      }
+    }
+
+    &__name {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: em(40 15 30, $fz);
+      z-index: 0;
+    }
+
+    &__name-text {
+      $fz: 30;
+
+      font-size: em($fz, $fz_base);
+      text-align: center;
+      text-transform: capitalize;
+      font-weight: 300;
+      color: hsl(233, 21%, 24%);
+      text-shadow: 1px 1px 0 $white_color;
+      margin-right: em(5, $fz);
+    }
+
+    &__name-info {
+      $fz: 18;
+
+      font-size: em($fz, $fz_base);
+      position: relative;
+      display: block;
+      @include size(em(20, $fz));
+      border-radius: 50%;
+      color: $white_color;
+      background: hsl(233, 21%, 24%);
+      text-transform: lowercase;
+      text-shadow: none;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      opacity: .3;
+      transition: all .5s ease;
+
+      @include on-hover {
+        opacity: 1;
+        transition: all .5s ease;
+      }
+
+      //media
+      @include mediaMixin(max, 1000) {
+        display: none;
+      }
+      //media
+
+    }
+
+    &__block {
+      position: relative;
+      margin: em(15 15 40 15, $fz);
+    }
+
+    &__block-settings {
+      display: none;
+
+      &--is-show {
+        display: block;
+      }
+    }
+
+    &__block-keys {
+      display: none;
+
+      &--is-show {
+        display: block;
+      }
+    }
+
+    &__title {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: hsl(233, 21%, 24%);
+      margin-bottom: em(5, $fz);
+      text-shadow: 1px 1px 0 $white_color;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: #d1d9e6;
+        transform: translate3d(0, -50%, 0);
+        z-index: 0;
+      }
+
+      &--page {
+        color: hsla(161, 61%, 24%, 1);
+
+        &::after {
+          background: hsla(161, 61%, 24%, .3);
+        }
+      }
+
+      &--state {
+        color: hsla(354, 70%, 39%, 1);
+
+        &::after {
+          background: hsla(354, 70%, 39%, .3);
+        }
+      }
+
+      &--modal {
+        color: hsla(211, 100%, 35%, 1);
+
+        &::after {
+          background: hsla(211, 100%, 35%, .3);
+        }
+      }
+
+      &--settings {
+        color: hsl(43, 100%, 35%);
+
+        &::after {
+          background: hsla(43, 100%, 35%, .3);
+        }
+      }
+
+    }
+
+    &__title-icon {
+      position: relative;
+      display: none;
+      width: 7%;
+      background: hsl(231, 16%, 92%);
+      z-index: 1;
+
+      path {
+        fill: hsl(233, 21%, 24%);
+      }
+    }
+
+    &__title-text {
+      $fz: 20;
+
+      position: relative;
+      display: inline-block;
+      padding: em(0 10 0 10, $fz);
+      background: hsl(231, 16%, 92%);
+      font-size: em($fz, $fz_base);
+      text-transform: capitalize;
+      font-weight: 300;
+      z-index: 1;
+      transition: all .5s ease;
+    }
+
+    &__wrapper {
+      position: relative;
+      display: flex;
+      justify-content: stretch;
+      align-items: flex-start;
+      flex-flow: row wrap;
+      box-shadow: inset em(2 2 5, $fz) hsl(230, 4%, 73%), inset em(-3 -3 7, $fz) hsl(0, 0%, 100%);
+      border: 1px solid hsl(217, 30%, 86%);
+      padding: em(15 5 0 15, $fz);
+      border-radius: em(10, $fz);
+    }
+
+    &__setting {
+      position: relative;
+      flex: 1;
+      flex-basis: 100%;
+      text-align: center;
+      margin: em(0 15 18 0, $fz);
+      background: transparent;
+      border-radius: em(10, $fz);
+      padding: 0;
+      box-shadow: em(4 4 10, $fz) hsl(230, 4%, 73%), em(-4 -4 10, $fz) hsl(0, 0%, 100%);
+      border: 1px solid hsl(217, 30%, 86%);
+      color: hsl(233, 21%, 24%);
+      text-shadow: 1px 1px 0 $white_color;
+    }
+
+    &__setting-text {
+      $fz: 16;
+
+      display: block;
+      font-size: em($fz, $fz_base);
+      padding: em(5, $fz);
+      text-transform: uppercase;
+      font-weight: 600;
+
+      &--description {
+        text-transform: initial;
+        font-weight: 400;
+        opacity: .7;
+        color: hsl(233, 21%, 24%);
+      }
+    }
+
+    &__key {
+      position: relative;
+      flex: 1;
+      flex-basis: 100%;
+      text-align: center;
+      margin: em(0 15 18 0, $fz);
+      background: transparent;
+      border-radius: em(10, $fz);
+      padding: 0;
+      box-shadow: em(4 4 10, $fz) hsl(230, 4%, 73%), em(-4 -4 10, $fz) hsl(0, 0%, 100%);
+      border: 1px solid hsl(217, 30%, 86%);
+      color: hsl(233, 21%, 24%);
+      text-shadow: 1px 1px 0 $white_color;
+      will-change: transform;
+      transform: translate3d(0, 0, 0) scale(1);
+      transition: all .5s ease .2s;
+
+      &--page {
+        color: hsla(161, 61%, 24%, 1);
+      }
+
+      &--state {
+        color: hsla(354, 70%, 39%, 1);
+      }
+
+      @include on-hover {
+        transform: translate3d(0, -2px, 0) scale(1.015);
+        transition: all .3s ease;
+      }
+
+    }
+
+    &__key-text {
+      $fz: 16;
+
+      display: block;
+      font-size: em($fz, $fz_base);
+      padding: em(5, $fz);
+      text-transform: uppercase;
+      font-weight: 600;
+
+      &--description {
+        text-transform: initial;
+        font-weight: 400;
+        opacity: .7;
+        color: hsl(233, 21%, 24%);
+      }
+    }
+
+    &__button {
+      position: relative;
+      display: block;
+      text-align: center;
+      flex: 1;
+      flex-basis: 30%;
+      margin: em(0 15 18 0, $fz);
+      background: transparent;
+      border-radius: em(10, $fz);
+      padding: em(15 0, $fz);
+      box-shadow: em(4 4 10, $fz) hsl(230, 4%, 73%), em(-4 -4 10, $fz) hsl(0, 0%, 100%);
+      border: 1px solid hsl(217, 30%, 86%);
+      color: hsl(233, 21%, 24%);
+      text-shadow: 1px 1px 0 $white_color;
+      will-change: transform;
+      transform: translate3d(0, 0, 0) scale(1);
+      transition: all .5s ease .2s;
+      $demo_button: &;
+
+      &--page {
+        border: 1px solid hsla(161, 61%, 24%, .3);
+      }
+
+      &--state {
+        border: 1px solid hsla(354, 70%, 39%, .3);
+      }
+
+      &--modal {
+        border: 1px solid hsla(211, 100%, 35%, .3);
+      }
+
+
+      @include on-hover {
+        transform: translate3d(0, -2px, 0) scale(1.015);
+        transition: all .3s ease;
+
+        &#{$demo_button}--page {
+          color: hsla(161, 61%, 24%, 1);
+        }
+        &#{$demo_button}--state {
+          color: hsla(354, 70%, 39%, 1);
+        }
+        &#{$demo_button}--modal {
+          color: hsla(211, 100%, 35%, 1);
+        }
+
+      }
+
+      &:active {
+        transform: translate3d(0, 0, 0) scale(1);
+        box-shadow: inset em(2 2 5, $fz) hsl(230, 4%, 73%), inset em(-3 -3 7, $fz) hsl(0, 0%, 100%);
+        transition: all .2s ease;
+      }
+
+      //media
+      @include mediaMixin(max, 560) {
+        flex-basis: 100%;
+      }
+      //media
+
+    }
+
+    &__button-text {
+      $fz: 18;
+
+      font-size: em($fz, $fz_base);
+      display: inline-block;
+      text-transform: capitalize;
+      font-weight: 400;
+
+      //media
+      @include mediaMixin(max, 560) {
+
+      }
+      //media
+
+    }
+  }
+}

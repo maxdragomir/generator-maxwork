@@ -17,6 +17,7 @@ $is_rtl: 1;
 
 // Components
 @import "components/_common";
+@import "components/_demo-panel";
 
 // Pages
 <%_ if (account) { -%>
