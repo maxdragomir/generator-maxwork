@@ -2,7 +2,6 @@
 /*======================================================================================================================*/
 
 
-// Main styles
 .#{$lottery_name} {
   position: relative;
   display: block;
@@ -27,6 +26,8 @@
   }
 
 
+
+  // Common styles -----------------------------------------------------------------------------------------------------
   &-inner {
     position: relative;
     width: 100%;
@@ -36,72 +37,12 @@
     background-size: auto;
 
     //media
-    @include MQ($media_max, min) {
+    @include MQ(max, min) {
       width: 1920px;
     }
     //media
 
   }
-  &--is-none {
-    display: none;
-  }
-  &--is-loaded {}
-  &--is-mobile {
-
-    button,
-    textarea,
-    input,
-    select,
-    a,
-    div,
-    span{
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      -webkit-tap-highlight-color: transparent;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-  }
-
-  &-js-addition-title {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: em(30, $fz);
-    background: $black_color;
-    border: 2px solid $white_color;
-    font-size: em(16, $fz_base);
-    text-transform: uppercase;
-    color: $test_color;
-    z-index: 999;
-    font-weight: 900;
-    padding-right: em(10, $fz);
-    padding-left: em(10, $fz);
-    pointer-events: none;
-
-    //media
-    @include mediaMixin(max, 1920) {
-      font-size: .9vw;
-    }
-    @include mediaMixin(max, 1680) {
-      font-size: .85vw;
-    }
-    @include mediaMixin(max, 1366) {
-      font-size: .75vw;
-    }
-    @include mediaMixin(max, 1300) {
-      font-size: .8vw;
-    }
-    @include mediaMixin(max, 1000) {
-      display: none;
-    }
-    //media
-  }
-
   &-section {
     position: relative;
     z-index: 1;
@@ -109,12 +50,25 @@
   &-container {
     position: relative;
     margin: 0 auto;
+    max-width: em(1500, $fz);
     padding: 0 em(20, $fz);
   }
   &-title {
     position: relative;
     text-align: center;
     z-index: 1;
+  }
+  &-decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include size(100%);
+    pointer-events: none;
+    z-index: 0;
+
+    &__el {
+      position: absolute;
+    }
   }
   &-btn {
     position: relative;
@@ -129,21 +83,20 @@
     background: $black_color;
     z-index: 2;
     min-width: em(200, $fz);
-    border-radius: 50px;
-    box-shadow: em(10 10 24 3, $fz) hsla(0, 0%, 0%, 0.25);
+    will-change: transform;
     transform: scale(1);
     transition: transform .5s ease, box-shadow .5s ease;
 
     // text
     span {
+      $fz: 18;
+
+      font-size: em($fz, $fz_base);
       position: relative;
       display: block;
       overflow: hidden;
-      font-weight: 600;
       z-index: 1;
-      border-radius: 50px;
-      font-size: em(18, $fz_base);
-      padding: em(21 15, $fz);
+      padding: em(10 10, $fz);
 
       // light
       &::after {
@@ -162,18 +115,18 @@
       }
     }
 
+
     // bg color
     &::before {
       content: "";
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 102%;
-      height: 110%;
+      width: 100%;
+      height: 100%;
       margin: 0 auto;
       background: hsl(0, 0%, 93%);
       z-index: 0;
-      border-radius: 50px;
       opacity: 1;
       transform: translate3d(-50%, -50%, 0);
       transition: opacity 0.5s ease
@@ -207,7 +160,47 @@
     }
 
   }
+  &-link {
+    display: block;
+    text-align: center;
+    color: $white_color;
+    pointer-events: none;
 
+    &__text {
+      position: relative;
+      pointer-events: auto;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        @include size(100%, 2px);
+        background: #fff;
+        transform: scale(1);
+        transition: all .5s ease;
+
+        //media
+        @include MQ(l) {
+          @include size(100%, 1px);
+        }
+        //media
+
+      }
+
+      @include on-hover {
+        &::after {
+          transform: scaleX(0);
+          transition: all .5s ease;
+        }
+      }
+    }
+  }
+  // Common styles -----------------------------------------------------------------------------------------------------
+
+
+
+  // test elements -----------------------------------------------------------------------------------------------------
   &-test-page {
     display: flex;
     flex-flow: column;
@@ -216,13 +209,46 @@
     height: 100vh;
     font-size: 5vw;
     text-transform: uppercase;
-    color: $test_color;
+    color: $white_color;
   }
   &-test-text {
     font-size: 3vw;
     text-transform: uppercase;
-    color: $test_color;
+    color: inherit;
   }
+  // test elements -----------------------------------------------------------------------------------------------------
+
+
+
+  // modification ------------------------------------------------------------------------------------------------------
+  &--is-none {
+    display: none;
+  }
+  &--is-loaded {}
+  &--is-mobile {
+
+    button,
+    textarea,
+    input,
+    select,
+    a,
+    div,
+    span{
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      -webkit-tap-highlight-color: transparent;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+  }
+  // modification ------------------------------------------------------------------------------------------------------
+
+
+
+  // elements in project -----------------------------------------------------------------------------------------------
   .no-animate {
     animation: none !important;
   }
@@ -294,8 +320,6 @@
   .v--modal-overlay {
     z-index: 100010 !important;
   }
+  // elements in project -----------------------------------------------------------------------------------------------
 
-}
-.noScroll {
-  overflow: hidden;
 }

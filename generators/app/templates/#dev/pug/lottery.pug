@@ -2,21 +2,24 @@ extends layouts/__main
 
 
 block variables
-  -devMode          = true
-  -demo             = true
-  -lotteryName      = '<%= project %>'
-  -pageType         = 'lottery'
-  -modal            = 'modal-custom'
-  -breadcrumbsText  = lotteryName
-  -breadcrumbs      = true
-  -rtl              = <%= rtl %>
-  -no2kSize         = true
-  -styles           = true
-  -js               = pageType
+  -
+    devMode          = true
+    demo             = true
+    lotteryName      = '<%= project %>'
+    pageType         = 'lottery'
+    modal            = 'modal-custom'
+    breadcrumbsText  = lotteryName
+    breadcrumbs      = true
+    rtl              = <%= rtl %>
+    no2kSize         = true
+    styles           = true
+    js               = pageType
 
-  //- Add data ---------------------------------------------------------------------------------------------------------
+
+  //- Data -------------------------------------------------------------------------------------------------------------
   include data/data
-  //- Add data ---------------------------------------------------------------------------------------------------------
+  include sources/lottery
+  //- Data -------------------------------------------------------------------------------------------------------------
 
 
 block content

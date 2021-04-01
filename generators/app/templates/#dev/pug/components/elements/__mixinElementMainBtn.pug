@@ -12,4 +12,4 @@ mixin addMainBtn(btnText, btnClassMod, btnClass, link)
     span= btnText
   if link
     a(href='javascript:;' class=`${lotteryName}-link` @click="$modal.show('modal-rules')")
-      span(class=`${lotteryName}-link-text`) Правила
+      span(class=`${lotteryName}-link__text`) Правила

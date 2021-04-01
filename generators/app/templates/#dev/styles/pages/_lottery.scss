@@ -8,10 +8,13 @@
   $main_self: &;
 
   // media
-  @include mediaMixin(max, 1920) {
+  @include MQ(max) {
     font-size: .8333333333333334vw;
   }
-  @include mediaMixin(max, 1000) {
+  @include MQ(l) {
+    font-size: .9vw;
+  }
+  @include MQ(s) {
     font-size: 1vw;
   }
   // media
@@ -22,55 +25,19 @@
   &-inner {
     background-color: $grey_color;
   }
-  &-decor {
-    position: absolute;
-    top: 0;
-    left: 0;
-    @include size(100%);
-    pointer-events: none;
-    z-index: 0;
-    &__el {
-      position: absolute;
-    }
-    &__bg {
-      position: absolute;
-    }
-  }
-
   &-title {}
-  &-btn {}
+  &-btn {
+    &--main {}
+    &--secondary {}
+  }
   &-link {
     $fz: 20;
 
-    display: block;
     font-weight: 500;
     margin: em(60, $fz) auto 0;
     font-size: em($fz, $fz_base);
     color: $white_color;
     text-transform: uppercase;
-    pointer-events: none;
-  }
-  &-link-text {
-    position: relative;
-    pointer-events: auto;
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 0;
-      @include size(100%, 2px);
-      background: #fff;
-      transform: scale(1);
-      transition: all .5s ease;
-    }
-
-    @include on-hover {
-      &::after {
-        transform: scaleX(0);
-        transition: all .5s ease;
-      }
-    }
   }
   // Common Styles------------------------------------------------------------------------------------------------------
 

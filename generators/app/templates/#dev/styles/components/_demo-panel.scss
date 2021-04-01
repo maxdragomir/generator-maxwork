@@ -3,6 +3,7 @@
 
 
 .#{$lottery_name} {
+
   &-demo-overlay {
     position: fixed;
     top: 0;
@@ -80,7 +81,6 @@
         }
       }
     }
-
     &--is-show {
       opacity: 1;
       transform: translate3d(0%, 0, 0);
@@ -103,7 +103,6 @@
         }
       }
     }
-
     &--is-fixed {
       opacity: 1;
       transform: translate3d(0%, 0, 0);
@@ -144,7 +143,6 @@
       //media
 
     }
-
     &__switch-button {
       position: relative;
       margin: 0;
@@ -191,7 +189,6 @@
         transition: all .2s ease;
       }
     }
-
     &__switch-button-svg {
       position: absolute;
       top: 50%;
@@ -244,7 +241,6 @@
       }
 
     }
-
     &__lock-icon {
       display: block;
       @include size(em(25, $fz));
@@ -277,7 +273,6 @@
         transition: all .5s ease;
       }
     }
-
     &__settings-icon {
       display: block;
       @include size(em(25, $fz));
@@ -288,7 +283,6 @@
       display: inline-block;
       padding: em(5, $fz);
     }
-
     &__toggle {
       position: relative;
       cursor: pointer;
@@ -305,7 +299,7 @@
             background-color: hsl(43, 100%, 35%);
 
             &::before {
-              transform: translate3d(em(27, $fz), -50%, 0);
+              transform: translate3d(em(26, $fz), -50%, 0);
             }
 
             &--delay {
@@ -331,7 +325,6 @@
         }
       }
     }
-
     &__slider-wrapper {
       position: relative;
       display: flex;
@@ -339,7 +332,6 @@
       align-items: center;
       @include size(100%);
     }
-
     &__slider {
       position: relative;
       display: block;
@@ -360,7 +352,7 @@
         width: em(20, $fz);
         height: em(15, $fz);
         background-color: $white_color;
-        transform: translate3d(em(3, $fz), -50%, 0);
+        transform: translate3d(em(4, $fz), -50%, 0);
         transition: all .5s ease;
         box-shadow: 1px 1px 0 hsla(0, 0%, 0%, .1);
       }
@@ -385,7 +377,6 @@
         }
       }
     }
-
     &__side {
       $fz: 14;
 
@@ -419,7 +410,6 @@
       margin: em(40 15 30, $fz);
       z-index: 0;
     }
-
     &__name-text {
       $fz: 30;
 
@@ -431,7 +421,6 @@
       text-shadow: 1px 1px 0 $white_color;
       margin-right: em(5, $fz);
     }
-
     &__name-info {
       $fz: 18;
 
@@ -467,7 +456,6 @@
       position: relative;
       margin: em(15 15 40 15, $fz);
     }
-
     &__block-settings {
       display: none;
 
@@ -475,7 +463,6 @@
         display: block;
       }
     }
-
     &__block-keys {
       display: none;
 
@@ -538,7 +525,6 @@
       }
 
     }
-
     &__title-icon {
       position: relative;
       display: none;
@@ -550,7 +536,6 @@
         fill: hsl(233, 21%, 24%);
       }
     }
-
     &__title-text {
       $fz: 20;
 
@@ -591,7 +576,6 @@
       color: hsl(233, 21%, 24%);
       text-shadow: 1px 1px 0 $white_color;
     }
-
     &__setting-text {
       $fz: 16;
 
@@ -640,7 +624,6 @@
       }
 
     }
-
     &__key-text {
       $fz: 16;
 
@@ -719,7 +702,6 @@
       //media
 
     }
-
     &__button-text {
       $fz: 18;
 
@@ -736,4 +718,5 @@
 
     }
   }
+
 }

@@ -2,16 +2,23 @@ extends layouts/__main
 
 
 block variables
-  -devMode          = false
-  -demo             = true
-  -lotteryName      = '<%= project %>'
-  -pageType         = 'account'
-  -breadcrumbsText  = lotteryName
-  -breadcrumbs      = false
-  -rtl              = <%= rtl %>
-  -no2kSize         = false
-  -styles           = true
-  -js               = pageType
+  -
+    devMode          = false
+    demo             = true
+    lotteryName      = '<%= project %>'
+    pageType         = 'account'
+    breadcrumbsText  = lotteryName
+    breadcrumbs      = false
+    rtl              = <%= rtl %>
+    no2kSize         = false
+    styles           = true
+    js               = pageType
+
+
+  //- Data -------------------------------------------------------------------------------------------------------------
+  include data/data
+  include sources/account
+  //- Data -------------------------------------------------------------------------------------------------------------
 
 
 block content

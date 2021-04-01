@@ -3,9 +3,5 @@
 
 
 .#{$lottery_name}-#{$page_raffle} {
-
-  .#{$lottery_name} {
-
-  }
-
+  $main_self: &;
 }

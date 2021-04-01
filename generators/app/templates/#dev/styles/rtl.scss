@@ -20,9 +20,6 @@ $is_rtl: 1;
 @import "components/_demo-panel";
 
 // Pages
-<%_ if (account) { -%>
-@import "pages/_account";
-<%_ } -%>
 @import "pages/_lottery";
 <%_ if (raffle) { -%>
 @import "pages/_raffle";
