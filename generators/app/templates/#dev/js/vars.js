@@ -11,5 +11,5 @@ let lotteryName     = '<%= project %>',
     hash            = location.search.replace(/\?/, ""),
     hashArray       = location.pathname.split('/'),
     pageType        = hashArray[hashArray.length - 1].split('.')[0],
-    isRtl           = hashArray[hashArray.length - 1].split('.')[0] === "rtl",
+    is_rtl           = hashArray[hashArray.length - 1].split('.')[0] === 'rtl' || hash === 'rtl',
     direction       = false;

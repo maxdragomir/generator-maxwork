@@ -1,7 +1,7 @@
 // RTL
 
 
-if (isRtl || hash === 'rtl') {
+if (is_rtl || hash === 'rtl') {
 	ltr.parentNode.removeChild(ltr);
 	direction = true;
 } else {
