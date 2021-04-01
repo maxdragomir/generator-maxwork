@@ -7,7 +7,7 @@ mixin addMainBtn(btnText, btnClassMod, btnClass, link)
   - btnClassMod = btnClassMod || "custom"
   - btnClass = btnClass || ""
 
-  a(href='javascript:;' class=`${lotteryName}-btn ${lotteryName}-btn--${btnClassMod} ${btnClass} `)&attributes(
+  a(href='javascript:;' class=`${lotteryName}-button ${lotteryName}-button--${btnClassMod} ${btnClass} `)&attributes(
     attributes)
     span= btnText
   if link
