@@ -4,6 +4,7 @@
 
 .#{$lottery_name} {
 
+  //blocks
   &-demo-overlay {
     position: fixed;
     top: 0;
@@ -41,91 +42,7 @@
     //media
 
 
-    @include on-hover {
-      opacity: 1;
-      transform: translate3d(0%, 0, 0);
-      transition: transform .5s ease;
-
-      #{$demo} {
-        &__switch-button {
-          opacity: 1;
-          transition: all .5s ease;
-        }
-
-        &__switch-button-svg {
-          transform: translate3d(-50%, -50%, 0) rotate(180deg);
-          transition: all 1s ease;
-        }
-
-        &__content {
-          transform: translate3d(0%, 0, 0);
-          transition: all .5s ease;
-        }
-      }
-
-    }
-
-    &--reverse {
-      right: auto;
-      left: 0;
-      transform: translate3d(-99%, 0, 0);
-
-      #{$demo} {
-        &__switcher {
-          left: auto;
-          right: em(-70, $fz);
-        }
-
-        &__content {
-          transform: translate3d(-20%, 0, 0);
-        }
-      }
-    }
-    &--is-show {
-      opacity: 1;
-      transform: translate3d(0%, 0, 0);
-      transition: transform .5s ease;
-
-      #{$demo} {
-        &__switch-button {
-          opacity: 1;
-          transition: all .3s ease;
-        }
-
-        &__switch-button-svg {
-          transform: translate3d(-50%, -50%, 0) rotate(0);
-          transition: all 1s ease;
-        }
-
-        &__content {
-          transform: translate3d(0%, 0, 0);
-          transition: all .5s ease;
-        }
-      }
-    }
-    &--is-fixed {
-      opacity: 1;
-      transform: translate3d(0%, 0, 0);
-      transition: transform .5s ease;
-
-      #{$demo} {
-        &__switch-button {
-          opacity: 1;
-          transition: all .3s ease;
-        }
-
-        &__switch-button-svg {
-          transform: translate3d(-50%, -50%, 0) rotate(180deg);
-          transition: all 1s ease;
-        }
-
-        &__content {
-          transform: translate3d(0%, 0, 0);
-          transition: all .5s ease;
-        }
-      }
-    }
-
+    //elements
     &__switcher {
       position: absolute;
       bottom: em(70, $fz);
@@ -719,6 +636,98 @@
       //media
 
     }
+    //elements
+
+    //modifies
+    &--reverse {
+      right: auto;
+      left: 0;
+      transform: translate3d(-99%, 0, 0);
+
+      #{$demo} {
+        &__switcher {
+          left: auto;
+          right: em(-70, $fz);
+        }
+
+        &__content {
+          transform: translate3d(-20%, 0, 0);
+        }
+      }
+    }
+    &--is-show {
+      opacity: 1;
+      transform: translate3d(0%, 0, 0);
+      transition: transform .5s ease;
+
+      #{$demo} {
+        &__switch-button {
+          opacity: 1;
+          transition: all .3s ease;
+        }
+
+        &__switch-button-svg {
+          transform: translate3d(-50%, -50%, 0) rotate(0);
+          transition: all 1s ease;
+        }
+
+        &__content {
+          transform: translate3d(0%, 0, 0);
+          transition: all .5s ease;
+        }
+      }
+    }
+    &--is-fixed {
+      opacity: 1;
+      transform: translate3d(0%, 0, 0);
+      transition: transform .5s ease;
+
+      #{$demo} {
+        &__switch-button {
+          opacity: 1;
+          transition: all .3s ease;
+        }
+
+        &__switch-button-svg {
+          transform: translate3d(-50%, -50%, 0) rotate(180deg);
+          transition: all 1s ease;
+        }
+
+        &__content {
+          transform: translate3d(0%, 0, 0);
+          transition: all .5s ease;
+        }
+      }
+    }
+    //modifies
+
+    //states
+    @include on-hover {
+      opacity: 1;
+      transform: translate3d(0%, 0, 0);
+      transition: transform .5s ease;
+
+      #{$demo} {
+        &__switch-button {
+          opacity: 1;
+          transition: all .5s ease;
+        }
+
+        &__switch-button-svg {
+          transform: translate3d(-50%, -50%, 0) rotate(180deg);
+          transition: all 1s ease;
+        }
+
+        &__content {
+          transform: translate3d(0%, 0, 0);
+          transition: all .5s ease;
+        }
+      }
+
+    }
+    //states
+
   }
+  //blocks
 
 }
