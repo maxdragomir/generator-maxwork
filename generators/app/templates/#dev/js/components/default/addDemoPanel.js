@@ -43,7 +43,7 @@ if(demoPanel) {
 
   // btn switch
   switchButton.addEventListener('click', function () {
-    fixSideBar();
+    toggleSideBar();
   });
 
   // delete empty block
@@ -89,7 +89,7 @@ if(demoPanel) {
 
   // fix sidebar
   svgLock.addEventListener('click', function () {
-    fixSideBar();
+    toggleSideBar();
   });
 
   // page links
@@ -124,7 +124,7 @@ if(demoPanel) {
     const keyCode = e.code;
 
     if (keyCode === 'Backquote' && e.shiftKey) {
-      fixSideBar();
+      toggleSideBar();
     }
     if (e.shiftKey && keyCode === 'KeyI') {
       infoBLock.classList.toggle(`${lotteryName}-demo__block-keys--is-show`);
@@ -139,15 +139,16 @@ if(demoPanel) {
 
 function checkPanelLoad() {
   if(!localStorage.getItem('load') || localStorage.getItem('load') === 'yes') {
-    demoPanel.classList.add(`${lotteryName}-demo--is-show`);
     toggleLoadCheckbox.checked = true;
-    setTimeout(function () {
-      demoPanel.classList.remove(`${lotteryName}-demo--is-show`);
+    toggleSideBar();
+    // demoPanel.classList.add(`${lotteryName}-demo--is-show`);
+    // setTimeout(function () {
+    //   demoPanel.classList.remove(`${lotteryName}-demo--is-show`);
 
       // if(hash !== '') {
-      //   fixSideBar();
+      //   toggleSideBar();
       // }
-    }, 1000);
+    // }, 1000);
   } else {
     toggleLoadCheckbox.checked = false;
   }
@@ -232,7 +233,7 @@ function addKeyState(stateName, keyNum) {
 
 }
 
-function fixSideBar() {
+function toggleSideBar() {
   demoPanel.classList.toggle(`${lotteryName}-demo--is-fixed`);
   switchButton.classList.toggle(`${lotteryName}-demo__switch-button--is-active`);
   svgCheck();

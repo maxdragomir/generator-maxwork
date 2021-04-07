@@ -58,6 +58,12 @@
     text-align: center;
     z-index: 1;
   }
+  [data-aos^=fade][data-aos^=fade] {
+    pointer-events: none;
+  }
+  [data-aos^=fade][data-aos^=fade].aos-animate {
+    pointer-events: auto;
+  }
   &-decor {
     position: absolute;
     top: 0;
@@ -68,6 +74,11 @@
 
     &__el {
       position: absolute;
+    }
+
+    &[data-aos^=fade][data-aos^=fade].aos-animate,
+    [data-aos^=fade][data-aos^=fade].aos-animate {
+      pointer-events: none;
     }
   }
   &-button {
