@@ -10,15 +10,15 @@ block variables
     breadcrumbsText  = lotteryName
     breadcrumbs      = false
     rtl              = <%= rtl %>
-    no2kSize         = false
+    fullHD           = false
     styles           = true
-    js               = pageType
+    js               = true
+    jsVendors        = false
 
 
-  //- Data -------------------------------------------------------------------------------------------------------------
-  include data/data
+  //- Data ---------------------------------------------------------------------------------------------------------
   include sources/account
-  //- Data -------------------------------------------------------------------------------------------------------------
+  //- Data ---------------------------------------------------------------------------------------------------------
 
 
 block content
@@ -35,7 +35,7 @@ block content
 
 
   // Account Tickets
-  +b(class=`${lotteryName}-account__wrapper--logged`)
+  +b.account__wrapper--logged
     +e.body
       +addTestText(`${lotteryName}-test-text`)
   // Account Tickets
@@ -48,16 +48,16 @@ block content
 
 
   // Demo --------------------------------------------------------------------------------------------------------------
-  +addDemo(
-  pageType,
-  '#index',
+  if demoPanel
+    +addDemo(
+    '#index',
 
-  <%_ if (raffle) { -%>
-  '#raffle',
-  <%_ } -%>
-
-    <%_ if (rtl) { -%>
-    '@RTL',
+    <%_ if (raffle) { -%>
+    '#raffle',
     <%_ } -%>
-  )
+
+      <%_ if (rtl) { -%>
+      '@RTL',
+      <%_ } -%>
+    )
   // Demo --------------------------------------------------------------------------------------------------------------

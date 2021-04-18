@@ -3,10 +3,13 @@
 
 let swiperSlider = new Swiper(`.${lotteryName}-js-slider`, {
 
+  slidesPerView: 2,
+  slidesPerGroup: 2,
+  slidesPerColumn: 2,
   effect: 'slide',
   direction: 'horizontal',
-  loop: true,
-  slidesPerView: 1,
+  loop: false,
+  loopFillGroupWithBlank: false,
   grabCursor: true,
   simulateTouch: true,
   shortSwipes: false,
@@ -14,18 +17,24 @@ let swiperSlider = new Swiper(`.${lotteryName}-js-slider`, {
   longSwipesRatio: 0.1,
   longSwipesMs: 50,
   speed: 1000,
+  watchSlidesVisibility: true,
+  slidesPerColumnFill: 'row',
 
-  autoplay: {
-    delay: 3000,
-  },
+  // autoplay: {
+  //   delay: 3000,
+  // },
   pagination: {
     el: `.${lotteryName}-slider__pagination`,
     clickable: true,
   },
-  navigation: {
-    nextEl: `.${lotteryName}-slider__button--next`,
-    prevEl: `.${lotteryName}-slider__button--prev`,
-  },
+
+  breakpoints: {
+    1301: {
+      slidesPerView: 4,
+      slidesPerGroup: 4,
+      slidesPerColumn: 1,
+    },
+  }
 
 });
 

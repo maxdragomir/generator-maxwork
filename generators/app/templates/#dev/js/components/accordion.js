@@ -1,7 +1,7 @@
 // Accordion
 
 
-function addAccordion(element, nameBlock) {
+function accordion(element, nameBlock) {
   let accordion = Array.prototype.slice.call(myApp.querySelectorAll(element));
   accordion.forEach(function (item) {
     let btnToggle = item.querySelector(`.${lotteryName}-js-btn-toggle`),
@@ -12,7 +12,10 @@ function addAccordion(element, nameBlock) {
       setTimeout( () => {
         btnToggle.classList.toggle(`${lotteryName}-${nameBlock}__button--is-open`);
         bodyToggle.classList.toggle(`${lotteryName}-${nameBlock}__body--is-open`);
-        AOS.refresh();
+
+        if(!is_mob) {
+          AOS.refresh();
+        }
       }, 50);
     });
   });

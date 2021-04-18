@@ -33,11 +33,11 @@
   &-link {
     $fz: 20;
 
-    font-weight: 500;
-    margin: em(60, $fz) auto 0;
+    margin: em(30, $fz) auto 0;
     font-size: em($fz, $fz_base);
-    color: $white_color;
     text-transform: uppercase;
+    font-weight: 500;
+    color: $white_color;
   }
   // Common Styles------------------------------------------------------------------------------------------------------
 

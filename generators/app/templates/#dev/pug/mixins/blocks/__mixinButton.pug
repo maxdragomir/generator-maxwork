@@ -1,0 +1,15 @@
+//- Mixin element button
+//- ====================================================================================================================
+
+
+mixin addButton(btnText, btnModify, addRules)
+  if(btnModify)
+    - btnClass = `${lotteryName}-button--${btnModify}`
+  else
+    - btnClass = ''
+
+  a(href='javascript:;' class=`${lotteryName}-button ${btnClass}`)&attributes(attributes)
+    span= btnText
+  if addRules
+    a(href='javascript:;' class=`${lotteryName}-link` @click="$modal.show('modal-rules')")
+      span(class=`${lotteryName}-link__text`) Правила

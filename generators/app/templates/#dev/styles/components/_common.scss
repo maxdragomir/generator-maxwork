@@ -58,6 +58,7 @@
     text-align: center;
     z-index: 1;
   }
+
   [data-aos^=fade][data-aos^=fade] {
     pointer-events: none;
   }
@@ -81,6 +82,7 @@
       pointer-events: none;
     }
   }
+
   &-button {
     position: relative;
     display: inline-block;
@@ -231,7 +233,7 @@
 
 
 
-  // modification ------------------------------------------------------------------------------------------------------
+  // modify ------------------------------------------------------------------------------------------------------
   &--is-none {
     display: none;
   }
@@ -255,7 +257,7 @@
     }
 
   }
-  // modification ------------------------------------------------------------------------------------------------------
+  // modify ------------------------------------------------------------------------------------------------------
 
 
 
@@ -332,5 +334,36 @@
     z-index: 100010 !important;
   }
   // elements in project -----------------------------------------------------------------------------------------------
+
+}
+
+.#{$lottery_name}-#{$page_account} {
+
+  &__wrapper {
+    position: relative;
+
+    &--logged {
+      margin-top: em(20, $fz);
+    }
+
+  }
+  &__body {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: em(246, $fz);
+    overflow: hidden;
+    padding: em(0 30, $fz);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include size(100%);
+      z-index: -1;
+    }
+  }
 
 }

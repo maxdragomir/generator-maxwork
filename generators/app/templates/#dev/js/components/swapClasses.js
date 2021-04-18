@@ -1,5 +1,4 @@
-/* add class with interval: */
-// =====================================================================================================================
+// Add class with interval:
 
 
 const swapClass = (el, intervalTime, activeClass) => {

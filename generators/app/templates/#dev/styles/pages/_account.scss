@@ -3,47 +3,28 @@
 
 
 .#{$lottery_name}-#{$page_account} {
-  $main_self: &;
 
-  &__wrapper {
-    position: relative;
-
-    &--logged {
-      margin-top: em(20, $fz);
-    }
-
-    //media
-    @include mediaMixin(max, 1780) {
-      font-size: .85vw;
-    }
-    @include mediaMixin(max, 1599) {
-      font-size: 16px;
-    }
-    @include mediaMixin(max, 1450) {
-      font-size: 14px;
-    }
-    //media
-
+  // media
+  @include MQ(max) {
+    font-size: .8333333333333334vw;
   }
-  &__body {
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    min-height: em(280, $fz);
-    overflow: hidden;
-    padding: em(30, $fz);
-    color: $white_color;
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      @include size(100%);
-      background: $grey_color;
-      transform: scaleX(opposite-number(1));
-      z-index: -1;
-    }
+  @include MQ(l) {
+    font-size: 16px;
   }
+  @include MQ(m) {
+    font-size: 14px;
+  }
+  // media
+
+
+  // common
+  &__wrapper {}
+  &__body {}
+  // common
+
+
+
+  // styles
+  // styles
+
 }

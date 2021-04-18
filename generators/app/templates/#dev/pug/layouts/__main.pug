@@ -1,7 +1,7 @@
 //- add bemto
-include ../lib/index
-//- add my Mixins
-include ../components/__allMixins
+include ../libs/bemto/index
+//- add Mixins
+include ../mixins/__allMixins
 
 
 //- Variables
@@ -43,7 +43,7 @@ if devMode
 
 
         //- Content
-        if no2kSize
+        if fullHD
           div(class=`${lotteryName}-inner`)
             block content
         else
@@ -55,12 +55,8 @@ if devMode
 
 
       // Javascript ------------------------------------------------------------------------------------------------
-      if js === 'lottery'
-        include inclueds/__scripts-lottery
-      else if js === 'raffle'
-        include inclueds/__scripts-raffle
-      else if js === 'account'
-        include inclueds/__scripts-account
+      if js
+        include inclueds/__scripts
       // Javascript --------------------------------------------------------------------------------------------------
 
 else
@@ -85,7 +81,7 @@ else
 
 
     //- Content
-    if no2kSize
+    if fullHD
       div(class=`${lotteryName}-inner`)
         block content
     else
@@ -97,10 +93,5 @@ else
 
 
   // Javascript ------------------------------------------------------------------------------------------------
-  if js === 'lottery'
-    include inclueds/__scripts-lottery
-  else if js === 'raffle'
-    include inclueds/__scripts-raffle
-  else if js === 'account'
-    include inclueds/__scripts-account
+  include inclueds/__scripts
   // Javascript --------------------------------------------------------------------------------------------------

@@ -1,5 +1,4 @@
-/* Demo Panel: */
-// =====================================================================================================================
+// Demo Panel
 
 
 let demoPanel = document.querySelector(`.${lotteryName}-demo`),
@@ -144,7 +143,6 @@ function checkPanelLoad() {
     // demoPanel.classList.add(`${lotteryName}-demo--is-show`);
     // setTimeout(function () {
     //   demoPanel.classList.remove(`${lotteryName}-demo--is-show`);
-
       // if(hash !== '') {
       //   toggleSideBar();
       // }

@@ -1,0 +1,15 @@
+//- Scripts Raffle
+
+
+if pageType === 'lottery'
+  script(src="js/vendors-lottery.js", type="text/javascript")
+  script(src="js/lottery.js", type="text/javascript")
+
+else if pageType === 'raffle'
+  script(src="js/vendors-raffle.js", type="text/javascript")
+  script(src="js/raffle.js", type="text/javascript")
+
+else if pageType === 'account'
+  if jsVendors
+    script(src="js/vendors-account.js", type="text/javascript")
+  script(src="js/account.js", type="text/javascript")

@@ -7,13 +7,12 @@ block variables
     demoPanel        = true
     lotteryName      = '<%= project %>'
     pageType         = 'lottery'
-    modal            = 'modal-custom'
     breadcrumbsText  = lotteryName
     breadcrumbs      = true
     rtl              = <%= rtl %>
-    no2kSize         = true
+    fullHD           = true
     styles           = true
-    js               = pageType
+    js               = true
 
 
   //- Data -------------------------------------------------------------------------------------------------------------
@@ -74,9 +73,8 @@ block content
 
 
   // Demo --------------------------------------------------------------------------------------------------------------
-  if demo
+  if demoPanel
     +addDemo(
-      pageType,
 
       <%_ if (raffle) { -%>
       '#raffle',

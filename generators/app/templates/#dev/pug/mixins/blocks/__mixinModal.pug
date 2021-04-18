@@ -2,10 +2,10 @@
 //- ====================================================================================================================
 
 
-mixin addModal(modalName, customClose, customBg, modalNumber)
+mixin addModal(modalName, customClose, modalNumber)
   - modalNumber = modalNumber || ''
   if customClose
-    - closeBtn = 'img/modal/hello/close.png'
+    - closeBtn = 'img/modal/hello/close.svg'
   else
     - closeBtn = 'img/modal/close.svg'
 
@@ -13,17 +13,10 @@ mixin addModal(modalName, customClose, customBg, modalNumber)
     modal(name=`${modalName}${modalNumber}` @before-open="beforeOpen" @before-close="beforeClose" @opened="opened" @closed="closed")
       +b.modal(class=`${modalName}`)&attributes(attributes)
 
-
         //- close
         +e.BUTTON.close(class=`${modalName}__close` @click=`$modal.hide("${modalName}${modalNumber}")`)
           +e.IMG.close-img(class=`${modalName}__close-img` src=`${closeBtn}` alt='image')
         //- close
-
-
-        //- bg
-        if customBg
-          +e.bg(class=`${modalName}__bg`)
-        //- bg
 
 
         //- body
