@@ -336,7 +336,7 @@
   // elements in project -----------------------------------------------------------------------------------------------
 
 }
-
+<%_ if (account) { -%>
 .#{$lottery_name}-#{$page_account} {
 
   &__wrapper {
@@ -353,8 +353,9 @@
     justify-content: flex-start;
     align-items: flex-start;
     min-height: em(246, $fz);
-    overflow: hidden;
     padding: em(0 30, $fz);
+    overflow: hidden;
+    color: #fff;
 
     &::after {
       content: '';
@@ -362,8 +363,10 @@
       top: 0;
       left: 0;
       @include size(100%);
+      background: #333;
       z-index: -1;
     }
   }
 
 }
+<%_ } -%>
