@@ -175,12 +175,19 @@ $xs                : $media_xs;
   @return if(length($result) == 1, nth($result, 1), $result);
 }
 
+@function adaptive1500($number) {
+  @return ($number * 1.30148)
+}
+@function adaptive1300($number) {
+  @return ($number * 1.7362)
+}
 @function adaptive1000($number) {
   @return ($number * 2.5)
 }
 @function adaptive560($number) {
   @return ($number * 5)
 }
+
 @function adaptive($number) {
   @return calc(#{$number} * var(--media))
 }
