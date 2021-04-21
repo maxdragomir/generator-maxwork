@@ -137,18 +137,18 @@ if(demoPanel) {
 }
 
 function checkPanelLoad() {
-  if(!localStorage.getItem('load') || localStorage.getItem('load') === 'yes') {
-    toggleLoadCheckbox.checked = true;
-    toggleSideBar();
+  if(!localStorage.getItem('load') || localStorage.getItem('load') === 'no') {
+    toggleLoadCheckbox.checked = false;
     // demoPanel.classList.add(`${lotteryName}-demo--is-show`);
     // setTimeout(function () {
     //   demoPanel.classList.remove(`${lotteryName}-demo--is-show`);
-      // if(hash !== '') {
-      //   toggleSideBar();
-      // }
+    // if(hash !== '') {
+    //   toggleSideBar();
+    // }
     // }, 1000);
   } else {
-    toggleLoadCheckbox.checked = false;
+    toggleLoadCheckbox.checked = true;
+    toggleSideBar();
   }
 }
 function checkPanelSide() {
