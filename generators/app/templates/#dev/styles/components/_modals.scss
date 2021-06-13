@@ -14,7 +14,7 @@
     @include size(em(800, $fz_base), em(380, $fz_base));
 
     //media
-    @include mediaMixin(max, 1000) {
+    @include MQ(s) {
       font-size: 1vw;
     }
     //media
